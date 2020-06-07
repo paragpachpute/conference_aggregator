@@ -4,14 +4,24 @@ class VenueHome:
 
     def __init__(self, database_name):
         self.database_name = database_name
-        collection_name = 'venue'
+
+        venue_collection_name = 'venue'
+        venue_url_collection_name = 'venue_url'
+
         self.db = get_database(self.database_name)
-        self.collection = self.db[collection_name]
+        self.venue_collection = self.db[venue_collection_name]
+        self.venue_url_collection = self.db[venue_url_collection_name]
 
     # Dumps the venue object into the database
-    def store(self, obj):
-        self.collection.insert_one(obj)
+    def store_venue(self, obj):
+        self.venue_collection.insert_one(obj)
 
-    def get(self, criteria):
-        return self.collection.find(criteria)
+    def get_venue(self, criteria):
+        return self.venue_collection.find(criteria)
 
+    # Dumps the venue url into the database
+    def store_venue_url(self, obj):
+        self.venue_url_collection.insert_one(obj)
+
+    def get_venue_url(self, criteria):
+        self.venue_url_collection.find(criteria)
