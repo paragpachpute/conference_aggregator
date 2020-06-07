@@ -24,4 +24,4 @@ class VenueHome:
         self.venue_url_collection.insert_one(obj)
 
     def get_venue_url(self, criteria):
-        self.venue_url_collection.find(criteria)
+        return self.venue_url_collection.find(criteria)
