@@ -1,5 +1,5 @@
+from util.utils import verbose_print
 from pymongo import MongoClient
-
 
 def get_database(name, verbose=True):
     verbose_print("Connecting to database: " + name, verbose)
@@ -9,7 +9,4 @@ def get_database(name, verbose=True):
     db = client[name]
     return db
 
-def verbose_print(str, verbose):
-    if verbose:
-        print(str)
 
