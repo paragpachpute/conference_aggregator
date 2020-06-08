@@ -6,22 +6,21 @@ import xml.etree.ElementTree as ET
 
 
 class VenueParser:
-    def parse(self, document):
+    def parse(self, conference_name, document):
+        # TODO use logger instead
         verbose_print('Started Parsing')
         soup = BeautifulSoup(document, features="html.parser")
 
         h2s = soup.find_all('h2')
-        venues = self.get_venues(h2s)
+        venues = self.get_venues(conference_name, h2s)
 
         uls = soup.find_all("ul", {"class": "publ-list"})
         self.populate_venue_proceeding_ids(venues, uls)
-
         self.fetch_proceeding_info(venues)
-        print(venues)
 
         return venues
 
-    def get_venues(self, h2s):
+    def get_venues(self, conference_name, h2s):
         venues = []
         for h2 in h2s:
             try:
@@ -31,7 +30,7 @@ class VenueParser:
                     dblp_link = h2.a['href']
                 title = h2.text
                 location = h2.text.split(':')[1]
-                venues.append(Venue(title, location, year, dblp_link))
+                venues.append(Venue(title, location, year, dblp_link, conference_name))
             except Exception as e:
                 # TODO add logic for adding the venue into parsing error table
                 print(h2)

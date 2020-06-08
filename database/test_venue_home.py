@@ -1,6 +1,6 @@
 from unittest import TestCase
 from .venue_home import VenueHome
-from entity.venue_url import VenueUrl
+from entity.conference import VenueUrl
 
 class TestVenueHome(TestCase):
     def setUp(self):

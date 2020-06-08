@@ -20,5 +20,5 @@ class ProceedingHome:
         for p in proceeding_list:
             self.store_venue(vars(p))
 
-    def get_proceeding(self, criteria):
+    def get_proceedings(self, criteria={}):
         return self.proceeding_collection.find(criteria)

@@ -2,10 +2,11 @@ from util.utils import auto_str
 
 @auto_str
 class Venue:
-    def __init__(self, title, location, year, dblp_link):
+    def __init__(self, title, location, year, dblp_link, conference_name):
         self.title = title
         self.location = location
         self.year = year
         self.dblp_link = dblp_link
         self.proceedings = []
         self._id = title
+        self.conference_name = conference_name
