@@ -8,3 +8,4 @@ class Venue:
         self.year = year
         self.dblp_link = dblp_link
         self.proceedings = []
+        self._id = title

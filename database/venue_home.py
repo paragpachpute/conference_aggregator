@@ -14,19 +14,20 @@ class VenueHome:
 
     # Dumps the venue object into the database
     def store_venue(self, venue):
-        self.venue_collection.insert_one(venue)
+        criteria = {"_id" : venue._id}
+        self.venue_collection.replace_one(criteria, vars(venue), upsert=True)
 
     # Dumps the venue objects into the database
     def store_many_venues(self, venue_list):
         for v in venue_list:
-            self.store_venue(vars(v))
+            self.store_venue(v)
 
     def get_venue(self, criteria):
         return self.venue_collection.find(criteria)
 
     # Dumps the venue url into the database
     def store_venue_url(self, obj):
-        self.venue_url_collection.insert_one(obj)
+        self.venue_url_collection.insert_one(vars(obj))
 
     def get_venue_url(self, criteria):
         return self.venue_url_collection.find(criteria)

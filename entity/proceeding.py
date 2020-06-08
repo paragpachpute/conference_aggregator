@@ -2,7 +2,7 @@ from util.utils import auto_str
 
 @auto_str
 class Proceeding:
-    def __init__(self):
+    def __init__(self, title):
         self.title = None
         self.booktitle = None
         self.publisher = None
@@ -15,3 +15,4 @@ class Proceeding:
         self.proceeding_key = None
         self.mdate = None
         self.editors = None
+        self._id = title

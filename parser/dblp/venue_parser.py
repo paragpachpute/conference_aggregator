@@ -67,10 +67,10 @@ class VenueParser:
                 # TODO store proceeding into the database
 
     def get_proceeding(self, xml):
-        proceeding = Proceeding()
-
         root = ET.fromstring(xml)
         proceeding_tag = root[0]
+        title = self.getTextIfPresent(proceeding_tag, 'title')
+        proceeding = Proceeding(title)
 
         proceeding.proceeding_key = proceeding_tag.get('key')
         proceeding.mdate = proceeding_tag.get('mdate')
@@ -78,7 +78,6 @@ class VenueParser:
         editors = proceeding_tag.findall('editor')
         proceeding.editors = [e.text for e in editors] if editors is not None else []
 
-        proceeding.title = self.getTextIfPresent(proceeding_tag, 'title')
         proceeding.booktitle = self.getTextIfPresent(proceeding_tag, 'booktitle')
         proceeding.publisher = self.getTextIfPresent(proceeding_tag, 'publisher')
         proceeding.series = self.getTextIfPresent(proceeding_tag, 'series')
