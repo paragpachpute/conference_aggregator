@@ -16,3 +16,4 @@ class Proceeding:
         self.mdate = None
         self.editors = None
         self._id = title
+        self.conference_name = None

@@ -16,7 +16,7 @@ class VenueParser:
 
         uls = soup.find_all("ul", {"class": "publ-list"})
         self.populate_venue_proceeding_ids(venues, uls)
-        self.fetch_proceeding_info(venues)
+        self.fetch_proceeding_info(conference_name, venues)
 
         return venues
 
@@ -56,17 +56,18 @@ class VenueParser:
 
         verbose_print('Fetched proceeding ids for ' + str(len(uls)) + ' venues')
 
-    def fetch_proceeding_info(self, venues):
+    def fetch_proceeding_info(self, conference_name, venues):
         proceeding_xml_base_url = "https://dblp.org/rec/xml/"
         for venue in venues:
             for proceeding_id in venue.proceedings:
-                url = proceeding_xml_base_url + proceeding_id
+                url = proceeding_xml_base_url + proceeding_id + ".xml"
+                print(url)
                 # TODO make HTTP request and get the XML
                 response = None
                 # proceeding = self.get_proceeding(response)
                 # TODO store proceeding into the database
 
-    def get_proceeding(self, xml):
+    def get_proceeding(self, conference_name, xml):
         root = ET.fromstring(xml)
         proceeding_tag = root[0]
         title = self.getTextIfPresent(proceeding_tag, 'title')
@@ -86,5 +87,6 @@ class VenueParser:
         proceeding.isbn = self.getTextIfPresent(proceeding_tag, 'isbn')
         proceeding.ee = self.getTextIfPresent(proceeding_tag, 'ee')
         proceeding.dblp_url = self.getTextIfPresent(proceeding_tag, 'url')
+        proceeding.conference_name = conference_name
 
         return proceeding
