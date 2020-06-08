@@ -26,13 +26,14 @@ class VenueParser:
         for h2 in h2s:
             try:
                 year = h2['id']
-                # TODO value not populated properly
-                dblp_link = h2.a['href'] if 'a' in h2 else None
+                dblp_link = None
+                if h2.find('a'):
+                    dblp_link = h2.a['href']
                 title = h2.text
                 location = h2.text.split(':')[1]
                 venues.append(Venue(title, location, year, dblp_link))
             except Exception as e:
-                # add logic for adding the venue into parsing error table
+                # TODO add logic for adding the venue into parsing error table
                 print(h2)
 
         verbose_print('Fetched ' + str(len(venues)) + ' venues')
