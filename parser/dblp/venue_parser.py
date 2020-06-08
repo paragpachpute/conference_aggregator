@@ -4,6 +4,7 @@ from entity.venue import Venue
 from entity.proceeding import Proceeding
 import xml.etree.ElementTree as ET
 
+
 class VenueParser:
     def parse(self, document):
         verbose_print('Started Parsing')
@@ -11,12 +12,14 @@ class VenueParser:
 
         h2s = soup.find_all('h2')
         venues = self.get_venues(h2s)
-        # TODO store venues into the database
 
         uls = soup.find_all("ul", {"class": "publ-list"})
         self.populate_venue_proceeding_ids(venues, uls)
+
         self.fetch_proceeding_info(venues)
         print(venues)
+
+        return venues
 
     def get_venues(self, h2s):
         venues = []
@@ -51,6 +54,8 @@ class VenueParser:
                 proceeding_ids.append(li['id'])
             venues[i].proceedings = proceeding_ids
 
+        verbose_print('Fetched proceeding ids for ' + str(len(uls)) + ' venues')
+
     def fetch_proceeding_info(self, venues):
         proceeding_xml_base_url = "https://dblp.org/rec/xml/"
         for venue in venues:
@@ -84,11 +89,3 @@ class VenueParser:
         proceeding.dblp_url = self.getTextIfPresent(proceeding_tag, 'url')
 
         return proceeding
-
-parser = VenueParser()
-with open('dblp_aaai.htm') as document:
-    obj = parser.parse(document.read())
-
-with open('proceeding.xml') as xml:
-    proceeding = parser.get_proceeding(xml.read())
-    print(proceeding)
