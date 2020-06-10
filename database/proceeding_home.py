@@ -18,7 +18,7 @@ class ProceedingHome:
     # Dumps the venue objects into the database
     def store_many_proceedings(self, proceeding_list):
         for p in proceeding_list:
-            self.store_venue(vars(p))
+            self.store_proceeding(p)
 
     def get_proceedings(self, criteria={}):
         return self.proceeding_collection.find(criteria)

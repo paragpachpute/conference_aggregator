@@ -8,10 +8,11 @@ class TestConferenceHome(TestCase):
         self.conferenceHome = ConferenceHome(database)
 
     def test_venue_url(self):
-        conference = Conference('aaai', 'https://dblp.org/db/conf/aaai/')
+        # conference = Conference('aaai', 'https://dblp.org/db/conf/aaai/')
+        conference = Conference('ijcai', 'https://dblp.org/db/conf/ijcai/')
         self.conferenceHome.store_conference(conference)
 
-        urls = self.conferenceHome.get_conference()
+        urls = self.conferenceHome.get_conference({'name': conference.name})
         url = urls[0]
 
         self.assertEqual(conference.name, url['name'], 'Conference name not matching')
