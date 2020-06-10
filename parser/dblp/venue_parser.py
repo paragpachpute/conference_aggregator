@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from entity.venue import Venue
 from entity.proceeding import Proceeding
 import xml.etree.ElementTree as ET
+import urllib.request
 
 
 class VenueParser:
@@ -16,9 +17,9 @@ class VenueParser:
 
         uls = soup.find_all("ul", {"class": "publ-list"})
         self.populate_venue_proceeding_ids(venues, uls)
-        self.fetch_proceeding_info(conference_name, venues)
+        proceedings = self.fetch_proceeding_info(conference_name, venues)
 
-        return venues
+        return venues, proceedings
 
     def get_venues(self, conference_name, h2s):
         venues = []
@@ -57,15 +58,16 @@ class VenueParser:
         verbose_print('Fetched proceeding ids for ' + str(len(uls)) + ' venues')
 
     def fetch_proceeding_info(self, conference_name, venues):
+        proceedings = []
         proceeding_xml_base_url = "https://dblp.org/rec/xml/"
         for venue in venues:
             for proceeding_id in venue.proceedings:
                 url = proceeding_xml_base_url + proceeding_id + ".xml"
                 print(url)
-                # TODO make HTTP request and get the XML
-                response = None
-                # proceeding = self.get_proceeding(response)
-                # TODO store proceeding into the database
+                xml = urllib.request.urlopen(url)
+                proceeding = self.get_proceeding(conference_name, xml.read())
+                proceedings.append(proceeding)
+        return proceedings
 
     def get_proceeding(self, conference_name, xml):
         root = ET.fromstring(xml)

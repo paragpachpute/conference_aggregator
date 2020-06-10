@@ -3,7 +3,7 @@ from util.utils import auto_str
 @auto_str
 class Proceeding:
     def __init__(self, title):
-        self.title = None
+        self.title = title
         self.booktitle = None
         self.publisher = None
         self.series = None

@@ -1,0 +1,182 @@
+{
+"result":{
+"query":":facetid:toc:db\"/\"conf\"/\"aaai\"/\"safeai2020\".\"bht",
+"status":{
+"@code":"200",
+"text":"OK"
+},
+"time":{
+"@unit":"msecs",
+"text":"171.61"
+},
+"completions":{
+"@total":"1",
+"@computed":"1",
+"@sent":"1",
+"c":{
+"@sc":"25",
+"@dc":"25",
+"@oc":"25",
+"@id":"16446375",
+"text":":facetid:toc:db/conf/aaai/safeai2020.bht"
+}
+},
+"hits":{
+"@total":"25",
+"@computed":"25",
+"@sent":"25",
+"@first":"0",
+"hit":[{
+"@score":"1",
+"@id":"66927",
+"info":{"authors":{"author":[{"@pid":"167/8988","text":"Kamran Alipour"},{"@pid":"59/5292","text":"Jürgen P. Schulze"},{"@pid":"59/179","text":"Yi Yao"},{"@pid":"236/2383","text":"Avi Ziskind"},{"@pid":"236/5230","text":"Giedrius Burachas"}]},"title":"A Study on Multimodal and Interactive Explanations for Visual Question Answering.","venue":"SafeAI@AAAI","pages":"54-62","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/AlipourSYZB20","ee":"http://ceur-ws.org/Vol-2560/paper44.pdf","url":"https://dblp.org/rec/conf/aaai/AlipourSYZB20"},
+"url":"URL#66927"
+},
+{
+"@score":"1",
+"@id":"66957",
+"info":{"authors":{"author":[{"@pid":"225/5241","text":"Michiel A. Bakker"},{"@pid":"251/8738","text":"Humberto Riverón Valdés"},{"@pid":"251/8700","text":"Duy Patrick Tu"},{"@pid":"g/PKrishnaGummadi","text":"Krishna P. Gummadi"},{"@pid":"02/3069","text":"Kush R. Varshney"},{"@pid":"73/8324","text":"Adrian Weller"},{"@pid":"p/AlexPentland","text":"Alex Pentland"}]},"title":"Fair Enough - Improving Fairness in Budget-Constrained Decision Making Using Confidence Thresholds.","venue":"SafeAI@AAAI","pages":"41-53","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/BakkerVTGVWP20","ee":"http://ceur-ws.org/Vol-2560/paper24.pdf","url":"https://dblp.org/rec/conf/aaai/BakkerVTGVWP20"},
+"url":"URL#66957"
+},
+{
+"@score":"1",
+"@id":"66973",
+"info":{"authors":{"author":[{"@pid":"172/2715","text":"Vahid Behzadan"},{"@pid":"87/5617","text":"Ibrahim M. Baggili"}]},"title":"Founding The Domain of AI Forensics.","venue":"SafeAI@AAAI","pages":"31-35","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/BehzadanB20","ee":"http://ceur-ws.org/Vol-2560/paper53.pdf","url":"https://dblp.org/rec/conf/aaai/BehzadanB20"},
+"url":"URL#66973"
+},
+{
+"@score":"1",
+"@id":"67021",
+"info":{"authors":{"author":[{"@pid":"259/5707","text":"John Burden"},{"@pid":"h/JoseHernandezOrallo","text":"José Hernández-Orallo"}]},"title":"Exploring AI Safety in Degrees - Generality, Capability and Control.","venue":"SafeAI@AAAI","pages":"36-40","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/BurdenH20","ee":"http://ceur-ws.org/Vol-2560/paper21.pdf","url":"https://dblp.org/rec/conf/aaai/BurdenH20"},
+"url":"URL#67021"
+},
+{
+"@score":"1",
+"@id":"67190",
+"info":{"authors":{"author":[{"@pid":"75/5747","text":"Ewen Denney"},{"@pid":"30/1320","text":"Ganesh Pai"},{"@pid":"03/685","text":"Colin Smith"}]},"title":"Hazard Contribution Modes of Machine Learning Components.","venue":"SafeAI@AAAI","pages":"14-22","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/DenneyPS20","ee":"http://ceur-ws.org/Vol-2560/paper41.pdf","url":"https://dblp.org/rec/conf/aaai/DenneyPS20"},
+"url":"URL#67190"
+},
+{
+"@score":"1",
+"@id":"67199",
+"info":{"authors":{"author":[{"@pid":"259/5990","text":"Botty Dimanov"},{"@pid":"207/7955","text":"Umang Bhatt"},{"@pid":"41/1392","text":"Mateja Jamnik"},{"@pid":"73/8324","text":"Adrian Weller"}]},"title":"You Shouldn&apos;t Trust Me - Learning Models Which Conceal Unfairness From Multiple Explanation Methods.","venue":"SafeAI@AAAI","pages":"63-73","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/DimanovBJW20","ee":"http://ceur-ws.org/Vol-2560/paper8.pdf","url":"https://dblp.org/rec/conf/aaai/DimanovBJW20"},
+"url":"URL#67199"
+},
+{
+"@score":"1",
+"@id":"67213",
+"info":{"authors":{"author":[{"@pid":"172/1017","text":"Melanie Ducoffe"},{"@pid":"07/9672","text":"Sébastien Gerchinovitz"},{"@pid":"232/4104","text":"Jayant Sen Gupta"}]},"title":"A High Probability Safety Guarantee for Shifted Neural Network Surrogates.","venue":"SafeAI@AAAI","pages":"74-82","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/DucoffeGG20","ee":"http://ceur-ws.org/Vol-2560/paper11.pdf","url":"https://dblp.org/rec/conf/aaai/DucoffeGG20"},
+"url":"URL#67213"
+},
+{
+"@score":"1",
+"@id":"67312",
+"info":{"authors":{"author":[{"@pid":"236/4881","text":"Ashish Gaurav"},{"@pid":"226/0867","text":"Sachin Vernekar"},{"@pid":"59/3622","text":"Jaeyoung Lee"},{"@pid":"159/3608","text":"Vahdat Abdelzad"},{"@pid":"72/6806","text":"Krzysztof Czarnecki"},{"@pid":"26/5698","text":"Sean Sedwards"}]},"title":"Simple Continual Learning Strategies for Safer Classifers.","venue":"SafeAI@AAAI","pages":"96-104","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/GauravVLSACS20","ee":"http://ceur-ws.org/Vol-2560/paper6.pdf","url":"https://dblp.org/rec/conf/aaai/GauravVLSACS20"},
+"url":"URL#67312"
+},
+{
+"@score":"1",
+"@id":"67412",
+"info":{"authors":{"author":[{"@pid":"246/2285","text":"Maximilian Henne"},{"@pid":"246/2212","text":"Adrian Schwaiger"},{"@pid":"143/9305","text":"Karsten Roscher"},{"@pid":"51/1748","text":"Gereon Weiss"}]},"title":"Benchmarking Uncertainty Estimation Methods for Deep Learning With Safety-Related Metrics.","venue":"SafeAI@AAAI","pages":"83-90","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/HenneSRW20","ee":"http://ceur-ws.org/Vol-2560/paper35.pdf","url":"https://dblp.org/rec/conf/aaai/HenneSRW20"},
+"url":"URL#67412"
+},
+{
+"@score":"1",
+"@id":"67528",
+"info":{"authors":{"author":[{"@pid":"259/5966","text":"Sarthak Jindal"},{"@pid":"216/5035","text":"Raghav Sood"},{"@pid":"75/3512","text":"Richa Singh 0001"},{"@pid":"58/323","text":"Mayank Vatsa"},{"@pid":"65/2136-2","text":"Tanmoy Chakraborty 0002"}]},"title":"NewsBag - A Benchmark Multimodal Dataset for Fake News Detection.","venue":"SafeAI@AAAI","pages":"138-145","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/JindalS0V020","ee":"http://ceur-ws.org/Vol-2560/paper27.pdf","url":"https://dblp.org/rec/conf/aaai/JindalS0V020"},
+"url":"URL#67528"
+},
+{
+"@score":"1",
+"@id":"67544",
+"info":{"authors":{"author":[{"@pid":"166/1648","text":"Kazuya Kakizaki"},{"@pid":"174/0452","text":"Kosuke Yoshida"}]},"title":"Adversarial Image Translation - Unrestricted Adversarial Examples in Face Recognition Systems.","venue":"SafeAI@AAAI","pages":"6-13","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/KakizakiY20","ee":"http://ceur-ws.org/Vol-2560/paper4.pdf","url":"https://dblp.org/rec/conf/aaai/KakizakiY20"},
+"url":"URL#67544"
+},
+{
+"@score":"1",
+"@id":"67549",
+"info":{"authors":{"author":[{"@pid":"254/2890","text":"Ryo Kamoi"},{"@pid":"45/6189","text":"Kei Kobayashi"}]},"title":"Out-of-Distribution Detection with Likelihoods Assigned by Deep Generative Models Using Multimodal Prior Distributions.","venue":"SafeAI@AAAI","pages":"113-116","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/KamoiK20","ee":"http://ceur-ws.org/Vol-2560/paper2.pdf","url":"https://dblp.org/rec/conf/aaai/KamoiK20"},
+"url":"URL#67549"
+},
+{
+"@score":"1",
+"@id":"67580",
+"info":{"authors":{"author":[{"@pid":"02/596","text":"Jin-Young Kim"},{"@pid":"88/2576","text":"Sung-Bae Cho"}]},"title":"Fair Representation for Safe Artificial Intelligence via Adversarial Learning of Unbiased Information Bottleneck.","venue":"SafeAI@AAAI","pages":"105-112","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/KimC20","ee":"http://ceur-ws.org/Vol-2560/paper5.pdf","url":"https://dblp.org/rec/conf/aaai/KimC20"},
+"url":"URL#67580"
+},
+{
+"@score":"1",
+"@id":"67603",
+"info":{"authors":{"author":[{"@pid":"136/6061","text":"Vojtech Kovarík"},{"@pid":"206/6605","text":"Ryan Carey"}]},"title":"(When) Is Truth-telling Favored in AI Debate?","venue":"SafeAI@AAAI","pages":"128-137","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/KovarikC20","ee":"http://ceur-ws.org/Vol-2560/paper3.pdf","url":"https://dblp.org/rec/conf/aaai/KovarikC20"},
+"url":"URL#67603"
+},
+{
+"@score":"1",
+"@id":"67622",
+"info":{"authors":{"author":[{"@pid":"223/6633","text":"Imane Lamrani"},{"@pid":"86/2304","text":"Ayan Banerjee"},{"@pid":"g/SandeepKSGupta","text":"Sandeep K. S. Gupta"}]},"title":"Toward Operational Safety Verification Via Hybrid Automata Mining Using I/O Traces of AI-Enabled CPS.","venue":"SafeAI@AAAI","pages":"186-194","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/LamraniBG20","ee":"http://ceur-ws.org/Vol-2560/paper26.pdf","url":"https://dblp.org/rec/conf/aaai/LamraniBG20"},
+"url":"URL#67622"
+},
+{
+"@score":"1",
+"@id":"67818",
+"info":{"authors":{"author":[{"@pid":"69/4672","text":"Lifeng Liu"},{"@pid":"77/2498","text":"Yingxuan Zhu"},{"@pid":"259/6039","text":"Tim Yuan"},{"@pid":"33/5448","text":"Jian Li"}]},"title":"Continuous Safe Learning Based on First Principles and Constraints for Autonomous Driving.","venue":"SafeAI@AAAI","pages":"170-177","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/LiuZYL20","ee":"http://ceur-ws.org/Vol-2560/paper29.pdf","url":"https://dblp.org/rec/conf/aaai/LiuZYL20"},
+"url":"URL#67818"
+},
+{
+"@score":"1",
+"@id":"67900",
+"info":{"authors":{"author":[{"@pid":"155/4739","text":"Sina Mohseni"},{"@pid":"255/6045","text":"Mandar Pitale"},{"@pid":"97/4322","text":"Vasu Singh"},{"@pid":"119/4026","text":"Zhangyang Wang"}]},"title":"Practical Solutions for Machine Learning Safety in Autonomous Vehicles.","venue":"SafeAI@AAAI","pages":"162-169","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/MohseniPSW20","ee":"http://ceur-ws.org/Vol-2560/paper40.pdf","url":"https://dblp.org/rec/conf/aaai/MohseniPSW20"},
+"url":"URL#67900"
+},
+{
+"@score":"1",
+"@id":"67997",
+"info":{"authors":{"author":[{"@pid":"198/1562","text":"Chiara Picardi"},{"@pid":"27/8933","text":"Colin Paterson"},{"@pid":"84/2232","text":"Richard Hawkins"},{"@pid":"15/2194","text":"Radu Calinescu"},{"@pid":"98/575","text":"Ibrahim Habli"}]},"title":"Assurance Argument Patterns and Processes for Machine Learning in Safety-Related Systems.","venue":"SafeAI@AAAI","pages":"23-30","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/PicardiPHCH20","ee":"http://ceur-ws.org/Vol-2560/paper17.pdf","url":"https://dblp.org/rec/conf/aaai/PicardiPHCH20"},
+"url":"URL#67997"
+},
+{
+"@score":"1",
+"@id":"68003",
+"info":{"authors":{"author":[{"@pid":"238/0186","text":"Bharat Prakash"},{"@pid":"27/9826","text":"Nicholas R. Waytowich"},{"@pid":"155/2122","text":"Ashwinkumar Ganesan"},{"@pid":"34/3824","text":"Tim Oates"},{"@pid":"33/2194","text":"Tinoosh Mohsenin"}]},"title":"Guiding Safe Reinforcement Learning Policies Using Structured Language Constraints.","venue":"SafeAI@AAAI","pages":"153-161","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/PrakashWGOM20","ee":"http://ceur-ws.org/Vol-2560/paper38.pdf","url":"https://dblp.org/rec/conf/aaai/PrakashWGOM20"},
+"url":"URL#68003"
+},
+{
+"@score":"1",
+"@id":"68063",
+"info":{"authors":{"author":[{"@pid":"00/1125","text":"Rick Salay"},{"@pid":"72/6806","text":"Krzysztof Czarnecki"},{"@pid":"248/3287","text":"Maria Soledad Elli"},{"@pid":"220/7783","text":"Ignacio J. Alvarez"},{"@pid":"26/5698","text":"Sean Sedwards"},{"@pid":"242/4626","text":"Jack Weast"}]},"title":"PURSS - Towards Perceptual Uncertainty Aware Responsibility Sensitive Safety with ML.","venue":"SafeAI@AAAI","pages":"91-95","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/SalayCEASW20","ee":"http://ceur-ws.org/Vol-2560/paper34.pdf","url":"https://dblp.org/rec/conf/aaai/SalayCEASW20"},
+"url":"URL#68063"
+},
+{
+"@score":"1",
+"@id":"68085",
+"info":{"authors":{"author":[{"@pid":"255/5387","text":"Ignacio Serna"},{"@pid":"91/7421","text":"Aythami Morales"},{"@pid":"97/4330","text":"Julian Fiérrez"},{"@pid":"c/ManuelCebrian","text":"Manuel Cebrián"},{"@pid":"162/0083","text":"Nick Obradovich"},{"@pid":"17/525","text":"Iyad Rahwan"}]},"title":"Algorithmic Discrimination - Formulation and Exploration in Deep Learning-based Face Biometrics.","venue":"SafeAI@AAAI","pages":"146-152","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/SernaMFCOR20","ee":"http://ceur-ws.org/Vol-2560/paper10.pdf","url":"https://dblp.org/rec/conf/aaai/SernaMFCOR20"},
+"url":"URL#68085"
+},
+{
+"@score":"1",
+"@id":"68260",
+"info":{"authors":{"author":[{"@pid":"94/9187","text":"Dmitry Vengertsev"},{"@pid":"05/7251","text":"Elena Sherman"}]},"title":"Recurrent Neural Network Properties and their Verification with Monte Carlo Techniques.","venue":"SafeAI@AAAI","pages":"178-185","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/VengertsevS20","ee":"http://ceur-ws.org/Vol-2560/paper39.pdf","url":"https://dblp.org/rec/conf/aaai/VengertsevS20"},
+"url":"URL#68260"
+},
+{
+"@score":"1",
+"@id":"68275",
+"info":{"authors":{"author":[{"@pid":"116/6226","text":"Carroll L. Wainwright"},{"@pid":"79/417","text":"Peter Eckersley"}]},"title":"SafeLife 1.0 - Exploring Side Effects in Complex Environments.","venue":"SafeAI@AAAI","pages":"117-127","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/WainwrightE20","ee":"http://ceur-ws.org/Vol-2560/paper46.pdf","url":"https://dblp.org/rec/conf/aaai/WainwrightE20"},
+"url":"URL#68275"
+},
+{
+"@score":"1",
+"@id":"68435",
+"info":{"authors":{"author":[{"@pid":"96/2401","text":"Bowei Xi"},{"@pid":"74/3270","text":"Yujie Chen"},{"@pid":"61/7710","text":"Fei Fan"},{"@pid":"203/5343","text":"Zhan Tu"},{"@pid":"33/2032","text":"Xinyan Deng"}]},"title":"Bio-Inspired Adversarial Attack Against Deep Neural Networks.","venue":"SafeAI@AAAI","pages":"1-5","year":"2020","type":"Conference and Workshop Papers","key":"conf/aaai/XiCFTD20","ee":"http://ceur-ws.org/Vol-2560/paper15.pdf","url":"https://dblp.org/rec/conf/aaai/XiCFTD20"},
+"url":"URL#68435"
+},
+{
+"@score":"1",
+"@id":"91818",
+"info":{"authors":{"author":[{"@pid":"04/4931","text":"Huáscar Espinoza"},{"@pid":"h/JoseHernandezOrallo","text":"José Hernández-Orallo"},{"@pid":"259/5665","text":"Xin Cynthia Chen"},{"@pid":"233/2180","text":"Seán S. ÓhÉigeartaigh"},{"@pid":"60/5414-1","text":"Xiaowei Huang 0001"},{"@pid":"42/4207","text":"Mauricio Castillo-Effen"},{"@pid":"246/2111","text":"Richard Mallah"},{"@pid":"61/3573","text":"John McDermid"}]},"title":"Proceedings of the Workshop on Artificial Intelligence Safety, co-located with 34th AAAI Conference on Artificial Intelligence, SafeAI@AAAI 2020, New York City, NY, USA, February 7, 2020.","venue":["SafeAI@AAAI","CEUR Workshop Proceedings"],"volume":"2560","publisher":"CEUR-WS.org","year":"2020","type":"Editorship","key":"conf/aaai/2020safeai","ee":"http://ceur-ws.org/Vol-2560","url":"https://dblp.org/rec/conf/aaai/2020safeai"},
+"url":"URL#91818"
+}
+]
+}
+}
+}
