@@ -5,11 +5,16 @@ from entity.proceeding import Proceeding
 import xml.etree.ElementTree as ET
 import urllib.request
 
+import logging
+import os
+
+log = logging.getLogger(os.path.basename(__file__))
+logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+
 
 class VenueParser:
     def parse(self, conference_name, document):
-        # TODO use logger instead
-        verbose_print('Started Parsing')
+        log.info("Started Parsing for " + conference_name)
         soup = BeautifulSoup(document, features="html.parser")
 
         h2s = soup.find_all('h2')
@@ -30,7 +35,7 @@ class VenueParser:
                 if h2.find('a'):
                     dblp_link = h2.a['href']
                 title = h2.text
-                location = h2.text.split(':')[1]
+                location = h2.text.split(':')[1].strip()
                 venues.append(Venue(title, location, year, dblp_link, conference_name))
             except Exception as e:
                 # TODO add logic for adding the venue into parsing error table
@@ -64,6 +69,7 @@ class VenueParser:
             for proceeding_id in venue.proceedings:
                 url = proceeding_xml_base_url + proceeding_id + ".xml"
                 print(url)
+                # TODO think if we should make an external call from here
                 xml = urllib.request.urlopen(url)
                 proceeding = self.get_proceeding(conference_name, xml.read())
                 proceedings.append(proceeding)
