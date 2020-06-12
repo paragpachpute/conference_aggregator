@@ -9,14 +9,15 @@ class TestConferenceHome(TestCase):
 
     def test_venue_url(self):
         # conference = Conference('aaai', 'https://dblp.org/db/conf/aaai/', 'https://www.aaai.org/')
-        # conference = Conference('ijcai', 'https://dblp.org/db/conf/ijcai/', 'https://www.ijcai.org/')
-        conference = Conference('akbc', 'https://dblp.org/db/conf/akbc/')
+        conference = Conference('ijcai', 'https://dblp.org/db/conf/ijcai/', 'https://www.ijcai.org/')
+        # conference = Conference('akbc', 'https://dblp.org/db/conf/akbc/')
 
         self.conferenceHome.store_conference(conference)
 
         urls = self.conferenceHome.get_conference({'name': conference.name})
-        url = urls[0]
+        conf = urls[0]
+        conf = Conference(**conf)
 
-        self.assertEqual(conference.name, url['name'], 'Conference name not matching')
-        self.assertEqual(conference.dblp_url, url['dblp_url'], 'Conference dblp_url not matching')
-        self.assertEqual(conference.home_url, url['home_url'], 'Conference home_url` not matching')
+        self.assertEqual(conference.name, conf.name, 'Conference name not matching')
+        self.assertEqual(conference.dblp_url, conf.dblp_url, 'Conference dblp_url not matching')
+        self.assertEqual(conference.home_url, conf.home_url, 'Conference home_url` not matching')

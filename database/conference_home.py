@@ -16,8 +16,9 @@ class ConferenceHome:
             self.store_conference(c)
 
     # Dumps the conference object into the database
-    def store_conference(self, obj):
-        self.conference_collection.insert_one(vars(obj))
+    def store_conference(self, conference):
+        criteria = {"_id": conference._id}
+        self.conference_collection.replace_one(criteria, vars(conference), upsert=True)
 
     def get_conference(self, criteria={}):
         return self.conference_collection.find(criteria)
