@@ -1,12 +1,13 @@
-from util.utils import verbose_print
-from bs4 import BeautifulSoup
-from entity.venue import Venue
-from entity.proceeding import Proceeding
-import xml.etree.ElementTree as ET
-import urllib.request
-
 import logging
 import os
+import urllib.request
+import xml.etree.ElementTree as ET
+
+from bs4 import BeautifulSoup
+
+from entity.proceeding import Proceeding
+from entity.venue import Venue
+from util.utils import verbose_print
 
 log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
@@ -22,9 +23,7 @@ class VenueParser:
 
         uls = soup.find_all("ul", {"class": "publ-list"})
         self.populate_venue_proceeding_ids(venues, uls)
-        proceedings = self.fetch_proceeding_info(conference_name, venues)
-
-        return venues, proceedings
+        return venues
 
     def get_venues(self, conference_name, h2s):
         venues = []
@@ -61,19 +60,6 @@ class VenueParser:
             venues[i].proceedings = proceeding_ids
 
         verbose_print('Fetched proceeding ids for ' + str(len(uls)) + ' venues')
-
-    def fetch_proceeding_info(self, conference_name, venues):
-        proceedings = []
-        proceeding_xml_base_url = "https://dblp.org/rec/xml/"
-        for venue in venues:
-            for proceeding_id in venue.proceedings:
-                url = proceeding_xml_base_url + proceeding_id + ".xml"
-                print(url)
-                # TODO think if we should make an external call from here
-                xml = urllib.request.urlopen(url)
-                proceeding = self.get_proceeding(conference_name, xml.read())
-                proceedings.append(proceeding)
-        return proceedings
 
     def get_proceeding(self, conference_name, xml):
         root = ET.fromstring(xml)

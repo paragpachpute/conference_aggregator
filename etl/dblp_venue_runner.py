@@ -8,36 +8,43 @@ import urllib.request
 import logging
 import os
 
-log = logging.getLogger(os.path.basename(__file__))
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+if __name__ == '__main__':
+    log = logging.getLogger(os.path.basename(__file__))
+    logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
-database = 'test_database'
-parser = VenueParser()
-venueHome = VenueHome(database)
-proceedingHome = ProceedingHome(database)
-conferenceHome = ConferenceHome(database)
-researchPaperHome = ResearchPaperHome(database)
+    database = 'test_database'
+    parser = VenueParser()
+    venueHome = VenueHome(database)
+    proceedingHome = ProceedingHome(database)
+    conferenceHome = ConferenceHome(database)
+    researchPaperHome = ResearchPaperHome(database)
 
-# TODO think should we add url in every entity that states the url from which it was fetched
-conferences = conferenceHome.get_conference()
-for c in conferences:
-    log.info('Started processing: ' + c['name'])
-    if c['name'] == 'akbc':
-        print(c)
-        document = urllib.request.urlopen(c['dblp_url'])
-        venues, proceedings = parser.parse(c['name'], document.read())
-        print(len(venues), len(proceedings))
-        venueHome.store_many_venues(venues)
-        proceedingHome.store_many_proceedings(proceedings)
+    # TODO think should we add url in every entity that states the url from which it was fetched
+    conferences = conferenceHome.get_conference()
+    for c in conferences:
+        log.info('Started processing: ' + c['name'])
+        if c['name'] == 'akbc':
+            print(c)
+            document = urllib.request.urlopen(c['dblp_url'])
+            venues, proceedings = parser.parse(c['name'], document.read())
+            print(len(venues), len(proceedings))
+            venueHome.store_many_venues(venues)
+            proceedingHome.store_many_proceedings(proceedings)
 
-# with open('./../parser/dblp/dblp_aaai.htm') as document:
-#     # TODO explore from bunch import bunchify for converting it back to object
-#     venues = parser.parse(c['name'], document.read())
-#     venueHome.store_many_venues(venues)
-#
-# with open('./../parser/dblp/proceeding.xml') as xml:
-#     proceeding = parser.get_proceeding(c['name'], xml.read())
-#     proceedingHome.store_proceeding(proceeding)
+
+def fetch_proceeding_info(conference_name, venues, parser):
+    proceedings = []
+    proceeding_xml_base_url = "https://dblp.org/rec/xml/"
+    for venue in venues:
+        for proceeding_id in venue.proceedings:
+            url = proceeding_xml_base_url + proceeding_id + ".xml"
+            print(url)
+            # TODO think if we should make an external call from here
+            xml = urllib.request.urlopen(url)
+            proceeding = parser.get_proceeding(conference_name, xml.read())
+            proceedings.append(proceeding)
+    return proceedings
+
 #
 #
 # proceedings = proceedingHome.get_proceedings({"conference_name" : "ijcai"})

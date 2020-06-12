@@ -2,7 +2,7 @@ from .connection_utils import get_database
 
 class ProceedingHome:
 
-    def __init__(self, database_name):
+    def __init__(self, database_name='test_database'):
         self.database_name = database_name
 
         proceeding_collection_name = 'proceeding'
