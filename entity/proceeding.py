@@ -18,4 +18,4 @@ class Proceeding:
         self.mdate = mdate
         self.editors = editors
         self.conference_name = conference_name
-        self._id = _id
+        self._id = _id if _id is not None else title

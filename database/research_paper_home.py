@@ -2,7 +2,7 @@ from .connection_utils import get_database
 
 class ResearchPaperHome:
 
-    def __init__(self, database_name):
+    def __init__(self, database_name='test_database'):
         self.database_name = database_name
 
         research_paper_collection_name = 'research_paper'
