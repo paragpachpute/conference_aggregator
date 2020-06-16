@@ -3,29 +3,32 @@ from database.venue_home import VenueHome
 from database.proceeding_home import ProceedingHome
 from database.conference_home import ConferenceHome
 from database.research_paper_home import ResearchPaperHome
+from database.error_queue_home import ErrorQueueHome
 import json
 import urllib.request
 import logging
 import os
 from entity.conference import Conference
 from entity.proceeding import Proceeding
+from entity.error_queue_item import ErrorQueueItem
+
 
 log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 
-def fetch_proceeding_info(conference_name, venues, parser):
+def fetch_proceeding_info(conference_name, venues, parser, errorQueueHome):
     proceedings = []
     proceeding_xml_base_url = "https://dblp.org/rec/xml/"
     for venue in venues:
         for proceeding_id in venue.proceedings:
             try:
                 url = proceeding_xml_base_url + proceeding_id + ".xml"
-                log.debug("Fetching from proceeding url: %s".format(url))
+                log.debug("Fetching from proceeding url: {}".format(url))
                 proceeding = get_proceeding_info_from_url(conference_name, url, parser)
                 proceedings.append(proceeding)
             except Exception as ex:
-                # TODO store the exception in the DB
+                errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_PROCEEDING_INFO, url))
                 log.error("Parsing error for proceeding_id {} of conference {}. Error: {}".format(proceeding_id, conference_name, ex))
                 pass
     return proceedings
@@ -55,6 +58,7 @@ if __name__ == '__main__':
     proceedingHome = ProceedingHome(database)
     conferenceHome = ConferenceHome(database)
     researchPaperHome = ResearchPaperHome(database)
+    errorQueueHome = ErrorQueueHome(database)
 
     # TODO think should we add url in every entity that states the url from which it was fetched
     conferences = conferenceHome.get_conference()
@@ -65,14 +69,14 @@ if __name__ == '__main__':
         if conference.name is not 'akbc':
             try:
                 venues = get_venues_from_url(conference.dblp_url, parser)
-                log.debug("Fetched %d venues for conference %s".format(len(venues), conference.name))
+                log.debug("Fetched {} venues for conference {}".format(len(venues), conference.name))
                 venueHome.store_many_venues(venues)
 
-                proceedings = fetch_proceeding_info(conference.name, venues, parser)
+                proceedings = fetch_proceeding_info(conference.name, venues, parser, errorQueueHome)
                 proceedingHome.store_many_proceedings(proceedings)
             except Exception as ex:
-                # TODO store the exception in the DB
-                log.error("Parsing error for venues of conference %s".format(conference.name))
+                errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_VENUE, conference.dblp_url))
+                log.error("Parsing error for venues of conference {}. Error: {}".format(conference.name, ex))
                 pass
 
     # TODO repeat this for each conference
@@ -101,7 +105,7 @@ if __name__ == '__main__':
                     research_paper['_id'] = research_paper['info']['title']
                     researchPaperHome.store_research_paper(research_paper)
         except Exception as ex:
-            # TODO store the exception in the DB
-            log.error("Parsing error for research papers of proceeding %s".format(proceeding.proceeding_key))
+            errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url))
+            log.error("Parsing error for research papers of proceeding {}".format(proceeding.proceeding_key))
             pass
 
