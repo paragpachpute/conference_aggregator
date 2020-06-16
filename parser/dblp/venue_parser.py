@@ -1,6 +1,5 @@
 import logging
 import os
-import urllib.request
 import xml.etree.ElementTree as ET
 
 from bs4 import BeautifulSoup
@@ -17,10 +16,8 @@ class VenueParser:
     def parse(self, conference_name, document):
         log.info("Started Parsing for " + conference_name)
         soup = BeautifulSoup(document, features="html.parser")
-
         h2s = soup.find_all('h2')
         venues = self.get_venues(conference_name, h2s)
-
         uls = soup.find_all("ul", {"class": "publ-list"})
         self.populate_venue_proceeding_ids(venues, uls)
         return venues
@@ -28,17 +25,13 @@ class VenueParser:
     def get_venues(self, conference_name, h2s):
         venues = []
         for h2 in h2s:
-            try:
-                year = h2['id']
-                dblp_link = None
-                if h2.find('a'):
-                    dblp_link = h2.a['href']
-                title = h2.text
-                location = h2.text.split(':')[1].strip()
-                venues.append(Venue(title, location, year, dblp_link, conference_name))
-            except Exception as e:
-                # TODO add logic for adding the venue into parsing error table
-                print(h2)
+            year = h2['id']
+            dblp_link = None
+            if h2.find('a'):
+                dblp_link = h2.a['href']
+            title = h2.text
+            location = h2.text.split(':')[1].strip()
+            venues.append(Venue(title, location, year, dblp_link, conference_name))
 
         verbose_print('Fetched ' + str(len(venues)) + ' venues')
         return venues
@@ -50,7 +43,6 @@ class VenueParser:
         return None
 
     def populate_venue_proceeding_ids(self, venues, uls):
-        # TODO add exception handling logic
         for i in range(len(uls)):
             ul = uls[i]
             proceeding_ids = []
@@ -66,13 +58,10 @@ class VenueParser:
         proceeding_tag = root[0]
         title = self.getTextIfPresent(proceeding_tag, 'title')
         proceeding = Proceeding(title)
-
         proceeding.proceeding_key = proceeding_tag.get('key')
         proceeding.mdate = proceeding_tag.get('mdate')
-
         editors = proceeding_tag.findall('editor')
         proceeding.editors = [e.text for e in editors] if editors is not None else []
-
         proceeding.booktitle = self.getTextIfPresent(proceeding_tag, 'booktitle')
         proceeding.publisher = self.getTextIfPresent(proceeding_tag, 'publisher')
         proceeding.series = self.getTextIfPresent(proceeding_tag, 'series')

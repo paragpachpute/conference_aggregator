@@ -1,17 +1,17 @@
-from parser.dblp.venue_parser import VenueParser
-from database.venue_home import VenueHome
-from database.proceeding_home import ProceedingHome
-from database.conference_home import ConferenceHome
-from database.research_paper_home import ResearchPaperHome
-from database.error_queue_home import ErrorQueueHome
 import json
-import urllib.request
 import logging
 import os
-from entity.conference import Conference
-from entity.proceeding import Proceeding
-from entity.error_queue_item import ErrorQueueItem
+import urllib.request
 
+from database.conference_home import ConferenceHome
+from database.error_queue_home import ErrorQueueHome
+from database.proceeding_home import ProceedingHome
+from database.research_paper_home import ResearchPaperHome
+from database.venue_home import VenueHome
+from entity.conference import Conference
+from entity.error_queue_item import ErrorQueueItem
+from entity.proceeding import Proceeding
+from parser.dblp.venue_parser import VenueParser
 
 log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
@@ -29,9 +29,11 @@ def fetch_proceeding_info(conference_name, venues, parser, errorQueueHome):
                 proceedings.append(proceeding)
             except Exception as ex:
                 errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_PROCEEDING_INFO, url))
-                log.error("Parsing error for proceeding_id {} of conference {}. Error: {}".format(proceeding_id, conference_name, ex))
+                log.error("Parsing error for proceeding_id {} of conference {}. Error: {}".format(proceeding_id,
+                                                                                                  conference_name, ex))
                 pass
     return proceedings
+
 
 def get_proceeding_info_from_url(conference_name, url, parser):
     xml = urllib.request.urlopen(url)
@@ -51,7 +53,6 @@ def get_research_papers_from_url(url):
 
 
 if __name__ == '__main__':
-
     database = 'test_database'
     parser = VenueParser()
     venueHome = VenueHome(database)
@@ -60,13 +61,12 @@ if __name__ == '__main__':
     researchPaperHome = ResearchPaperHome(database)
     errorQueueHome = ErrorQueueHome(database)
 
-    # TODO think should we add url in every entity that states the url from which it was fetched
     conferences = conferenceHome.get_conference()
     for c in conferences:
         conference = Conference(**c)
         log.info('Started processing: ' + conference.name)
 
-        if conference.name is not 'akbc':
+        if conference.name is 'akbc':
             try:
                 venues = get_venues_from_url(conference.dblp_url, parser)
                 log.debug("Fetched {} venues for conference {}".format(len(venues), conference.name))
@@ -79,33 +79,38 @@ if __name__ == '__main__':
                 log.error("Parsing error for venues of conference {}. Error: {}".format(conference.name, ex))
                 pass
 
-    # TODO repeat this for each conference
-    proceedings = proceedingHome.get_proceedings({"conference_name": "ijcai"})
-    for p in proceedings:
-        proceeding = Proceeding(**p)
-        log.info("Started processing for " + p['title'])
+        proceedings = proceedingHome.get_proceedings({"conference_name": conference.name})
+        for p in proceedings:
+            proceeding = Proceeding(**p)
+            log.info("Started processing for " + proceeding.title)
 
-        # TODO generate link to handle more than 1000 records
+            base_url = "https://dblp.org/search/publ/api?q=toc:"
+            url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
+            url += ":&h=1000&format=json"
 
-        # https://dblp.org/search/publ/api?q=toc:db/conf/ijcai/ijcai2017.bht:&h=500&f=500&format=json
+            try:
+                obj = get_research_papers_from_url(url)
+                total = int(obj['result']['hits']['@total'])
+                fetched = int(obj['result']['hits']['@sent'])
+                items_to_fetch_at_one_time = 1000
 
-        base_url = "https://dblp.org/search/publ/api?q=toc:"
-        url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
-        url += ":&h=1000&format=json"
-        print(url)
+                while fetched < total:
+                    if 'result' in obj and 'hits' in obj['result'] and 'hit' in obj['result']['hits']:
+                        result = obj['result']
+                        hits = result['hits']
+                        for research_paper in hits['hit']:
+                            # TODO decode html entities from the strings
+                            research_paper['_id'] = research_paper['info']['title']
+                            researchPaperHome.store_research_paper(research_paper)
 
-        try:
-            obj = get_research_papers_from_url(url)
+                    toFetch = items_to_fetch_at_one_time if total - fetched > items_to_fetch_at_one_time else total - fetched
+                    url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
+                    url += ":&h={}&f={}&format=json".format(toFetch, fetched)
+                    log.info("Additional research papers fetching from {}".format(url))
+                    obj = get_research_papers_from_url(url)
+                    fetched += toFetch
 
-            if 'result' in obj and 'hits' in obj['result'] and 'hit' in obj['result']['hits']:
-                result = obj['result']
-                hits = result['hits']
-                for research_paper in hits['hit']:
-                    # TODO decode html entities from the strings
-                    research_paper['_id'] = research_paper['info']['title']
-                    researchPaperHome.store_research_paper(research_paper)
-        except Exception as ex:
-            errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url))
-            log.error("Parsing error for research papers of proceeding {}".format(proceeding.proceeding_key))
-            pass
-
+            except Exception as ex:
+                errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url))
+                log.error("Parsing error for research papers of proceeding {}".format(proceeding.proceeding_key))
+                pass
