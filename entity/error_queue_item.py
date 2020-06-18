@@ -8,3 +8,7 @@ class ErrorQueueItem:
         self.type = type
         self.url = url
         self._id = _id if _id is not None else url
+
+    @property
+    def id(self):
+        return self._id

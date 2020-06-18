@@ -21,4 +21,7 @@ class ConferenceHome:
         self.conference_collection.replace_one(criteria, vars(conference), upsert=True)
 
     def get_conference(self, criteria={}):
-        return self.conference_collection.find(criteria)
+        return self.conference_collection.find(criteria, no_cursor_timeout=True)
+
+    def delete_conference(self, criteria={}):
+        self.conference_collection.delete_one(criteria)

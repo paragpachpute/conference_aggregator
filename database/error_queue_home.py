@@ -21,3 +21,6 @@ class ErrorQueueHome:
 
     def get_error_queue_item(self, criteria={}):
         return self.error_queue_collection.find(criteria)
+
+    def delete_error_queue_item(self, criteria={}):
+        self.error_queue_collection.delete_one(criteria)

@@ -25,12 +25,12 @@ class VenueParser:
     def get_venues(self, conference_name, h2s):
         venues = []
         for h2 in h2s:
-            year = h2['id']
+            year = h2['id'] if 'id' in h2 else None
             dblp_link = None
             if h2.find('a'):
                 dblp_link = h2.a['href']
             title = h2.text
-            location = h2.text.split(':')[1].strip()
+            location = h2.text.split(':')[1].strip() if ':' in h2.text else None
             venues.append(Venue(title, location, year, dblp_link, conference_name))
 
         verbose_print('Fetched ' + str(len(venues)) + ' venues')

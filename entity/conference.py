@@ -7,3 +7,7 @@ class Conference:
         self.name = name
         self.dblp_url = dblp_url
         self._id = _id if _id is not None else dblp_url
+
+    @property
+    def id(self):
+        return self._id
