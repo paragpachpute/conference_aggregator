@@ -31,6 +31,24 @@ for p in proceeding_home.get_proceedings():
             workshop_occurrence.append(proceeding.proceeding_key)
             venue_type = "workshop"
 
+            occurrence_instance = {}
+            occurrence_instance["title"] = proceeding.title
+            occurrence_instance["location"] = ",".join(proceeding.title.split(",")[-3:]).strip()
+            occurrence_instance["year"] = proceeding.year
+            occurrence_instance["parent"] = "/".join(proceeding.proceeding_key.split("/")[:-1])
+            occurrence_instance["program chairs"] = proceeding.editors
+            occurrence_instance["publisher"] = proceeding.publisher
+            occurrence_instance["external link"] = proceeding.ee
+            occurrence_instance["book"] = proceeding.booktitle
+
+            series_instance = {}
+            series_instance["name"] = proceeding.conference_name
+            series_instance["key"] = "/".join(proceeding.proceeding_key.split("/")[:-1])
+
+            if "akbc" in proceeding.proceeding_key.lower():
+                print(json.dumps(occurrence_instance, indent=2))
+                print(json.dumps(series_instance, indent=2))
+
         else:
             conference_series.append("/".join(proceeding.proceeding_key.split("/")[1:-1]))
             conference_occurrence.append(proceeding.proceeding_key)
@@ -55,7 +73,7 @@ for p in proceeding_home.get_proceedings():
                 print(json.dumps(series_instance, indent=2))
 
         if venue_type not in types:
-            types[venue_type] = []
+            types[venue_type] = [] 
         types[venue_type].append("/".join(proceeding.proceeding_key.split("/")[1:]))
 
     except Exception as e:
