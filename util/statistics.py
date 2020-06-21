@@ -32,6 +32,7 @@ for p in proceeding_home.get_proceedings():
             venue_type = "workshop"
 
             occurrence_instance = {}
+            occurrence_instance["invitation_type"] = 'workshop_occurrence'
             occurrence_instance["title"] = proceeding.title
             occurrence_instance["location"] = ",".join(proceeding.title.split(",")[-3:]).strip()
             occurrence_instance["year"] = proceeding.year
@@ -40,10 +41,14 @@ for p in proceeding_home.get_proceedings():
             occurrence_instance["publisher"] = proceeding.publisher
             occurrence_instance["external link"] = proceeding.ee
             occurrence_instance["book"] = proceeding.booktitle
+            occurrence_instance["key"] = proceeding.proceeding_key
+            occurrence_instance["dblp_url"] = proceeding.dblp_url
 
             series_instance = {}
+            series_instance["invitation_type"] = 'workshop_series'
             series_instance["name"] = proceeding.conference_name
             series_instance["key"] = "/".join(proceeding.proceeding_key.split("/")[:-1])
+            series_instance["short_name"] = proceeding.booktitle
 
             if "akbc" in proceeding.proceeding_key.lower():
                 print(json.dumps(occurrence_instance, indent=2))
@@ -55,25 +60,29 @@ for p in proceeding_home.get_proceedings():
             venue_type = proceeding.proceeding_key.split("/")[0]
 
             occurrence_instance = {}
+            occurrence_instance["invitation_type"] = 'conference_occurrence'
             occurrence_instance["title"] = proceeding.title
             occurrence_instance["location"] = ",".join(proceeding.title.split(",")[-3:]).strip()
             occurrence_instance["year"] = proceeding.year
             occurrence_instance["parent"] = "/".join(proceeding.proceeding_key.split("/")[:-1])
-            occurrence_instance["program chairs"] = proceeding.editors
+            occurrence_instance["program_chairs"] = proceeding.editors
             occurrence_instance["publisher"] = proceeding.publisher
-            occurrence_instance["external link"] = proceeding.ee
-            occurrence_instance["book"] = proceeding.booktitle
+            occurrence_instance["external_link"] = proceeding.ee
+            occurrence_instance["key"] = proceeding.proceeding_key
+            occurrence_instance["dblp_url"] = proceeding.dblp_url
 
             series_instance = {}
+            series_instance["invitation_type"] = 'conference_series'
             series_instance["name"] = proceeding.conference_name
             series_instance["key"] = "/".join(proceeding.proceeding_key.split("/")[:-1])
+            series_instance["short_name"] = proceeding.booktitle
 
             if "icml" in proceeding.proceeding_key.lower():
                 print(json.dumps(occurrence_instance, indent=2))
                 print(json.dumps(series_instance, indent=2))
 
         if venue_type not in types:
-            types[venue_type] = [] 
+            types[venue_type] = []
         types[venue_type].append("/".join(proceeding.proceeding_key.split("/")[1:]))
 
     except Exception as e:

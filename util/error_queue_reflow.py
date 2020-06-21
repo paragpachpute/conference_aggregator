@@ -14,6 +14,7 @@ logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 def reflow_venue_erros(error_queue_home, parser, venue_home):
     criteria = {"type": ErrorQueueItem.TYPE_VENUE}
     errors = error_queue_home.get_error_queue_item(criteria)
+    log.info("Found {} errors for type {}".format(errors.count(), ErrorQueueItem.TYPE_VENUE))
     for e in errors:
         error = ErrorQueueItem(**e)
         log.info("Started re-flow for {}".format(error.url))
