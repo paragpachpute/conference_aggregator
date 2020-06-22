@@ -12,3 +12,10 @@ class ErrorQueueItem:
     @property
     def id(self):
         return self._id
+
+## Sample error queue venue item
+# {
+#   "_id": 1,
+#   "type": "venue",
+#   "url": "https://dblp.org/db/conf/akbc"
+# }

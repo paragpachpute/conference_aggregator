@@ -17,7 +17,7 @@ log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 
-def fetch_proceeding_info(conference_name, venues, parser, errorQueueHome):
+def fetch_proceeding_info(conference_name, venues, parser, errorQueueHome=None):
     proceedings = []
     proceeding_xml_base_url = "https://dblp.org/rec/xml/"
     for venue in venues:
@@ -26,9 +26,12 @@ def fetch_proceeding_info(conference_name, venues, parser, errorQueueHome):
                 url = proceeding_xml_base_url + proceeding_id + ".xml"
                 log.debug("Fetching from proceeding url: {}".format(url))
                 proceeding = get_proceeding_info_from_url(conference_name, url, parser)
+                proceeding.parent_link = venue.dblp_link
                 proceedings.append(proceeding)
             except Exception as ex:
-                errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_PROCEEDING_INFO, url))
+                # TODO store conference name as well here
+                if errorQueueHome is not None:
+                    errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_PROCEEDING_INFO, url))
                 log.error("Parsing error for proceeding_id {} of conference {}. Error: {}".format(proceeding_id,
                                                                                                   conference_name, ex))
                 pass
