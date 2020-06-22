@@ -53,7 +53,7 @@ def get_research_papers_from_url(url):
 
 
 if __name__ == '__main__':
-    database = 'test_database'
+    database = 'test_database2'
     parser = VenueParser()
     venueHome = VenueHome(database)
     proceedingHome = ProceedingHome(database)
@@ -79,41 +79,41 @@ if __name__ == '__main__':
             log.error("Parsing error for venues of conference {}. Error: {}".format(conference.name, ex))
             pass
 
-        proceedings = proceedingHome.get_proceedings({"conference_name": conference.name})
-        for p in proceedings:
-            proceeding = Proceeding(**p)
-            log.info("Started processing for " + proceeding.title)
-
-            try:
-                base_url = "https://dblp.org/search/publ/api?q=toc:"
-                url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
-                url += ":&h=1000&format=json"
-
-                obj = get_research_papers_from_url(url)
-                total = int(obj['result']['hits']['@total'])
-                fetched = int(obj['result']['hits']['@sent'])
-                items_to_fetch_at_one_time = 1000
-
-                while fetched < total:
-                    if 'result' in obj and 'hits' in obj['result'] and 'hit' in obj['result']['hits']:
-                        result = obj['result']
-                        hits = result['hits']
-                        for research_paper in hits['hit']:
-                            # TODO decode html entities from the strings
-                            research_paper['_id'] = research_paper['info']['title']
-                            research_paper['proceeding_dblp_url'] = p['dblp_url']
-                            researchPaperHome.store_research_paper(research_paper)
-
-                    toFetch = items_to_fetch_at_one_time if total - fetched > items_to_fetch_at_one_time else total - fetched
-                    url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
-                    url += ":&h={}&f={}&format=json".format(toFetch, fetched)
-                    log.info("Additional research papers fetching from {}".format(url))
-                    obj = get_research_papers_from_url(url)
-                    fetched += toFetch
-
-            except Exception as ex:
-                errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url))
-                log.error("Parsing error for research papers of proceeding {}".format(proceeding.proceeding_key))
-                pass
-
-        conferenceHome.delete_conference({"_id": conference.id})
+        # proceedings = proceedingHome.get_proceedings({"conference_name": conference.name})
+        # for p in proceedings:
+        #     proceeding = Proceeding(**p)
+        #     log.info("Started processing for " + proceeding.title)
+        #
+        #     try:
+        #         base_url = "https://dblp.org/search/publ/api?q=toc:"
+        #         url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
+        #         url += ":&h=1000&format=json"
+        #
+        #         obj = get_research_papers_from_url(url)
+        #         total = int(obj['result']['hits']['@total'])
+        #         fetched = int(obj['result']['hits']['@sent'])
+        #         items_to_fetch_at_one_time = 1000
+        #
+        #         while fetched < total:
+        #             if 'result' in obj and 'hits' in obj['result'] and 'hit' in obj['result']['hits']:
+        #                 result = obj['result']
+        #                 hits = result['hits']
+        #                 for research_paper in hits['hit']:
+        #                     # TODO decode html entities from the strings
+        #                     research_paper['_id'] = research_paper['info']['title']
+        #                     research_paper['proceeding_dblp_url'] = p['dblp_url']
+        #                     researchPaperHome.store_research_paper(research_paper)
+        #
+        #             toFetch = items_to_fetch_at_one_time if total - fetched > items_to_fetch_at_one_time else total - fetched
+        #             url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
+        #             url += ":&h={}&f={}&format=json".format(toFetch, fetched)
+        #             log.info("Additional research papers fetching from {}".format(url))
+        #             obj = get_research_papers_from_url(url)
+        #             fetched += toFetch
+        #
+        #     except Exception as ex:
+        #         errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url))
+        #         log.error("Parsing error for research papers of proceeding {}".format(proceeding.proceeding_key))
+        #         pass
+        #
+        # conferenceHome.delete_conference({"_id": conference.id})

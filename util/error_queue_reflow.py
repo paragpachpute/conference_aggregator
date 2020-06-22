@@ -24,7 +24,8 @@ def reflow_venue_erros(error_queue_home, parser, venue_home):
         error_queue_home.delete_error_queue_item({"_id" : error.id})
 
 
-error_queue_home = ErrorQueueHome()
+database = 'test_database2'
+error_queue_home = ErrorQueueHome(database)
 parser = VenueParser()
-venue_home = VenueHome()
+venue_home = VenueHome(database)
 reflow_venue_erros(error_queue_home, parser, venue_home)

@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 
 from entity.proceeding import Proceeding
 from entity.venue import Venue
-from util.utils import verbose_print
 
 log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
@@ -16,25 +15,32 @@ class VenueParser:
     def parse(self, conference_name, document):
         log.info("Started Parsing for " + conference_name)
         soup = BeautifulSoup(document, features="html.parser")
-        h2s = soup.find_all('h2')
-        venues = self.get_venues(conference_name, h2s)
-        uls = soup.find_all("ul", {"class": "publ-list"})
-        self.populate_venue_proceeding_ids(venues, uls)
-        return venues
-
-    def get_venues(self, conference_name, h2s):
         venues = []
-        for h2 in h2s:
-            year = h2['id'] if 'id' in h2 else None
-            dblp_link = None
-            if h2.find('a'):
-                dblp_link = h2.a['href']
-            title = h2.text
-            location = h2.text.split(':')[1].strip() if ':' in h2.text else None
-            venues.append(Venue(title, location, year, dblp_link, conference_name))
+        h2 = soup.find("h2")
+        if h2 is not None:
+            venues.append(self.get_venue(conference_name, h2))
 
-        verbose_print('Fetched ' + str(len(venues)) + ' venues')
+            elem = h2.find_next(["h2", "li"])
+            while elem is not None:
+                if elem.name == "h2":
+                    venues.append(self.get_venue(conference_name, elem))
+                if elem.name == "li" and elem.get("class") == "entry editor toc".split():
+                    li = elem
+                    venues[len(venues)-1].proceedings.append(li["id"])
+                elem = elem.find_next(["h2", "li"])
+
+            log.info("Fetched {} venues for conference {}".format(len(venues), conference_name))
         return venues
+
+
+    def get_venue(self, conference_name, h2):
+        year = h2['id'] if 'id' in h2 else None
+        dblp_link = None
+        if h2.find('a'):
+            dblp_link = h2.a['href']
+        title = h2.text
+        location = h2.text.split(':')[1].strip() if ':' in h2.text else None
+        return Venue(title, location, year, dblp_link, conference_name)
 
     def getTextIfPresent(self, elem, tag):
         val = elem.find(tag)
@@ -42,16 +48,16 @@ class VenueParser:
             return val.text
         return None
 
-    def populate_venue_proceeding_ids(self, venues, uls):
-        for i in range(len(uls)):
-            ul = uls[i]
-            proceeding_ids = []
-            lis = ul.find_all('li', {"class": "entry editor toc"})
-            for li in lis:
-                proceeding_ids.append(li['id'])
-            venues[i].proceedings = proceeding_ids
-
-        verbose_print('Fetched proceeding ids for ' + str(len(uls)) + ' venues')
+    # def populate_venue_proceeding_ids(self, venues, uls):
+    #     for i in range(len(uls)):
+    #         ul = uls[i]
+    #         proceeding_ids = []
+    #         lis = ul.find_all('li', {"class": "entry editor toc"})
+    #         for li in lis:
+    #             proceeding_ids.append(li['id'])
+    #         venues[i].proceedings = proceeding_ids
+    #
+    #     verbose_print('Fetched proceeding ids for ' + str(len(uls)) + ' venues')
 
     def get_proceeding(self, conference_name, xml):
         root = ET.fromstring(xml)

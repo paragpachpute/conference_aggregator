@@ -1,0 +1,7 @@
+oopsla, https://dblp.org/db/conf/oopsla/
+popl, https://dblp.org/db/conf/popl/
+sigir, https://dblp.org/db/conf/sigir/
+avi, https://dblp.org/db/conf/avi/
+bpm, https://dblp.org/db/conf/bpm/
+cp, https://dblp.org/db/conf/cp/
+ipsen, https://dblp.org/db/conf/ipsen/

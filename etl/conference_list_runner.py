@@ -23,7 +23,7 @@ def get_conferences_list_from_url(url, parser):
 
 
 if __name__ == '__main__':
-    database = 'test_database'
+    database = 'test_database2'
     conferenceHome = ConferenceHome(database)
     errorQueueHome = ErrorQueueHome(database)
     parser = ConferenceListParser()
