@@ -12,10 +12,11 @@ logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 
 class VenueParser:
-    def parse(self, conference_name, document):
-        log.info("Started Parsing for " + conference_name)
+    def parse(self, document):
         soup = BeautifulSoup(document, features="html.parser")
         venues = []
+        conference_name = soup.find("h1").text
+        log.info("Started Parsing for " + conference_name)
         h2 = soup.find("h2")
         if h2 is not None:
             venues.append(self.get_venue(conference_name, h2))
@@ -30,7 +31,7 @@ class VenueParser:
                 elem = elem.find_next(["h2", "li"])
 
             log.info("Fetched {} venues for conference {}".format(len(venues), conference_name))
-        return venues
+        return conference_name, venues
 
 
     def get_venue(self, conference_name, h2):

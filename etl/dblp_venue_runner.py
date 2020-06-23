@@ -44,10 +44,10 @@ def get_proceeding_info_from_url(conference_name, url, parser):
     return proceeding
 
 
-def get_venues_from_url(url, conference_name, parser):
+def get_venues_from_url(url, parser):
     document = urllib.request.urlopen(url)
-    venues = parser.parse(conference_name, document.read())
-    return venues
+    conference_name, venues = parser.parse(document.read())
+    return conference_name, venues
 
 
 def get_research_papers_from_url(url):
@@ -67,22 +67,21 @@ if __name__ == '__main__':
     conferences = conferenceHome.get_conference()
     for c in conferences:
         conference = Conference(**c)
-        # TODO do not get conference name from here
-        log.info('Started processing: ' + conference.name)
+        log.info('Started processing: ' + conference.dblp_url)
 
         try:
-            venues = get_venues_from_url(conference.dblp_url, conference.name, parser)
-            log.debug("Fetched {} venues for conference {}".format(len(venues), conference.name))
+            conference_name, venues = get_venues_from_url(conference.dblp_url, parser)
+            log.debug("Fetched {} venues for conference {}".format(len(venues), conference_name))
             venueHome.store_many_venues(venues)
 
-            proceedings = fetch_proceeding_info(conference.name, venues, parser, errorQueueHome)
+            proceedings = fetch_proceeding_info(conference_name, venues, parser, errorQueueHome)
             proceedingHome.store_many_proceedings(proceedings)
         except Exception as ex:
             errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_VENUE, conference.dblp_url))
-            log.error("Parsing error for venues of conference {}. Error: {}".format(conference.name, ex))
+            log.error("Parsing error for venues of conference {}. Error: {}".format(conference_name, ex))
             pass
 
-        # proceedings = proceedingHome.get_proceedings({"conference_name": conference.name})
+        # proceedings = proceedingHome.get_proceedings({"conference_name": conference_name})
         # for p in proceedings:
         #     proceeding = Proceeding(**p)
         #     log.info("Started processing for " + proceeding.title)
@@ -119,4 +118,4 @@ if __name__ == '__main__':
         #         log.error("Parsing error for research papers of proceeding {}".format(proceeding.proceeding_key))
         #         pass
         #
-        # conferenceHome.delete_conference({"_id": conference.id})
+        conferenceHome.delete_conference({"_id": conference.id})
