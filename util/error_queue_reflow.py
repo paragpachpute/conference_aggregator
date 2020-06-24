@@ -21,7 +21,7 @@ def reflow_venue_erros(error_queue_home, parser, venue_home, proceeding_home):
     for e in errors:
         error = ErrorQueueItem(**e)
         log.info("Started re-flow for {}".format(error.url))
-        venues = get_venues_from_url(error.url, conference_name, parser)
+        conference_name, venues = get_venues_from_url(error.url, parser)
         # TODO ideally store should not be called here, it should be called from dblp_venue_runner.py itself
         venue_home.store_many_venues(venues)
         error_queue_home.delete_error_queue_item({"_id" : error.id})
@@ -31,7 +31,7 @@ def reflow_venue_erros(error_queue_home, parser, venue_home, proceeding_home):
 
 
 
-database = 'test_database2'
+database = 'test_database'
 error_queue_home = ErrorQueueHome(database)
 parser = VenueParser()
 venue_home = VenueHome(database)
