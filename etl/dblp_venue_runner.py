@@ -27,6 +27,7 @@ def fetch_proceeding_info(conference_name, venues, parser, errorQueueHome=None):
                 log.debug("Fetching from proceeding url: {}".format(url))
                 proceeding = get_proceeding_info_from_url(conference_name, url, parser)
                 proceeding.parent_link = venue.dblp_link
+                proceeding.location = venue.location
                 proceedings.append(proceeding)
             except Exception as ex:
                 # TODO store conference name as well here
