@@ -1,5 +1,5 @@
 from unittest import TestCase
-from .conference_home import ConferenceHome
+from database.conference_home import ConferenceHome
 from entity.conference import Conference
 
 class TestConferenceHome(TestCase):
@@ -20,4 +20,3 @@ class TestConferenceHome(TestCase):
 
         self.assertEqual(conference.name, conf.name, 'Conference name not matching')
         self.assertEqual(conference.dblp_url, conf.dblp_url, 'Conference dblp_url not matching')
-        self.assertEqual(conference.home_url, conf.home_url, 'Conference home_url` not matching')

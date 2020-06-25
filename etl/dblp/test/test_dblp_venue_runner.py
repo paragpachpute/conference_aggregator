@@ -6,7 +6,7 @@ from database.proceeding_home import ProceedingHome
 from database.venue_home import VenueHome
 from entity.proceeding import Proceeding
 from entity.venue import Venue
-from etl.dblp_venue_runner import fetch_proceeding_info
+from etl.dblp.dblp_venue_runner import fetch_proceeding_info
 from parser.dblp.venue_parser import VenueParser
 from database.research_paper_home import ResearchPaperHome
 
@@ -20,7 +20,7 @@ class TestDBLPVenueRunner(TestCase):
 
     def test_venue_parse_store(self):
         conference_name = 'aaai'
-        with open('./../parser/dblp/dblp_aaai.htm') as document:
+        with open('../../../parser/dblp/resources/dblp_aaai.htm') as document:
             venues = self.parser.parse(conference_name, document.read())
             self.venue_home.store_many_venues(venues)
 
@@ -30,7 +30,7 @@ class TestDBLPVenueRunner(TestCase):
 
     def test_proceeding_parse_store(self):
         conference_name = 'aaai'
-        with open('./../parser/dblp/proceeding.xml') as xml:
+        with open('../../../parser/dblp/resources/proceeding.xml') as xml:
             proceeding = self.parser.get_proceeding(conference_name, xml.read())
             self.proceeding_home.store_proceeding(proceeding)
 
@@ -41,14 +41,14 @@ class TestDBLPVenueRunner(TestCase):
     @unittest.skip("It makes external call")
     def test_fetch_proceeding_info(self):
         conference_name = 'aaai'
-        with open('./../parser/dblp/dblp_aaai.htm') as document:
+        with open('../../../parser/dblp/resources/dblp_aaai.htm') as document:
             venues = self.parser.parse(conference_name, document.read())
             self.venue_home.store_many_venues(venues)
             proceedings = fetch_proceeding_info(conference_name, venues, self.parser)
             self.assertEqual(113, len(proceedings))
 
     def test_paper_parse_store(self):
-        with open('./../parser/dblp/proceeding_papers.json') as json_file:
+        with open('../../../parser/dblp/resources/proceeding_papers.json') as json_file:
             obj = json.loads(json_file.read())
             if 'result' in obj and 'hits' in obj['result'] and 'hit' in obj['result']['hits']:
                 result = obj['result']

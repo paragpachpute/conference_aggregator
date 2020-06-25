@@ -1,5 +1,5 @@
 from unittest import TestCase
-from .venue_home import VenueHome
+from database.venue_home import VenueHome
 from entity.conference import Conference
 
 class TestVenueHome(TestCase):

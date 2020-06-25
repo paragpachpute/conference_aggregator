@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from .conference_list_parser import ConferenceListParser
+from parser.dblp.conference_list_parser import ConferenceListParser
 
 
 class TestVenueParser(TestCase):

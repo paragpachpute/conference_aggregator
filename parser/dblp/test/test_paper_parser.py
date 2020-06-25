@@ -6,6 +6,6 @@ class TestPaperParser(TestCase):
         self.paper_parser = PaperParser()
 
     def test_parse(self):
-        with open('proceeding_papers.json') as json_file:
+        with open('../resources/proceeding_papers.json') as json_file:
             papers = self.paper_parser.parse(json_file.read())
             self.assertEqual(25, len(papers['hit']))

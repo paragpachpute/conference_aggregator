@@ -1,6 +1,6 @@
 from unittest import TestCase
 from bs4 import BeautifulSoup
-from .venue_parser import VenueParser
+from parser.dblp.venue_parser import VenueParser
 
 class TestVenueParser(TestCase):
     def setUp(self) -> None:

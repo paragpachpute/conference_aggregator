@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from database.proceeding_home import ProceedingHome
 from entity.proceeding import Proceeding
-from etl.data_transformer import DataTransformer
+from etl.dblp.data_transformer import DataTransformer
 
 
 class TestDataTransformer(TestCase):
