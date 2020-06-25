@@ -4,10 +4,11 @@ class ErrorQueueItem:
     TYPE_RESEARCH_PAPERS = 'research_papers'
     TYPE_CONFERENCE_LIST = 'conference_list'
 
-    def __init__(self, type, url, _id=None):
+    def __init__(self, type, url, _id=None, proceeding_key=None):
         self.type = type
         self.url = url
         self._id = _id if _id is not None else url
+        self.proceeding_key = proceeding_key
 
     @property
     def id(self):

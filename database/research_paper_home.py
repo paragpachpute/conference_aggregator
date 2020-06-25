@@ -15,6 +15,8 @@ class ResearchPaperHome:
             self.store_research_paper(c)
 
     def store_research_paper(self, research_paper):
+        # criteria = {"_id": research_paper['info']['key']}
+        research_paper['_id'] = research_paper['info']['key']
         criteria = {"_id": research_paper['_id']}
         self.research_paper_collection.replace_one(criteria, research_paper, upsert=True)
 

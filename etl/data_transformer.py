@@ -58,6 +58,9 @@ class DataTransformer:
                 parent += "/" + proceeding.year  # => conf/nips/2017
                 occurrence_instance["parent"].append(parent)
 
+            if occurrence_instance["conference_date"] is None:
+                print("yo")
+
             self.total += 1
             return occurrence_instance, series_instance
 
@@ -80,15 +83,15 @@ class DataTransformer:
 
                     return date.strip()
 
-database_name = "test_database2"
+database_name = "test_database"
 transformer = DataTransformer()
 transformed_venue_home = TransformedVenueHome(database_name)
 proceeding_home = ProceedingHome(database_name)
 for p in proceeding_home.get_proceedings():
     proceeding = Proceeding(**p)
     occurrence, series = transformer.transform_proceeding(proceeding)
-    # transformed_venue_home.store_venue(occurrence)
-    # transformed_venue_home.store_venue(series)
+    transformed_venue_home.store_venue(occurrence)
+    transformed_venue_home.store_venue(series)
     if 'akbc' in occurrence['key']:
         print(json.dumps(occurrence, indent=2))
         print(json.dumps(series, indent=2))

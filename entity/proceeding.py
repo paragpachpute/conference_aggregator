@@ -5,7 +5,7 @@ from util.utils import auto_str
 class Proceeding:
     def __init__(self, title, booktitle=None, publisher=None, series=None, volume=None, year=None, isbn=None,
                  ee=None, dblp_url=None, proceeding_key=None, mdate=None, editors=None, conference_name=None,
-                 parent_link=None, location=None, _id=None):
+                 parent_link=None, location=None, research_papers=None, _id=None):
         self.title = title
         self.booktitle = booktitle
         self.publisher = publisher
@@ -21,4 +21,5 @@ class Proceeding:
         self.conference_name = conference_name
         self.parent_link = parent_link
         self.location = location
+        self.research_papers = [] if research_papers is None else research_papers
         self._id = _id if _id is not None else title
