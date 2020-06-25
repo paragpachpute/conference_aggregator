@@ -1,16 +1,10 @@
-import json
 import logging
 import os
 import urllib.request
 
 from database.conference_home import ConferenceHome
 from database.error_queue_home import ErrorQueueHome
-from database.proceeding_home import ProceedingHome
-from database.research_paper_home import ResearchPaperHome
-from database.venue_home import VenueHome
-from entity.conference import Conference
 from entity.error_queue_item import ErrorQueueItem
-from entity.proceeding import Proceeding
 from parser.dblp.conference_list_parser import ConferenceListParser
 
 log = logging.getLogger(os.path.basename(__file__))
@@ -23,7 +17,7 @@ def get_conferences_list_from_url(url, parser):
 
 
 if __name__ == '__main__':
-    database = 'test_database2'
+    database = 'dev'
     conferenceHome = ConferenceHome(database)
     errorQueueHome = ErrorQueueHome(database)
     parser = ConferenceListParser()
