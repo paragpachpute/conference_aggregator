@@ -19,45 +19,53 @@ class DataTransformer:
     def transform_proceeding(self, proceeding):
         try:
             if "workshop" in proceeding.title.lower():
-                invitation_type = 'workshop'
+                invitation_type = 'Workshop'
             else:
-                invitation_type = 'conference'
+                invitation_type = 'Conference'
 
             series_name = "/".join(proceeding.proceeding_key.split("/")[1:-1])
             venue_type = proceeding.proceeding_key.split("/")[0]
 
             occurrence_instance = {}
-            occurrence_instance["invitation_type"] = invitation_type + '_occurrence'
-            occurrence_instance["title"] = proceeding.title
-            occurrence_instance["location"] = proceeding.location
-            occurrence_instance["year"] = proceeding.year
-            occurrence_instance["parent"] = []
-            occurrence_instance["parent"].append("/".join(proceeding.proceeding_key.split("/")[:-1]))
-            occurrence_instance["program chairs"] = proceeding.editors
-            occurrence_instance["publisher"] = proceeding.publisher
-            occurrence_instance["external link"] = proceeding.ee
-            occurrence_instance["book"] = proceeding.booktitle
-            occurrence_instance["key"] = proceeding.proceeding_key
-            occurrence_instance["dblp_url"] = proceeding.dblp_url
-            occurrence_instance["conference_date"] = self.get_date_from_string(proceeding.title)
-            occurrence_instance["papers"] = proceeding.research_papers
-            occurrence_instance["_id"] = {"invitation_type": occurrence_instance["invitation_type"],
-                                          "key": occurrence_instance["key"]}
+            occurrence_instance["_id"] = self.get_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
+            occurrence_instance["invitations"] = "Venue/-/" + invitation_type + "/Occurrence"
+            occurrence_instance["readers"] = ["everyone"]
+            occurrence_instance["nonreaders"] = []
+            occurrence_instance["writers"] = ["Venue"]
+            occurrence_instance["content"] = {}
+
+            occurrence_instance["content"]["name"] = proceeding.title.split(",")[0]
+            occurrence_instance["content"]["location"] = proceeding.location
+            occurrence_instance["content"]["year"] = proceeding.year
+            occurrence_instance["content"]["parents"] = []
+            occurrence_instance["content"]["parents"].append(self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type)
+            occurrence_instance["content"]["program_chairs"] = proceeding.editors
+            occurrence_instance["content"]["publisher"] = proceeding.publisher
+            occurrence_instance["content"]["url"] = proceeding.ee
+            occurrence_instance["content"]["shortname"] = proceeding.booktitle
+            occurrence_instance["content"]["dblp_key"] = proceeding.proceeding_key
+            occurrence_instance["content"]["dblp_url"] = proceeding.dblp_url
+            occurrence_instance["content"]["conference_date"] = self.get_date_from_string(proceeding.title)
+
 
             series_instance = {}
-            series_instance["invitation_type"] = invitation_type + '_series'
-            series_instance["name"] = proceeding.conference_name
-            series_instance["key"] = "/".join(proceeding.proceeding_key.split("/")[:-1])
-            series_instance["short_name"] = series_name.upper()
-            series_instance["_id"] = {"invitation_type": series_instance["invitation_type"],
-                                      "key": series_instance["key"]}
+            series_instance["_id"] = self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
+
+            series_instance["invitations"] = "Venue/-/" + invitation_type + "/Series"
+            series_instance["readers"] = ["everyone"]
+            series_instance["nonreaders"] = []
+            series_instance["writers"] =  ["Venue"]
+            series_instance["content"] =  {}
+
+            series_instance["content"]["name"] = proceeding.conference_name
+            series_instance["content"]["short_name"] = series_name.upper()
 
             if proceeding.parent_link is not None and "https://dblp.org/db/" in proceeding.parent_link:
                 # Mapping 'https://dblp.org/db/conf/nips/index.html' => 'conf/nips/2017'
                 parent = proceeding.parent_link.split("https://dblp.org/db/")[1]  # => conf/nips/index.html
                 parent = "/".join(parent.split("/")[:-1])  # => conf/nips
                 parent += "/" + proceeding.year  # => conf/nips/2017
-                occurrence_instance["parent"].append(parent)
+                occurrence_instance["content"]["parents"].append(self.get_id_from_key(parent) + "/" + 'Conference')
 
             self.total += 1
             return occurrence_instance, series_instance
@@ -81,6 +89,24 @@ class DataTransformer:
 
                     return date.strip()
 
+    def get_id_from_key(self, key):
+        """
+        This function converts the DBLP key into OR specific id
+        example: conf/akbc/2019 => .AKBC/2019
+        :param key: String which should be converted
+        :return: converted _id field as per OR's conventions
+        """
+        return "." + "/".join(key.split("/")[1:]).upper()
+
+    def get_parent_id_from_key(self, key):
+        """
+        This function converts the DBLP key into OR specific id of the parent conference
+        example: conf/akbc/2019 => .AKBC
+        :param key: String which should be converted
+        :return: converted parent _id field as per OR's conventions
+        """
+        return "." + "/".join(key.split("/")[1:-1]).upper()
+
 database_name = "dev"
 transformer = DataTransformer()
 transformed_venue_home = TransformedVenueHome(database_name)
@@ -88,14 +114,14 @@ proceeding_home = ProceedingHome(database_name)
 for p in proceeding_home.get_proceedings():
     proceeding = Proceeding(**p)
     occurrence, series = transformer.transform_proceeding(proceeding)
-    transformed_venue_home.store_venue(occurrence)
-    transformed_venue_home.store_venue(series)
-    if 'akbc' in occurrence['key']:
+    # transformed_venue_home.store_venue(occurrence)
+    # transformed_venue_home.store_venue(series)
+    if 'akbc' in occurrence["content"]['dblp_key']:
         print(json.dumps(occurrence, indent=2))
         print(json.dumps(series, indent=2))
-    if 'hcomp' in occurrence['key']:
-        print(json.dumps(occurrence, indent=2))
-        print(json.dumps(series, indent=2))
+    # if 'hcomp' in occurrence['key']:
+    #     print(json.dumps(occurrence, indent=2))
+    #     print(json.dumps(series, indent=2))
 
 
 print("count", transformer.count)
