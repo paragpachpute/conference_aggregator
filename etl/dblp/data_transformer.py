@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import re
+import datetime
 
 from database.proceeding_home import ProceedingHome
 from database.transformed_venue_home import TransformedVenueHome
@@ -14,6 +15,9 @@ class DataTransformer:
     def __init__(self):
         self.count = 0
         self.total = 0
+        self.start_date_mismatch = 0
+        self.end_date_mismatch = 0
+        self.exceptions = 0
         self.months = ["January", "February", "March","April","May","June","July","August","September","October","November", "December"]
 
     def transform_proceeding(self, proceeding):
@@ -45,7 +49,12 @@ class DataTransformer:
             occurrence_instance["content"]["shortname"] = proceeding.booktitle
             occurrence_instance["content"]["dblp_key"] = proceeding.proceeding_key
             occurrence_instance["content"]["dblp_url"] = proceeding.dblp_url
-            occurrence_instance["content"]["conference_date"] = self.get_date_from_string(proceeding.title)
+            conf_date_str = self.get_date_from_string(proceeding.title, proceeding.year)
+            occurrence_instance["content"]["conference_date"] = conf_date_str
+            if conf_date_str is not None:
+                start, end = self.get_timestamps_from_date_string(conf_date_str)
+                occurrence_instance["content"]["start_date"] = start
+                occurrence_instance["content"]["end_date"] = end
 
 
             series_instance = {}
@@ -72,14 +81,18 @@ class DataTransformer:
 
         except Exception as e:
             self.count += 1
+            conf_date_str = self.get_date_from_string(proceeding.title, proceeding.year)
+            if conf_date_str is not None:
+                start, end = self.get_timestamps_from_date_string(conf_date_str)
+
             log.error(
                 "Failed while doing proceeding transformation for {} with error: {}".format(proceeding.proceeding_key,
                                                                                             e))
             return None, None
 
-    def get_date_from_string(self, string):
+    def get_date_from_string(self, title_string, year):
         for month in self.months:
-            tokens = string.split(",")
+            tokens = title_string.split(",")
             for t in range(len(tokens)):
                 if month in tokens[t]:
                     date = tokens[t]
@@ -87,6 +100,9 @@ class DataTransformer:
                         if re.search("[1-3][0-9]{3}", tokens[t + 1]) is not None:
                             date += "," + re.search("[1-3][0-9]{3}", tokens[t + 1]).group(0)
 
+                    if not re.match(".*([1-3][0-9]{3})", date):
+                        # year is not present in the date, add it manually
+                        date += "," + year
                     return date.strip()
 
     def get_id_from_key(self, key):
@@ -107,22 +123,69 @@ class DataTransformer:
         """
         return "." + "/".join(key.split("/")[1:-1]).upper()
 
+    def get_timestamps_from_date_string(self, date_str):
+        """
+        Given string of the form 'March 13-17,2010' get start and end timestamps
+        :param date_str: String representing the date range
+        :return: start and end timestamps
+        """
+
+        for i in range(len(self.months)):
+            if self.months[i] in date_str:
+                year = re.search("[1-3][0-9]{3}", date_str).group(0)
+                date_str = date_str.replace(year, '')
+                if '-' in date_str:
+                    if re.match(".*[1-9][0-9]?", date_str.split("-")[0]):
+                        start_day = re.findall("[1-9][0-9]?", date_str.split("-")[0])[-1]
+                    else:
+                        self.start_date_mismatch += 1
+                        start_day = 1
+                    if re.match(".*[1-9][0-9]?", date_str.split("-")[1]):
+                        end_day = re.findall("[1-9][0-9]?", date_str.split("-")[1])[0]
+                    else:
+                        self.end_date_mismatch +=1
+                        end_day = start_day
+                    start_timestamp = datetime.datetime(year=int(year), month=i+1, day=int(start_day))
+
+                    try:
+                        end_timestamp = datetime.datetime(year=int(year), month=i+1, day=int(end_day))
+                    except Exception as e:
+                        self.exceptions += 1
+                        end_timestamp = start_timestamp
+
+                    return start_timestamp, end_timestamp
+                else:
+                    if re.match("[1-9][0-9]?", date_str):
+                        start_day = re.findall("[1-9][0-9]?", date_str)[-1]
+                        start_timestamp = datetime.datetime(year=int(year), month=i+1, day=int(start_day))
+                    else:
+                        start_timestamp = datetime.datetime(year=int(year), month=i+1, day=1)
+                    return start_timestamp, start_timestamp
+
 database_name = "dev"
 transformer = DataTransformer()
 transformed_venue_home = TransformedVenueHome(database_name)
 proceeding_home = ProceedingHome(database_name)
+none_dates = 0
 for p in proceeding_home.get_proceedings():
     proceeding = Proceeding(**p)
     occurrence, series = transformer.transform_proceeding(proceeding)
-    # transformed_venue_home.store_venue(occurrence)
-    # transformed_venue_home.store_venue(series)
-    if 'akbc' in occurrence["content"]['dblp_key']:
-        print(json.dumps(occurrence, indent=2))
-        print(json.dumps(series, indent=2))
+    transformed_venue_home.store_venue(occurrence)
+    transformed_venue_home.store_venue(series)
+    if occurrence["content"]["conference_date"] is None:
+        none_dates += 1
+    else:
+        print(occurrence["content"]["conference_date"])
+    # if 'akbc' in occurrence["content"]['dblp_key']:
+    #     print(json.dumps(occurrence, indent=2))
+    #     print(json.dumps(series, indent=2))
     # if 'hcomp' in occurrence['key']:
     #     print(json.dumps(occurrence, indent=2))
     #     print(json.dumps(series, indent=2))
 
-
+print("none_dates", none_dates)
 print("count", transformer.count)
 print("total", transformer.total)
+print("start_date_mismatch", transformer.start_date_mismatch)
+print("end_date_mismatch", transformer.end_date_mismatch)
+print("exceptions", transformer.exceptions)
