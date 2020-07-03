@@ -1,8 +1,7 @@
-import json
+import datetime
 import logging
 import os
 import re
-import datetime
 
 from database.proceeding_home import ProceedingHome
 from database.transformed_venue_home import TransformedVenueHome
@@ -50,11 +49,12 @@ class DataTransformer:
             occurrence_instance["content"]["dblp_key"] = proceeding.proceeding_key
             occurrence_instance["content"]["dblp_url"] = proceeding.dblp_url
             conf_date_str = self.get_date_from_string(proceeding.title, proceeding.year)
-            occurrence_instance["content"]["conference_date"] = conf_date_str
+            start = None
+            end = None
             if conf_date_str is not None:
                 start, end = self.get_timestamps_from_date_string(conf_date_str)
-                occurrence_instance["content"]["start_date"] = start
-                occurrence_instance["content"]["end_date"] = end
+            occurrence_instance["content"]["start_date"] = start
+            occurrence_instance["content"]["end_date"] = end
 
 
             series_instance = {}
@@ -129,6 +129,8 @@ class DataTransformer:
         :param date_str: String representing the date range
         :return: start and end timestamps
         """
+        start_timestamp = None
+        end_timestamp = None
 
         for i in range(len(self.months)):
             if self.months[i] in date_str:
@@ -153,39 +155,47 @@ class DataTransformer:
                         self.exceptions += 1
                         end_timestamp = start_timestamp
 
-                    return start_timestamp, end_timestamp
                 else:
                     if re.match("[1-9][0-9]?", date_str):
                         start_day = re.findall("[1-9][0-9]?", date_str)[-1]
                         start_timestamp = datetime.datetime(year=int(year), month=i+1, day=int(start_day))
                     else:
                         start_timestamp = datetime.datetime(year=int(year), month=i+1, day=1)
-                    return start_timestamp, start_timestamp
+                    end_timestamp = start_timestamp
 
-database_name = "dev"
-transformer = DataTransformer()
-transformed_venue_home = TransformedVenueHome(database_name)
-proceeding_home = ProceedingHome(database_name)
-none_dates = 0
-for p in proceeding_home.get_proceedings():
-    proceeding = Proceeding(**p)
-    occurrence, series = transformer.transform_proceeding(proceeding)
-    transformed_venue_home.store_venue(occurrence)
-    transformed_venue_home.store_venue(series)
-    if occurrence["content"]["conference_date"] is None:
-        none_dates += 1
-    else:
-        print(occurrence["content"]["conference_date"])
-    # if 'akbc' in occurrence["content"]['dblp_key']:
-    #     print(json.dumps(occurrence, indent=2))
-    #     print(json.dumps(series, indent=2))
-    # if 'hcomp' in occurrence['key']:
-    #     print(json.dumps(occurrence, indent=2))
-    #     print(json.dumps(series, indent=2))
+                # if start_timestamp is not None and end_timestamp is not None:
+                #     start_timestamp = str(start_timestamp)
+                #     end_timestamp = str(end_timestamp)
+                #     return start_timestamp, end_timestamp
+                return start_timestamp, end_timestamp
 
-print("none_dates", none_dates)
-print("count", transformer.count)
-print("total", transformer.total)
-print("start_date_mismatch", transformer.start_date_mismatch)
-print("end_date_mismatch", transformer.end_date_mismatch)
-print("exceptions", transformer.exceptions)
+if __name__ == '__main__':
+    database_name = "dev"
+    transformer = DataTransformer()
+    transformed_venue_home = TransformedVenueHome(database_name)
+    proceeding_home = ProceedingHome(database_name)
+    none_dates = 0
+    for p in proceeding_home.get_proceedings():
+        proceeding = Proceeding(**p)
+        occurrence, series = transformer.transform_proceeding(proceeding)
+        transformed_venue_home.store_venue(occurrence)
+        transformed_venue_home.store_venue(series)
+        if occurrence["content"]["start_date"] is None:
+            none_dates += 1
+        else:
+            # print(occurrence["content"]["conference_date"])
+            pass
+
+        # if 'akbc' in occurrence["content"]['dblp_key']:
+        #     print(json.dumps(occurrence, indent=2))
+        #     print(json.dumps(series, indent=2))
+        # if 'hcomp' in occurrence['key']:
+        #     print(json.dumps(occurrence, indent=2))
+        #     print(json.dumps(series, indent=2))
+
+    print("none_dates", none_dates)
+    print("count", transformer.count)
+    print("total", transformer.total)
+    print("start_date_mismatch", transformer.start_date_mismatch)
+    print("end_date_mismatch", transformer.end_date_mismatch)
+    print("exceptions", transformer.exceptions)
