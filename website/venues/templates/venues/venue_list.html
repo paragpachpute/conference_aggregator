@@ -9,7 +9,7 @@
 {% if venues_list %}
     <ul>
     {% for venue in venues_list %}
-        <li><a href="{% url 'venue' venue.content.year %}">{{ venue.content.name }}</a></li>
+        <li><a href='{% url "venue" venue.id %}'>{{ venue.content.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

@@ -13,9 +13,11 @@ def index(request):
 def list_venues(request):
     # venues_list = [{'id':1},{'id':2},{'id':3}]
     venues = or_service.get_venue(invitations=['Venue/-/Conference/Occurrence'])
+    venues = [v for v in venues if 'id' in v and v['id'] is not None and v['id'] is not '']
     return render(request, 'venues/venue_list.html', {'venues_list': venues})
     # return HttpResponse("List of venues present in OR")
 
 
-def venue(request, venue_id):
-    return HttpResponse("Details of specific venue: " % venue_id)
+def venue(request, venue_id=None):
+    print(venue_id)
+    return HttpResponse(or_service.get_venue(id=venue_id))
