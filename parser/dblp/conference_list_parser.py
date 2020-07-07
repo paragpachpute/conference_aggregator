@@ -3,8 +3,6 @@ import os
 
 from bs4 import BeautifulSoup
 
-from entity.conference import Conference
-
 log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
@@ -16,7 +14,7 @@ class ConferenceListParser:
         list_content_div = soup.find("div", {"class": "hide-body"})
         confs = list_content_div.find_all("li")
         for conf in confs:
-            c = Conference(conf.text, conf.a['href'])
+            c = conf.a['href']
             conferences.append(c)
         log.debug("Retrieved {} conference links".format(len(conferences)))
         return conferences

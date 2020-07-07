@@ -5,11 +5,11 @@ import urllib.request
 from urllib.error import HTTPError
 
 from database.conference_home import ConferenceHome
+
 from database.error_queue_home import ErrorQueueHome
 from database.proceeding_home import ProceedingHome
 from database.research_paper_home import ResearchPaperHome
 from database.venue_home import VenueHome
-from entity.conference import Conference
 from entity.error_queue_item import ErrorQueueItem
 from entity.proceeding import Proceeding
 from parser.dblp.venue_parser import VenueParser
@@ -107,46 +107,49 @@ if __name__ == '__main__':
     errorQueueHome = ErrorQueueHome(database)
 
     # criteria = {"dblp_url": "https://dblp.org/db/conf/3dic/"}
-    conferences = conferenceHome.get_conference()
-    for c in conferences:
-        conference = Conference(**c)
-        log.info('Started processing: ' + conference.dblp_url)
-
-        try:
-            conference_name, venues = get_venues_from_url(conference.dblp_url, parser)
-            log.debug("Fetched {} venues for conference {}".format(len(venues), conference_name))
-            venueHome.store_many_venues(venues)
-
-            proceedings = fetch_proceeding_info(conference_name, venues, parser, errorQueueHome)
-            proceedingHome.store_many_proceedings(proceedings)
-        except Exception as ex:
-            errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_VENUE, conference.dblp_url))
-            log.error("Parsing error for venues of conference {}. Error: {}".format(conference_name, ex))
-            pass
-
-        proceedings = proceedingHome.get_proceedings({"conference_name": conference_name})
-        for p in proceedings:
-            proceeding = Proceeding(**p)
-            log.info("Started processing for " + proceeding.title)
+    # conferences = conferenceHome.get_conference()
+    with open("output/conference_list.txt", "r") as f:
+        venue_dblp_url = f.readline().strip()
+        while venue_dblp_url is not None:
+            # conference = Conference(**c)
+            log.info('Started processing: ' + venue_dblp_url)
 
             try:
-                base_url = "https://dblp.org/search/publ/api?q=toc:"
-                url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
-                url += ":&h=1000&format=json"
+                conference_name, venues = get_venues_from_url(venue_dblp_url, parser)
+                log.debug("Fetched {} venues for conference {}".format(len(venues), conference_name))
+                venueHome.store_many_venues(venues)
 
-                research_papers = get_research_papers_from_url(url, proceeding.proceeding_key)
-                researchPaperHome.store_many_research_papers(research_papers)
-                research_paper_keys = []
-                for paper in research_papers:
-                    research_paper_keys.append(paper['info']['key'])
-                proceeding.research_papers = research_paper_keys
-                proceedingHome.store_proceeding(proceeding)
-
+                proceedings = fetch_proceeding_info(conference_name, venues, parser, errorQueueHome)
+                proceedingHome.store_many_proceedings(proceedings)
             except Exception as ex:
-                errorQueueHome.store_error_queue_item(
-                    ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url, proceeding.proceeding_key))
-                log.error(
-                    "Parsing error for research papers of proceeding {}. Error {}".format(proceeding.proceeding_key,
-                                                                                          ex))
+                errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_VENUE, venue_dblp_url))
+                log.error("Parsing error for venues of conference {}. Error: {}".format(conference_name, ex))
+                pass
 
-        conferenceHome.delete_conference({"_id": conference.id})
+            proceedings = proceedingHome.get_proceedings({"conference_name": conference_name})
+            for p in proceedings:
+                proceeding = Proceeding(**p)
+                log.info("Started processing for " + proceeding.title)
+
+                try:
+                    base_url = "https://dblp.org/search/publ/api?q=toc:"
+                    url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
+                    url += ":&h=1000&format=json"
+
+                    research_papers = get_research_papers_from_url(url, proceeding.proceeding_key)
+                    researchPaperHome.store_many_research_papers(research_papers)
+                    research_paper_keys = []
+                    for paper in research_papers:
+                        research_paper_keys.append(paper['info']['key'])
+                    proceeding.research_papers = research_paper_keys
+                    proceedingHome.store_proceeding(proceeding)
+
+                except Exception as ex:
+                    errorQueueHome.store_error_queue_item(
+                        ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url, proceeding.proceeding_key))
+                    log.error(
+                        "Parsing error for research papers of proceeding {}. Error {}".format(proceeding.proceeding_key,
+                                                                                               ex))
+
+            venue_dblp_url = f.readline().strip()
+            # conferenceHome.delete_conference({"_id": conference.id})
