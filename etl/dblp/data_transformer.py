@@ -30,7 +30,7 @@ class DataTransformer:
             venue_type = proceeding.proceeding_key.split("/")[0]
 
             occurrence_instance = {}
-            occurrence_instance["_id"] = self.get_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
+            occurrence_instance["id"] = self.get_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
             occurrence_instance["invitations"] = "Venue/-/" + invitation_type + "/Occurrence"
             occurrence_instance["readers"] = ["everyone"]
             occurrence_instance["nonreaders"] = []
@@ -53,12 +53,15 @@ class DataTransformer:
             end = None
             if conf_date_str is not None:
                 start, end = self.get_timestamps_from_date_string(conf_date_str)
+                start = start.timestamp() * 1000
+                end = end.timestamp() * 1000
             occurrence_instance["content"]["start_date"] = start
             occurrence_instance["content"]["end_date"] = end
+            occurrence_instance["content"]["source"] = vars(proceeding)
 
 
             series_instance = {}
-            series_instance["_id"] = self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
+            series_instance["id"] = self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
 
             series_instance["invitations"] = "Venue/-/" + invitation_type + "/Series"
             series_instance["readers"] = ["everyone"]
