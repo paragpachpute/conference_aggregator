@@ -1,42 +1,40 @@
 import json
 import logging
-import os
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from logging import Formatter, StreamHandler
 from urllib.error import HTTPError
 
-from database.conference_home import ConferenceHome
+import openreview
 
-from database.error_queue_home import ErrorQueueHome
 from database.proceeding_home import ProceedingHome
 from database.research_paper_home import ResearchPaperHome
+from database.transformed_venue_home import TransformedVenueHome
 from database.venue_home import VenueHome
-from entity.error_queue_item import ErrorQueueItem
-from entity.proceeding import Proceeding
+from etl.dblp.data_transformer import DataTransformer
 from parser.dblp.venue_parser import VenueParser
 
-log = logging.getLogger(os.path.basename(__file__))
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+log = logging.getLogger()
+log.setLevel(logging.getLevelName('INFO'))
+
+log_formatter = Formatter("%(asctime)s [%(levelname)s] [%(threadName)s] %(message)s")
+console_handler = StreamHandler()
+console_handler.setFormatter(log_formatter)
+log.handlers[0].setFormatter(log_formatter)
 
 
-def fetch_proceeding_info(conference_name, venues, parser, errorQueueHome=None):
+def fetch_proceeding_info(conference_name, venues, parser):
     proceedings = []
     proceeding_xml_base_url = "https://dblp.org/rec/xml/"
     for venue in venues:
         for proceeding_id in venue.proceedings:
-            try:
-                url = proceeding_xml_base_url + proceeding_id + ".xml"
-                log.debug("Fetching from proceeding url: {}".format(url))
-                proceeding = get_proceeding_info_from_url(conference_name, url, parser)
-                proceeding.parent_link = venue.dblp_link
-                proceeding.location = venue.location
-                proceedings.append(proceeding)
-            except Exception as ex:
-                # TODO store conference name as well here
-                if errorQueueHome is not None:
-                    errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_PROCEEDING_INFO, url))
-                log.error("Parsing error for proceeding_id {} of conference {}. Error: {}".format(proceeding_id,
-                                                                                                  conference_name, ex))
-                pass
+            url = proceeding_xml_base_url + proceeding_id + ".xml"
+            log.debug("Fetching from proceeding url: {}".format(url))
+            proceeding = get_proceeding_info_from_url(conference_name, url, parser)
+            proceeding.parent_link = venue.dblp_link
+            proceeding.location = venue.location
+            proceedings.append(proceeding)
+
     return proceedings
 
 
@@ -72,14 +70,12 @@ def get_research_papers_from_url(url, proceeding_key):
                         result = obj['result']
                         hits = result['hits']
                         for research_paper in hits['hit']:
-                            # TODO decode html entities from the strings
                             research_paper['_id'] = research_paper['info']['title']
                             research_paper['proceeding_key'] = proceeding_key
                             research_papers.append(research_paper)
 
                         toFetch = items_to_fetch_at_one_time if total - fetched > items_to_fetch_at_one_time else total - fetched
-                        # base_url = "https://dblp.org/search/publ/api?q=toc:"
-                        # url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
+
                         if toFetch == 0:
                             break
                         new_url = url.split(".bht")[0]
@@ -97,59 +93,66 @@ def get_research_papers_from_url(url, proceeding_key):
             raise Exception(ex)
 
 
+def fetch_and_store_venue(venue_dblp_url, parser, client, venueHome, proceedingHome, transformed_venue_home,
+                          researchPaperHome):
+    log.info('Started processing: ' + venue_dblp_url)
+    try:
+        conference_name, venues = get_venues_from_url(venue_dblp_url, parser)
+        log.debug("Fetched {} venues for conference {}".format(len(venues), conference_name))
+        venueHome.store_many_venues(venues)
+
+        proceedings = fetch_proceeding_info(conference_name, venues, parser)
+        proceedingHome.store_many_proceedings(proceedings)
+
+        for proceeding in proceedings:
+            occurrence_instance, series_instance = data_transformer.transform_proceeding(proceeding)
+            transformed_venue_home.store_venue(occurrence_instance)
+            transformed_venue_home.store_venue(series_instance)
+            client.post_venue(occurrence_instance)
+            client.post_venue(series_instance)
+
+    except Exception as ex:
+        log.error("Parsing error for venues of conference {}. Error: {}".format(conference_name, ex))
+        with open("output/errors_venue_info.txt", "a") as error_file:
+            error_file.write(venue_dblp_url + "\n")
+        proceedings = []
+
+    for proceeding in proceedings:
+        log.info("Started processing for " + proceeding.title)
+
+        try:
+            base_url = "https://dblp.org/search/publ/api?q=toc:"
+            url = base_url + proceeding.dblp_url.split(".html")[0] + ".bht"
+            url += ":&h=1000&format=json"
+
+            research_papers = get_research_papers_from_url(url, proceeding.proceeding_key)
+            researchPaperHome.store_many_research_papers(research_papers)
+            # TODO make an API call to store the research paper
+
+        except Exception as ex:
+            log.error(
+                "Parsing error for research papers of proceeding {}. Error {}".format(proceeding.proceeding_key,
+                                                                                      ex))
+            with open("output/errors_research_paper.txt", "a") as error_file:
+                error_file.write(proceeding.proceeding_key + "\n")
+
+
 if __name__ == '__main__':
-    database = 'dev'
+    database = 'test_database'
     parser = VenueParser()
     venueHome = VenueHome(database)
     proceedingHome = ProceedingHome(database)
-    conferenceHome = ConferenceHome(database)
     researchPaperHome = ResearchPaperHome(database)
-    errorQueueHome = ErrorQueueHome(database)
+    data_transformer = DataTransformer()
+    transformed_venue_home = TransformedVenueHome(database)
+    client = openreview.Client(baseurl='https://dev.openreview.net', username='OpenReview.net',
+                               password='OpenReview_dev')
 
-    # criteria = {"dblp_url": "https://dblp.org/db/conf/3dic/"}
-    # conferences = conferenceHome.get_conference()
     with open("output/conference_list.txt", "r") as f:
-        venue_dblp_url = f.readline().strip()
-        while venue_dblp_url is not None:
-            # conference = Conference(**c)
-            log.info('Started processing: ' + venue_dblp_url)
-
-            try:
-                conference_name, venues = get_venues_from_url(venue_dblp_url, parser)
-                log.debug("Fetched {} venues for conference {}".format(len(venues), conference_name))
-                venueHome.store_many_venues(venues)
-
-                proceedings = fetch_proceeding_info(conference_name, venues, parser, errorQueueHome)
-                proceedingHome.store_many_proceedings(proceedings)
-            except Exception as ex:
-                errorQueueHome.store_error_queue_item(ErrorQueueItem(ErrorQueueItem.TYPE_VENUE, venue_dblp_url))
-                log.error("Parsing error for venues of conference {}. Error: {}".format(conference_name, ex))
-                pass
-
-            proceedings = proceedingHome.get_proceedings({"conference_name": conference_name})
-            for p in proceedings:
-                proceeding = Proceeding(**p)
-                log.info("Started processing for " + proceeding.title)
-
-                try:
-                    base_url = "https://dblp.org/search/publ/api?q=toc:"
-                    url = base_url + p['dblp_url'].split(".html")[0] + ".bht"
-                    url += ":&h=1000&format=json"
-
-                    research_papers = get_research_papers_from_url(url, proceeding.proceeding_key)
-                    researchPaperHome.store_many_research_papers(research_papers)
-                    research_paper_keys = []
-                    for paper in research_papers:
-                        research_paper_keys.append(paper['info']['key'])
-                    proceeding.research_papers = research_paper_keys
-                    proceedingHome.store_proceeding(proceeding)
-
-                except Exception as ex:
-                    errorQueueHome.store_error_queue_item(
-                        ErrorQueueItem(ErrorQueueItem.TYPE_RESEARCH_PAPERS, url, proceeding.proceeding_key))
-                    log.error(
-                        "Parsing error for research papers of proceeding {}. Error {}".format(proceeding.proceeding_key,
-                                                                                               ex))
-
+        with ThreadPoolExecutor(max_workers=5) as executor:
             venue_dblp_url = f.readline().strip()
-            # conferenceHome.delete_conference({"_id": conference.id})
+            while venue_dblp_url is not None:
+                executor.submit(fetch_and_store_venue, venue_dblp_url, parser, client, venueHome, proceedingHome,
+                                transformed_venue_home,
+                                researchPaperHome)
+                venue_dblp_url = f.readline().strip()
