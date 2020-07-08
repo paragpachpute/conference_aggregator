@@ -7,14 +7,14 @@ log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 
-class ConferenceListParser:
+class VenueListParser:
     def parse(self, document):
-        conferences = []
+        venue_list = []
         soup = BeautifulSoup(document, features="html.parser")
         list_content_div = soup.find("div", {"class": "hide-body"})
-        confs = list_content_div.find_all("li")
-        for conf in confs:
-            c = conf.a['href']
-            conferences.append(c)
-        log.debug("Retrieved {} conference links".format(len(conferences)))
-        return conferences
+        venues = list_content_div.find_all("li")
+        for conf in venues:
+            v = conf.a['href']
+            venue_list.append(v)
+        log.debug("Retrieved {} venues links".format(len(venue_list)))
+        return venue_list

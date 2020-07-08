@@ -12,6 +12,12 @@ logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 
 class VenueParser:
+    """
+    Naming convention:
+    venue: It represents a conference instance. ex: NIPS/2017
+    proceeding: It represents different events in that instance like workshops, conferences. ex: ViGIL, ML4H, etc.
+    """
+
     def parse(self, document):
         soup = BeautifulSoup(document, features="html.parser")
         venues = []
@@ -19,7 +25,7 @@ class VenueParser:
         h2 = soup.find("h2")
         if h2 is not None:
             venues.append(self.get_venue(conference_name, h2))
-
+            # Find next h2 or li element. h2 contains venue information while li contains proceedings information
             elem = h2.find_next(["h2", "li"])
             while elem is not None:
                 if elem.name == "h2":
@@ -63,5 +69,4 @@ class VenueParser:
         proceeding.ee = self.get_text_if_present(proceeding_tag, 'ee')
         proceeding.dblp_url = self.get_text_if_present(proceeding_tag, 'url')
         proceeding.conference_name = conference_name
-
         return proceeding
