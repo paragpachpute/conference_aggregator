@@ -1,0 +1,776 @@
+{
+"result":{
+"query":":facetid:stream:streams\"/\"journals\"/\"ij3dim",
+"status":{
+"@code":"200",
+"text":"OK"
+},
+"time":{
+"@unit":"msecs",
+"text":"131.75"
+},
+"completions":{
+"@total":"1",
+"@computed":"1",
+"@sent":"1",
+"c":{
+"@sc":"124",
+"@dc":"124",
+"@oc":"124",
+"@id":"16586181",
+"text":":facetid:stream:streams/journals/ij3dim"
+}
+},
+"hits":{
+"@total":"124",
+"@computed":"124",
+"@sent":"124",
+"@first":"0",
+"hit":[{
+"@score":"1",
+"@id":"589712",
+"info":{"authors":{"author":[{"@pid":"90/9766","text":"Sunitha Abburu"},{"@pid":"189/2466","text":"Suresh Babu Golla"}]},"title":"CityGML LOD1 Model Development and Disseminating Through Region Based OGC WFS Requests.","venue":"IJ3DIM","volume":"7","number":"3","pages":"1-24","year":"2018","type":"Journal Articles","key":"journals/ij3dim/AbburuG18","doi":"10.4018/IJ3DIM.2018070101","ee":"https://doi.org/10.4018/IJ3DIM.2018070101","url":"https://dblp.org/rec/journals/ij3dim/AbburuG18"},
+"url":"URL#589712"
+},
+{
+"@score":"1",
+"@id":"589713",
+"info":{"authors":{"author":[{"@pid":"81/7247","text":"Daniela Borissova"},{"@pid":"258/8662","text":"Zornitsa Agresimova Atanassova"}]},"title":"Multi-Criteria Decision Methodology for Supplier Selection in Building Industry.","venue":"IJ3DIM","volume":"7","number":"4","pages":"49-58","year":"2018","type":"Journal Articles","key":"journals/ij3dim/BorissovaA18","doi":"10.4018/IJ3DIM.2018100103","ee":"https://doi.org/10.4018/IJ3DIM.2018100103","url":"https://dblp.org/rec/journals/ij3dim/BorissovaA18"},
+"url":"URL#589713"
+},
+{
+"@score":"1",
+"@id":"589714",
+"info":{"authors":{"author":[{"@pid":"228/2329","text":"Angel Gigante-Barrera"},{"@pid":"228/1889","text":"Darshan Ruikar 0001"},{"@pid":"228/2277","text":"Soroosh Sharifi"},{"@pid":"126/9932","text":"Kirti Ruikar"}]},"title":"A Grounded Theory Based Framework for Level of Development Implementation Within the Information Delivery Manual.","venue":"IJ3DIM","volume":"7","number":"1","pages":"30-48","year":"2018","type":"Journal Articles","key":"journals/ij3dim/Gigante-Barrera18","doi":"10.4018/IJ3DIM.2018010103","ee":"https://doi.org/10.4018/IJ3DIM.2018010103","url":"https://dblp.org/rec/journals/ij3dim/Gigante-Barrera18"},
+"url":"URL#589714"
+},
+{
+"@score":"1",
+"@id":"589715",
+"info":{"authors":{"author":[{"@pid":"238/3812","text":"Fransje Lucretia Hooimeijer"},{"@pid":"238/3434","text":"Ignace van Campenhout"}]},"title":"Distributed Agency Between 2D and 3D Representation of the Subsurface.","venue":"IJ3DIM","volume":"7","number":"2","pages":"35-56","year":"2018","type":"Journal Articles","key":"journals/ij3dim/HooimeijerC18","doi":"10.4018/IJ3DIM.2018040102","ee":"https://doi.org/10.4018/IJ3DIM.2018040102","url":"https://dblp.org/rec/journals/ij3dim/HooimeijerC18"},
+"url":"URL#589715"
+},
+{
+"@score":"1",
+"@id":"589716",
+"info":{"authors":{"author":{"@pid":"238/3786","text":"Rehan Jamil"}},"title":"Digital Elevation Modeling Analysis for Investigation of Gravity Hill Phenomena.","venue":"IJ3DIM","volume":"7","number":"3","pages":"25-38","year":"2018","type":"Journal Articles","key":"journals/ij3dim/Jamil18","doi":"10.4018/IJ3DIM.2018070102","ee":"https://doi.org/10.4018/IJ3DIM.2018070102","url":"https://dblp.org/rec/journals/ij3dim/Jamil18"},
+"url":"URL#589716"
+},
+{
+"@score":"1",
+"@id":"589717",
+"info":{"authors":{"author":[{"@pid":"258/8919","text":"Mustafa Nabi Kocakaya"},{"@pid":"258/8593","text":"Osman Hürol Türkakin"},{"@pid":"258/8603","text":"Ömer Giran"}]},"title":"A Review of BIM Adoption in Turkey - Practitioners&apos; Viewpoint.","venue":"IJ3DIM","volume":"7","number":"4","pages":"59-68","year":"2018","type":"Journal Articles","key":"journals/ij3dim/KocakayaTG18","doi":"10.4018/IJ3DIM.2018100104","ee":"https://doi.org/10.4018/IJ3DIM.2018100104","url":"https://dblp.org/rec/journals/ij3dim/KocakayaTG18"},
+"url":"URL#589717"
+},
+{
+"@score":"1",
+"@id":"589718",
+"info":{"authors":{"author":[{"@pid":"02/7964","text":"Tatjana Kutzner"},{"@pid":"135/5420","text":"Ihab Hijazi"},{"@pid":"k/ThomasHKolbe","text":"Thomas H. Kolbe"}]},"title":"Semantic Modelling of 3D Multi-Utility Networks for Urban Analyses and Simulations - The CityGML Utility Network ADE.","venue":"IJ3DIM","volume":"7","number":"2","pages":"1-34","year":"2018","type":"Journal Articles","key":"journals/ij3dim/KutznerHK18","doi":"10.4018/IJ3DIM.2018040101","ee":"https://doi.org/10.4018/IJ3DIM.2018040101","url":"https://dblp.org/rec/journals/ij3dim/KutznerHK18"},
+"url":"URL#589718"
+},
+{
+"@score":"1",
+"@id":"589719",
+"info":{"authors":{"author":[{"@pid":"143/3046","text":"Mohamed M. Marzouk"},{"@pid":"228/2018","text":"Nada Elmansy"}]},"title":"Roadmapping BIM Implementation Processes Using IDEF0 Diagrams.","venue":"IJ3DIM","volume":"7","number":"1","pages":"49-63","year":"2018","type":"Journal Articles","key":"journals/ij3dim/MarzoukE18","doi":"10.4018/IJ3DIM.2018010104","ee":"https://doi.org/10.4018/IJ3DIM.2018010104","url":"https://dblp.org/rec/journals/ij3dim/MarzoukE18"},
+"url":"URL#589719"
+},
+{
+"@score":"1",
+"@id":"589720",
+"info":{"authors":{"author":[{"@pid":"143/3046","text":"Mohamed M. Marzouk"},{"@pid":"121/0177","text":"Mohamed Hisham"}]},"title":"Comparative Analysis of Bridges Construction Methods Using Bridge Information Modeling.","venue":"IJ3DIM","volume":"7","number":"3","pages":"39-53","year":"2018","type":"Journal Articles","key":"journals/ij3dim/MarzoukH18","doi":"10.4018/IJ3DIM.2018070103","ee":"https://doi.org/10.4018/IJ3DIM.2018070103","url":"https://dblp.org/rec/journals/ij3dim/MarzoukH18"},
+"url":"URL#589720"
+},
+{
+"@score":"1",
+"@id":"589721",
+"info":{"authors":{"author":[{"@pid":"126/9901","text":"Barry McAuley"},{"@pid":"126/9898","text":"Alan Hore"},{"@pid":"126/9635","text":"Roger West"}]},"title":"BIM Macro Adoption Study - Establishing Ireland&apos;s BIM Maturity and Managing Complex Change.","venue":"IJ3DIM","volume":"7","number":"1","pages":"1-14","year":"2018","type":"Journal Articles","key":"journals/ij3dim/McAuleyHW18","doi":"10.4018/IJ3DIM.2018010101","ee":"https://doi.org/10.4018/IJ3DIM.2018010101","url":"https://dblp.org/rec/journals/ij3dim/McAuleyHW18"},
+"url":"URL#589721"
+},
+{
+"@score":"1",
+"@id":"589722",
+"info":{"authors":{"author":[{"@pid":"258/8283","text":"Renas K. M. Sherko"},{"@pid":"24/6095","text":"Yusuf Arayici"},{"@pid":"95/3588","text":"Mike Kagioglou"}]},"title":"BIM Enabled Approach for Performance-Based Design - Process, Renewable Technology, Design Rules and Assessment.","venue":"IJ3DIM","volume":"7","number":"4","pages":"1-27","year":"2018","type":"Journal Articles","key":"journals/ij3dim/SherkoAK18","doi":"10.4018/IJ3DIM.2018100101","ee":"https://doi.org/10.4018/IJ3DIM.2018100101","url":"https://dblp.org/rec/journals/ij3dim/SherkoAK18"},
+"url":"URL#589722"
+},
+{
+"@score":"1",
+"@id":"589723",
+"info":{"authors":{"author":[{"@pid":"228/2330","text":"Manuel Silverio-Fernandez"},{"@pid":"210/0223","text":"Suresh Renukappa"},{"@pid":"210/0089","text":"Subashini Suresh"}]},"title":"Utilisation of Smart Devices in the Construction Industry - An Empirical Study in the Dominican Republic.","venue":"IJ3DIM","volume":"7","number":"1","pages":"15-29","year":"2018","type":"Journal Articles","key":"journals/ij3dim/Silverio-Fernandez18","doi":"10.4018/IJ3DIM.2018010102","ee":"https://doi.org/10.4018/IJ3DIM.2018010102","url":"https://dblp.org/rec/journals/ij3dim/Silverio-Fernandez18"},
+"url":"URL#589723"
+},
+{
+"@score":"1",
+"@id":"589724",
+"info":{"authors":{"author":[{"@pid":"258/9084","text":"Muath Surakji"},{"@pid":"258/8333","text":"Hani H. Al-dmour"},{"@pid":"258/8806","text":"Rand H. Al-Dmour"}]},"title":"The Effects of Adoption of 3D Printing Technology on the Operational Performance of the Companies of Cross Border Entrepreneurs - An Empirical Study.","venue":"IJ3DIM","volume":"7","number":"4","pages":"28-48","year":"2018","type":"Journal Articles","key":"journals/ij3dim/SurakjiAA18","doi":"10.4018/IJ3DIM.2018100102","ee":"https://doi.org/10.4018/IJ3DIM.2018100102","url":"https://dblp.org/rec/journals/ij3dim/SurakjiAA18"},
+"url":"URL#589724"
+},
+{
+"@score":"1",
+"@id":"589725",
+"info":{"authors":{"author":[{"@pid":"238/3403","text":"Paulo Guilherme Tabarro"},{"@pid":"34/6136","text":"Jacynthe Pouliot"},{"@pid":"238/3515","text":"Louis-Martin Losier"},{"@pid":"238/3924","text":"Richard Fortier"}]},"title":"Detection and Location of Buried Infrastructures Using Ground Penetrating Radar - A New Approach Based on GIS and Data Integration.","venue":"IJ3DIM","volume":"7","number":"2","pages":"57-77","year":"2018","type":"Journal Articles","key":"journals/ij3dim/TabarroPLF18","doi":"10.4018/IJ3DIM.2018040103","ee":"https://doi.org/10.4018/IJ3DIM.2018040103","url":"https://dblp.org/rec/journals/ij3dim/TabarroPLF18"},
+"url":"URL#589725"
+},
+{
+"@score":"1",
+"@id":"589726",
+"info":{"authors":{"author":{"@pid":"133/6650","text":"Allen Wan"}},"title":"Potential of Using BIM for Improving Hong Kong&apos;s Construction Industry.","venue":"IJ3DIM","volume":"7","number":"3","pages":"54-70","year":"2018","type":"Journal Articles","key":"journals/ij3dim/Wan18","doi":"10.4018/IJ3DIM.2018070104","ee":"https://doi.org/10.4018/IJ3DIM.2018070104","url":"https://dblp.org/rec/journals/ij3dim/Wan18"},
+"url":"URL#589726"
+},
+{
+"@score":"1",
+"@id":"939142",
+"info":{"authors":{"author":[{"@pid":"164/3290","text":"Nick Andrews"},{"@pid":"10/10312","text":"Shariful Shikder"},{"@pid":"23/1014","text":"Farzad Khosrowshahi"}]},"title":"Exploring BIM Preparedness Among National Health Service Facilities Management.","venue":"IJ3DIM","volume":"6","number":"2","pages":"36-56","year":"2017","type":"Journal Articles","key":"journals/ij3dim/AndrewsSK17","doi":"10.4018/IJ3DIM.2017040103","ee":"https://doi.org/10.4018/IJ3DIM.2017040103","url":"https://dblp.org/rec/journals/ij3dim/AndrewsSK17"},
+"url":"URL#939142"
+},
+{
+"@score":"1",
+"@id":"939143",
+"info":{"authors":{"author":[{"@pid":"228/2264","text":"Gaelle Le Bars"},{"@pid":"228/2147","text":"Ziad Hajar"}]},"title":"Requirement Management for the 3D Pavement Model Over the Lifecycle.","venue":"IJ3DIM","volume":"6","number":"3","pages":"57-70","year":"2017","type":"Journal Articles","key":"journals/ij3dim/BarsH17","doi":"10.4018/IJ3DIM.2017070105","ee":"https://doi.org/10.4018/IJ3DIM.2017070105","url":"https://dblp.org/rec/journals/ij3dim/BarsH17"},
+"url":"URL#939143"
+},
+{
+"@score":"1",
+"@id":"939144",
+"info":{"authors":{"author":{"@pid":"228/1956","text":"Pierre Benning"}},"title":"IFC for Infrastructure - New Concepts and Entities for Bridges.","venue":"IJ3DIM","volume":"6","number":"3","pages":"44-56","year":"2017","type":"Journal Articles","key":"journals/ij3dim/Benning17","doi":"10.4018/IJ3DIM.2017070104","ee":"https://doi.org/10.4018/IJ3DIM.2017070104","url":"https://dblp.org/rec/journals/ij3dim/Benning17"},
+"url":"URL#939144"
+},
+{
+"@score":"1",
+"@id":"939145",
+"info":{"authors":{"author":[{"@pid":"228/2370","text":"Adalberto Guerra Cabrera"},{"@pid":"228/2201","text":"Dimitrios Ntimos"},{"@pid":"228/1913","text":"Nick Purshouse"},{"@pid":"228/2355","text":"Shirley Gallagher"}]},"title":"IMPRESS BIM Methodology and Software Tools (iBIMm) for Façade Retrofitting Using Prefabricated Concrete Panels.","venue":"IJ3DIM","volume":"6","number":"4","pages":"57-84","year":"2017","type":"Journal Articles","key":"journals/ij3dim/CabreraNPG17","doi":"10.4018/IJ3DIM.2017100104","ee":"https://doi.org/10.4018/IJ3DIM.2017100104","url":"https://dblp.org/rec/journals/ij3dim/CabreraNPG17"},
+"url":"URL#939145"
+},
+{
+"@score":"1",
+"@id":"939146",
+"info":{"authors":{"author":[{"@pid":"228/2090","text":"Bertrand Cauvin"},{"@pid":"228/1956","text":"Pierre Benning"}]},"title":"Machine Learning - Definition of Elements and Concepts Dedicated to Bridges.","venue":"IJ3DIM","volume":"6","number":"3","pages":"1-16","year":"2017","type":"Journal Articles","key":"journals/ij3dim/CauvinB17","doi":"10.4018/IJ3DIM.2017070101","ee":"https://doi.org/10.4018/IJ3DIM.2017070101","url":"https://dblp.org/rec/journals/ij3dim/CauvinB17"},
+"url":"URL#939146"
+},
+{
+"@score":"1",
+"@id":"939147",
+"info":{"authors":{"author":[{"@pid":"91/6478","text":"Omar Doukari"},{"@pid":"210/0050","text":"Benoit Naudet"},{"@pid":"210/0165","text":"Régine Teulier"}]},"title":"Merging IFC-Based BIM Models - A New Paradigm and Co-Design Support Tool.","venue":"IJ3DIM","volume":"6","number":"1","pages":"51-64","year":"2017","type":"Journal Articles","key":"journals/ij3dim/DoukariNT17","doi":"10.4018/IJ3DIM.2017010104","ee":"https://doi.org/10.4018/IJ3DIM.2017010104","url":"https://dblp.org/rec/journals/ij3dim/DoukariNT17"},
+"url":"URL#939147"
+},
+{
+"@score":"1",
+"@id":"939148",
+"info":{"authors":{"author":[{"@pid":"67/6237","text":"David Greenwood"},{"@pid":"210/0150","text":"Lou Thai Jie"},{"@pid":"184/4022","text":"Kay Rogage"}]},"title":"An Investigation Into &apos;Lean-BIM&apos; Synergies in the UK Construction Industry.","venue":"IJ3DIM","volume":"6","number":"2","pages":"1-13","year":"2017","type":"Journal Articles","key":"journals/ij3dim/GreenwoodJR17","doi":"10.4018/IJ3DIM.2017040101","ee":"https://doi.org/10.4018/IJ3DIM.2017040101","url":"https://dblp.org/rec/journals/ij3dim/GreenwoodJR17"},
+"url":"URL#939148"
+},
+{
+"@score":"1",
+"@id":"939149",
+"info":{"authors":{"author":{"@pid":"210/0664","text":"Eilif Hjelseth"}},"title":"Building Information Modeling (BIM) in Higher Education Based on Pedagogical Concepts and Standardised Methods.","venue":"IJ3DIM","volume":"6","number":"1","pages":"35-50","year":"2017","type":"Journal Articles","key":"journals/ij3dim/Hjelseth17","doi":"10.4018/IJ3DIM.2017010103","ee":"https://doi.org/10.4018/IJ3DIM.2017010103","url":"https://dblp.org/rec/journals/ij3dim/Hjelseth17"},
+"url":"URL#939149"
+},
+{
+"@score":"1",
+"@id":"939150",
+"info":{"authors":{"author":[{"@pid":"126/9898","text":"Alan Hore"},{"@pid":"126/9901","text":"Barry McAuley"},{"@pid":"126/9635","text":"Roger West"}]},"title":"Establishing Lessons for Ireland&apos;s BIM Policy Through a Systematic Review of International BIM Programmes.","venue":"IJ3DIM","volume":"6","number":"4","pages":"1-15","year":"2017","type":"Journal Articles","key":"journals/ij3dim/HoreMW17","doi":"10.4018/IJ3DIM.2017100101","ee":"https://doi.org/10.4018/IJ3DIM.2017100101","url":"https://dblp.org/rec/journals/ij3dim/HoreMW17"},
+"url":"URL#939150"
+},
+{
+"@score":"1",
+"@id":"939151",
+"info":{"authors":{"author":[{"@pid":"228/2322","text":"Neil Hyland"},{"@pid":"202/4031","text":"Shawn E. O&apos;Keeffe"},{"@pid":"228/2301","text":"Shane Brodie"}]},"title":"Utilizing BCF and IFC for Automated Dimensional Compliance Control.","venue":"IJ3DIM","volume":"6","number":"4","pages":"16-36","year":"2017","type":"Journal Articles","key":"journals/ij3dim/HylandOB17","doi":"10.4018/IJ3DIM.2017100102","ee":"https://doi.org/10.4018/IJ3DIM.2017100102","url":"https://dblp.org/rec/journals/ij3dim/HylandOB17"},
+"url":"URL#939151"
+},
+{
+"@score":"1",
+"@id":"939152",
+"info":{"authors":{"author":[{"@pid":"132/2654","text":"José Luis Jurado"},{"@pid":"210/0394","text":"Oscar Liebana Carrasco"},{"@pid":"210/0591","text":"Jose Agullo de Rueda"}]},"title":"Implementation Framework for BIM Methodology in the Bachelor Degree of Architecture - A Case Study in a Spanish University.","venue":"IJ3DIM","volume":"6","number":"1","pages":"1-18","year":"2017","type":"Journal Articles","key":"journals/ij3dim/JuradoCR17","doi":"10.4018/IJ3DIM.2017010101","ee":"https://doi.org/10.4018/IJ3DIM.2017010101","url":"https://dblp.org/rec/journals/ij3dim/JuradoCR17"},
+"url":"URL#939152"
+},
+{
+"@score":"1",
+"@id":"939153",
+"info":{"authors":{"author":[{"@pid":"143/3046","text":"Mohammad Marzouk"},{"@pid":"210/0602","text":"Eslam Mohammed Abdelkader"}]},"title":"Minimizing Construction Emissions Using Building Information Modeling and Decision-Making Techniques.","venue":"IJ3DIM","volume":"6","number":"2","pages":"14-35","year":"2017","type":"Journal Articles","key":"journals/ij3dim/MarzoukA17","doi":"10.4018/IJ3DIM.2017040102","ee":"https://doi.org/10.4018/IJ3DIM.2017040102","url":"https://dblp.org/rec/journals/ij3dim/MarzoukA17"},
+"url":"URL#939153"
+},
+{
+"@score":"1",
+"@id":"939154",
+"info":{"authors":{"author":[{"@pid":"228/1887","text":"Frances Josephine Robertson"},{"@pid":"228/1877","text":"Ernest Muller"},{"@pid":"147/9320","text":"Gordon Chisholm"},{"@pid":"228/2236","text":"Geoff Olner"},{"@pid":"228/2290","text":"Liane Sharon Duxbury"}]},"title":"Trivarsity, Interdisciplinary BIModelling/Management (BIM) Workshop - An Action Research International Example.","venue":"IJ3DIM","volume":"6","number":"4","pages":"37-56","year":"2017","type":"Journal Articles","key":"journals/ij3dim/RobertsonMCOD17","doi":"10.4018/IJ3DIM.2017100103","ee":"https://doi.org/10.4018/IJ3DIM.2017100103","url":"https://dblp.org/rec/journals/ij3dim/RobertsonMCOD17"},
+"url":"URL#939154"
+},
+{
+"@score":"1",
+"@id":"939155",
+"info":{"authors":{"author":[{"@pid":"210/0523","text":"Ana Karina Silverio Rodriguez"},{"@pid":"210/0223","text":"Suresh Renukappa"},{"@pid":"86/6304","text":"David Heesom"},{"@pid":"233/3097","text":"Renukappa Suresh"}]},"title":"BIM Education Framework for Clients and Professionals of the Construction Industry.","venue":"IJ3DIM","volume":"6","number":"2","pages":"57-79","year":"2017","type":"Journal Articles","key":"journals/ij3dim/RodriguezSHS17","doi":"10.4018/IJ3DIM.2017040104","ee":"https://doi.org/10.4018/IJ3DIM.2017040104","url":"https://dblp.org/rec/journals/ij3dim/RodriguezSHS17"},
+"url":"URL#939155"
+},
+{
+"@score":"1",
+"@id":"939156",
+"info":{"authors":{"author":[{"@pid":"191/4911","text":"Aurélie Talon"},{"@pid":"228/2141","text":"Clémence Cauvin"},{"@pid":"23/8679","text":"Alaa Chateauneuf"}]},"title":"State of the Art of HBIM to Develop the HBIM of the HeritageCare Project.","venue":"IJ3DIM","volume":"6","number":"3","pages":"33-43","year":"2017","type":"Journal Articles","key":"journals/ij3dim/TalonCC17","doi":"10.4018/IJ3DIM.2017070103","ee":"https://doi.org/10.4018/IJ3DIM.2017070103","url":"https://dblp.org/rec/journals/ij3dim/TalonCC17"},
+"url":"URL#939156"
+},
+{
+"@score":"1",
+"@id":"939157",
+"info":{"authors":{"author":{"@pid":"228/2263","text":"Charles-Edouard Tolmer"}},"title":"Improving the Use of BIM Using System Engineering for Infrastructure Projects.","venue":"IJ3DIM","volume":"6","number":"3","pages":"17-32","year":"2017","type":"Journal Articles","key":"journals/ij3dim/Tolmer17","doi":"10.4018/IJ3DIM.2017070102","ee":"https://doi.org/10.4018/IJ3DIM.2017070102","url":"https://dblp.org/rec/journals/ij3dim/Tolmer17"},
+"url":"URL#939157"
+},
+{
+"@score":"1",
+"@id":"939158",
+"info":{"authors":{"author":[{"@pid":"188/0956","text":"Silvia Mastrolembo Ventura"},{"@pid":"188/1129","text":"Angelo Luigi Camillo Ciribini"}]},"title":"Client and User Involvement Through BIM-Related Technologies.","venue":"IJ3DIM","volume":"6","number":"1","pages":"19-34","year":"2017","type":"Journal Articles","key":"journals/ij3dim/VenturaC17","doi":"10.4018/IJ3DIM.2017010102","ee":"https://doi.org/10.4018/IJ3DIM.2017010102","url":"https://dblp.org/rec/journals/ij3dim/VenturaC17"},
+"url":"URL#939158"
+},
+{
+"@score":"1",
+"@id":"1261707",
+"info":{"authors":{"author":[{"@pid":"41/7134","text":"Cristiana Achille"},{"@pid":"192/8414","text":"Nora Lombardini"},{"@pid":"192/8381","text":"Cinzia Tommasi"}]},"title":"BIM and Cultural Heritage - Compatibility Tests in an Archaeological Site.","venue":"IJ3DIM","volume":"5","number":"1","pages":"29-44","year":"2016","type":"Journal Articles","key":"journals/ij3dim/AchilleLT16","doi":"10.4018/IJ3DIM.2016010103","ee":"https://doi.org/10.4018/IJ3DIM.2016010103","url":"https://dblp.org/rec/journals/ij3dim/AchilleLT16"},
+"url":"URL#1261707"
+},
+{
+"@score":"1",
+"@id":"1261708",
+"info":{"authors":{"author":[{"@pid":"192/8223","text":"Giulia Carbonari"},{"@pid":"192/8325","text":"Spyridon Stravoravdis"},{"@pid":"192/8167","text":"Christine Gausden"}]},"title":"Building Information Model for Existing Buildings for Facilities Management - RetroBIM Framework.","venue":"IJ3DIM","volume":"5","number":"1","pages":"1-15","year":"2016","type":"Journal Articles","key":"journals/ij3dim/CarbonariSG16","doi":"10.4018/IJ3DIM.2016010101","ee":"https://doi.org/10.4018/IJ3DIM.2016010101","url":"https://dblp.org/rec/journals/ij3dim/CarbonariSG16"},
+"url":"URL#1261708"
+},
+{
+"@score":"1",
+"@id":"1261709",
+"info":{"authors":{"author":[{"@pid":"192/8416","text":"David Comiskey"},{"@pid":"192/8391","text":"Mark McKane"},{"@pid":"192/8249","text":"Robert Eadie"},{"@pid":"g/DavidEGoldberg","text":"David E. Goldberg"}]},"title":"Providing Collaborative Education with an International Dimension - An Ulster University and Pennsylvania State University Case Study.","venue":"IJ3DIM","volume":"5","number":"2","pages":"1-15","year":"2016","type":"Journal Articles","key":"journals/ij3dim/ComiskeyMEG16","doi":"10.4018/IJ3DIM.2016040101","ee":"https://doi.org/10.4018/IJ3DIM.2016040101","url":"https://dblp.org/rec/journals/ij3dim/ComiskeyMEG16"},
+"url":"URL#1261709"
+},
+{
+"@score":"1",
+"@id":"1261710",
+"info":{"authors":{"author":[{"@pid":"192/8416","text":"David Comiskey"},{"@pid":"192/8391","text":"Mark McKane"},{"@pid":"192/8193","text":"Eóin O&apos;Shea"},{"@pid":"h/JohnHughes","text":"John Hughes"},{"@pid":"192/8204","text":"Sean McNiff"},{"@pid":"192/8249","text":"Robert Eadie"}]},"title":"Collaborative &amp; Multidiscipline Working - From Theory to Practice in 48 Hours - A Case Study from BIM Region Northern Ireland.","venue":"IJ3DIM","volume":"5","number":"2","pages":"55-71","year":"2016","type":"Journal Articles","key":"journals/ij3dim/ComiskeyMOHME16","doi":"10.4018/IJ3DIM.2016040104","ee":"https://doi.org/10.4018/IJ3DIM.2016040104","url":"https://dblp.org/rec/journals/ij3dim/ComiskeyMOHME16"},
+"url":"URL#1261710"
+},
+{
+"@score":"1",
+"@id":"1261711",
+"info":{"authors":{"author":[{"@pid":"61/4647","text":"Peter Demian"},{"@pid":"126/9932","text":"Kirti Ruikar"},{"@pid":"192/8296","text":"Tarun Sahu"},{"@pid":"78/4846","text":"Anne Morris"}]},"title":"Three-Dimensional Information Retrieval (3DIR) - Exploiting 3D Geometry and Model Topology in Information Retrieval from BIM Environments.","venue":"IJ3DIM","volume":"5","number":"1","pages":"67-78","year":"2016","type":"Journal Articles","key":"journals/ij3dim/DemianRSM16","doi":"10.4018/IJ3DIM.2016010105","ee":"https://doi.org/10.4018/IJ3DIM.2016010105","url":"https://dblp.org/rec/journals/ij3dim/DemianRSM16"},
+"url":"URL#1261711"
+},
+{
+"@score":"1",
+"@id":"1261712",
+"info":{"authors":{"author":[{"@pid":"144/4803","text":"Abdoulaye A. Diakité"},{"@pid":"51/6988","text":"Sisi Zlatanova"}]},"title":"Valid Space Description in BIM for 3D Indoor Navigation.","venue":"IJ3DIM","volume":"5","number":"3","pages":"1-17","year":"2016","type":"Journal Articles","key":"journals/ij3dim/DiakiteZ16","doi":"10.4018/IJ3DIM.2016070101","ee":"https://doi.org/10.4018/IJ3DIM.2016070101","url":"https://dblp.org/rec/journals/ij3dim/DiakiteZ16"},
+"url":"URL#1261712"
+},
+{
+"@score":"1",
+"@id":"1261713",
+"info":{"authors":{"author":[{"@pid":"192/8394","text":"Shadan Dwairi"},{"@pid":"138/5961","text":"Lamine Mahdjoubi"},{"@pid":"91/613","text":"Mohammed Odeh"},{"@pid":"192/8408","text":"Mario Kossmann"}]},"title":"Development of OntEIR Framework to Support BIM Clients in Construction.","venue":"IJ3DIM","volume":"5","number":"1","pages":"45-66","year":"2016","type":"Journal Articles","key":"journals/ij3dim/DwairiMOK16","doi":"10.4018/IJ3DIM.2016010104","ee":"https://doi.org/10.4018/IJ3DIM.2016010104","url":"https://dblp.org/rec/journals/ij3dim/DwairiMOK16"},
+"url":"URL#1261713"
+},
+{
+"@score":"1",
+"@id":"1261714",
+"info":{"authors":{"author":[{"@pid":"202/4383","text":"Rafika Hajji"},{"@pid":"30/3781","text":"Roland Billen"}]},"title":"Collaborative 3D Modeling - Conceptual and Technical Issues.","venue":"IJ3DIM","volume":"5","number":"3","pages":"47-67","year":"2016","type":"Journal Articles","key":"journals/ij3dim/HajjiB16","doi":"10.4018/IJ3DIM.2016070104","ee":"https://doi.org/10.4018/IJ3DIM.2016070104","url":"https://dblp.org/rec/journals/ij3dim/HajjiB16"},
+"url":"URL#1261714"
+},
+{
+"@score":"1",
+"@id":"1261715",
+"info":{"authors":{"author":[{"@pid":"202/4141","text":"Graham Hayne"},{"@pid":"00/1102","text":"Bimal Kumar"}]},"title":"BIM Capability Audit of Contracting-Based Organisations.","venue":"IJ3DIM","volume":"5","number":"4","pages":"12-24","year":"2016","type":"Journal Articles","key":"journals/ij3dim/HayneK16","doi":"10.4018/IJ3DIM.2016100102","ee":"https://doi.org/10.4018/IJ3DIM.2016100102","url":"https://dblp.org/rec/journals/ij3dim/HayneK16"},
+"url":"URL#1261715"
+},
+{
+"@score":"1",
+"@id":"1261716",
+"info":{"authors":{"author":[{"@pid":"202/4137","text":"Susan Keenliside"},{"@pid":"202/4075","text":"Megan Beange"}]},"title":"A Comparative Analysis of the Complexities of Building Information Model(ling) Guides to Support Standardization.","venue":"IJ3DIM","volume":"5","number":"3","pages":"18-30","year":"2016","type":"Journal Articles","key":"journals/ij3dim/KeenlisideB16","doi":"10.4018/IJ3DIM.2016070102","ee":"https://doi.org/10.4018/IJ3DIM.2016070102","url":"https://dblp.org/rec/journals/ij3dim/KeenlisideB16"},
+"url":"URL#1261716"
+},
+{
+"@score":"1",
+"@id":"1261717",
+"info":{"authors":{"author":[{"@pid":"10/48","text":"Mark Kelly"},{"@pid":"38/9601","text":"Mark Costello"},{"@pid":"192/8209","text":"Gerard Nicholson"},{"@pid":"97/463","text":"Jim O&apos;Connor"}]},"title":"A Collaborative Academia-Industry Approach to Developing a Higher Education Programme in Building Information Modelling.","venue":"IJ3DIM","volume":"5","number":"2","pages":"39-54","year":"2016","type":"Journal Articles","key":"journals/ij3dim/KellyCNO16","doi":"10.4018/IJ3DIM.2016040103","ee":"https://doi.org/10.4018/IJ3DIM.2016040103","url":"https://dblp.org/rec/journals/ij3dim/KellyCNO16"},
+"url":"URL#1261717"
+},
+{
+"@score":"1",
+"@id":"1261718",
+"info":{"authors":{"author":[{"@pid":"202/4118","text":"Marina Machado"},{"@pid":"60/4758","text":"Jason Underwood"},{"@pid":"50/10828","text":"Andrew Fleming"}]},"title":"Implementing BIM to Streamline a Design, Manufacture, and Fitting Workflow - A Case Study on A Fit-Out SME in the UK.","venue":"IJ3DIM","volume":"5","number":"3","pages":"31-46","year":"2016","type":"Journal Articles","key":"journals/ij3dim/MachadoUF16","doi":"10.4018/IJ3DIM.2016070103","ee":"https://doi.org/10.4018/IJ3DIM.2016070103","url":"https://dblp.org/rec/journals/ij3dim/MachadoUF16"},
+"url":"URL#1261718"
+},
+{
+"@score":"1",
+"@id":"1261719",
+"info":{"authors":{"author":{"@pid":"202/4031","text":"Shawn E. O&apos;Keeffe"}},"title":"OpenBIM Framework for a Collaborative Historic Preservation System.","venue":"IJ3DIM","volume":"5","number":"4","pages":"1-11","year":"2016","type":"Journal Articles","key":"journals/ij3dim/OKeeffe16","doi":"10.4018/IJ3DIM.2016100101","ee":"https://doi.org/10.4018/IJ3DIM.2016100101","url":"https://dblp.org/rec/journals/ij3dim/OKeeffe16"},
+"url":"URL#1261719"
+},
+{
+"@score":"1",
+"@id":"1261720",
+"info":{"authors":{"author":[{"@pid":"188/1096","text":"Daniela Pasini"},{"@pid":"188/1129","text":"Angelo Luigi Camillo Ciribini"},{"@pid":"202/4202","text":"Bruno Daniotti"}]},"title":"Managing Real-Time Information Within BIM-Based Processes for Assessing Building Behaviours in Operation.","venue":"IJ3DIM","volume":"5","number":"4","pages":"25-38","year":"2016","type":"Journal Articles","key":"journals/ij3dim/PasiniCD16","doi":"10.4018/IJ3DIM.2016100103","ee":"https://doi.org/10.4018/IJ3DIM.2016100103","url":"https://dblp.org/rec/journals/ij3dim/PasiniCD16"},
+"url":"URL#1261720"
+},
+{
+"@score":"1",
+"@id":"1261721",
+"info":{"authors":{"author":{"@pid":"48/9383","text":"Noha Saleeb"}},"title":"Impact of Fidelity in 3D Space Visualisation Across the Construction Asset Lifecycle.","venue":"IJ3DIM","volume":"5","number":"1","pages":"16-28","year":"2016","type":"Journal Articles","key":"journals/ij3dim/Saleeb16","doi":"10.4018/IJ3DIM.2016010102","ee":"https://doi.org/10.4018/IJ3DIM.2016010102","url":"https://dblp.org/rec/journals/ij3dim/Saleeb16"},
+"url":"URL#1261721"
+},
+{
+"@score":"1",
+"@id":"1261722",
+"info":{"authors":{"author":[{"@pid":"202/4219","text":"Raid Yahia Shrahily"},{"@pid":"99/1457","text":"Benachir Medjdoub"},{"@pid":"202/4117","text":"Hynda Aoun Klalib"},{"@pid":"202/4314","text":"Moulay Larbi Chalal"}]},"title":"Construction Site Communication Study Using the RAM Management System for BIM Adaptation.","venue":"IJ3DIM","volume":"5","number":"4","pages":"39-53","year":"2016","type":"Journal Articles","key":"journals/ij3dim/ShrahilyMKC16","doi":"10.4018/IJ3DIM.2016100104","ee":"https://doi.org/10.4018/IJ3DIM.2016100104","url":"https://dblp.org/rec/journals/ij3dim/ShrahilyMKC16"},
+"url":"URL#1261722"
+},
+{
+"@score":"1",
+"@id":"1261723",
+"info":{"authors":{"author":[{"@pid":"192/8436","text":"Algan Tezel"},{"@pid":"46/330","text":"Zeeshan Aziz"},{"@pid":"192/8387","text":"Chuxiong Jiang"}]},"title":"BIM based Design Management of a Building Project Collaboratively Designed with a Foreign Design Firm in China - A Case Study.","venue":"IJ3DIM","volume":"5","number":"2","pages":"16-38","year":"2016","type":"Journal Articles","key":"journals/ij3dim/TezelAJ16","doi":"10.4018/IJ3DIM.2016040102","ee":"https://doi.org/10.4018/IJ3DIM.2016040102","url":"https://dblp.org/rec/journals/ij3dim/TezelAJ16"},
+"url":"URL#1261723"
+},
+{
+"@score":"1",
+"@id":"1564603",
+"info":{"authors":{"author":[{"@pid":"176/3666","text":"Halil Akinci"},{"@pid":"176/3477","text":"Ayse Yavuz Özalp"},{"@pid":"52/7410","text":"Mehmet Özalp"},{"@pid":"176/3693","text":"Sebahat Temuçin Kiliçer"},{"@pid":"176/3199","text":"Cem Kiliçoglu"},{"@pid":"176/3604","text":"Emre Everan"}]},"title":"Production of Landslide Susceptibility Map using Bayesian Probability Model.","venue":"IJ3DIM","volume":"4","number":"2","pages":"16-33","year":"2015","type":"Journal Articles","key":"journals/ij3dim/AkinciOOKKE15","doi":"10.4018/IJ3DIM.2015040102","ee":"https://doi.org/10.4018/IJ3DIM.2015040102","url":"https://dblp.org/rec/journals/ij3dim/AkinciOOKKE15"},
+"url":"URL#1564603"
+},
+{
+"@score":"1",
+"@id":"1564604",
+"info":{"authors":{"author":[{"@pid":"30/3781","text":"Roland Billen"},{"@pid":"38/1447","text":"Anne-Françoise Cutting-Decelle"},{"@pid":"80/1564","text":"Claudine Métral"},{"@pid":"f/GillesFalquet","text":"Gilles Falquet"},{"@pid":"51/6988","text":"Sisi Zlatanova"},{"@pid":"176/3401","text":"Ognen Marina"}]},"title":"Challenges of Semantic 3D City Models - A Contribution of the COST Research Action TU0801.","venue":"IJ3DIM","volume":"4","number":"2","pages":"68-76","year":"2015","type":"Journal Articles","key":"journals/ij3dim/BillenCMFZM15","doi":"10.4018/IJ3DIM.2015040106","ee":"https://doi.org/10.4018/IJ3DIM.2015040106","url":"https://dblp.org/rec/journals/ij3dim/BillenCMFZM15"},
+"url":"URL#1564604"
+},
+{
+"@score":"1",
+"@id":"1564605",
+"info":{"authors":{"author":[{"@pid":"183/7807","text":"Marcel Bruse"},{"@pid":"183/7996","text":"Romain Nouvel"},{"@pid":"161/5007","text":"Parag Wate"},{"@pid":"183/8014","text":"Volker Kraut"},{"@pid":"50/4605","text":"Volker Coors"}]},"title":"An Energy-Related CityGML ADE and Its Application for Heating Demand Calculation.","venue":"IJ3DIM","volume":"4","number":"3","pages":"59-77","year":"2015","type":"Journal Articles","key":"journals/ij3dim/BruseNWKC15","doi":"10.4018/IJ3DIM.2015070104","ee":"https://doi.org/10.4018/IJ3DIM.2015070104","url":"https://dblp.org/rec/journals/ij3dim/BruseNWKC15"},
+"url":"URL#1564605"
+},
+{
+"@score":"1",
+"@id":"1564606",
+"info":{"authors":{"author":[{"@pid":"176/3601","text":"Hamdi Çinal"},{"@pid":"176/3559","text":"Seyma Taskan"},{"@pid":"176/3711","text":"Fulya Baybas"}]},"title":"Dynamic Disaster Coordination System with Web based Html5 API.","venue":"IJ3DIM","volume":"4","number":"2","pages":"1-15","year":"2015","type":"Journal Articles","key":"journals/ij3dim/CinalTB15","doi":"10.4018/IJ3DIM.2015040101","ee":"https://doi.org/10.4018/IJ3DIM.2015040101","url":"https://dblp.org/rec/journals/ij3dim/CinalTB15"},
+"url":"URL#1564606"
+},
+{
+"@score":"1",
+"@id":"1564607",
+"info":{"authors":{"author":[{"@pid":"163/0486","text":"Ton Damen"},{"@pid":"163/0569","text":"Rizal Sebastian"},{"@pid":"21/9368","text":"Matthew MacDonald"},{"@pid":"85/6919","text":"Danny Soetanto 0002"},{"@pid":"63/309","text":"Timo Hartmann"},{"@pid":"153/8074","text":"Roberto Di Giulio"},{"@pid":"163/0456","text":"Peter Bonsma"},{"@pid":"146/1470","text":"Klaus Luig"}]},"title":"The Application of BIM as Collaborative Design Technology for Collective Self-Organised Housing.","venue":"IJ3DIM","volume":"4","number":"1","pages":"1-18","year":"2015","type":"Journal Articles","key":"journals/ij3dim/DamenSMSHGBL15","doi":"10.4018/IJ3DIM.2015010101","ee":"https://doi.org/10.4018/IJ3DIM.2015010101","url":"https://dblp.org/rec/journals/ij3dim/DamenSMSHGBL15"},
+"url":"URL#1564607"
+},
+{
+"@score":"1",
+"@id":"1564608",
+"info":{"authors":{"author":[{"@pid":"183/7224","text":"Yichuan Deng"},{"@pid":"90/8627","text":"Jack C. P. Cheng"}]},"title":"Automatic Transformation of Different Levels of Detail in 3D GIS City Models in CityGML.","venue":"IJ3DIM","volume":"4","number":"3","pages":"1-21","year":"2015","type":"Journal Articles","key":"journals/ij3dim/DengC15","doi":"10.4018/IJ3DIM.2015070101","ee":"https://doi.org/10.4018/IJ3DIM.2015070101","url":"https://dblp.org/rec/journals/ij3dim/DengC15"},
+"url":"URL#1564608"
+},
+{
+"@score":"1",
+"@id":"1564609",
+"info":{"authors":{"author":[{"@pid":"183/7826","text":"Heikki Halttula"},{"@pid":"97/1475","text":"Harri Haapasalo"},{"@pid":"183/7795","text":"Maila Herva"}]},"title":"Barriers to Achieving the Benefits of BIM.","venue":"IJ3DIM","volume":"4","number":"4","pages":"16-33","year":"2015","type":"Journal Articles","key":"journals/ij3dim/HalttulaHH15","doi":"10.4018/IJ3DIM.2015100102","ee":"https://doi.org/10.4018/IJ3DIM.2015100102","url":"https://dblp.org/rec/journals/ij3dim/HalttulaHH15"},
+"url":"URL#1564609"
+},
+{
+"@score":"1",
+"@id":"1564610",
+"info":{"authors":{"author":[{"@pid":"40/237","text":"Liangxiu Han"},{"@pid":"163/0603","text":"Hasim Altan"},{"@pid":"163/0530","text":"Masa Noguchi"}]},"title":"A Feasibility Study on Occupants&apos; Behaviour and Energy Usage Patterns and Its Potential Integration with Building Information Modelling.","venue":"IJ3DIM","volume":"4","number":"1","pages":"45-53","year":"2015","type":"Journal Articles","key":"journals/ij3dim/HanAN15","doi":"10.4018/IJ3DIM.2015010103","ee":"https://doi.org/10.4018/IJ3DIM.2015010103","url":"https://dblp.org/rec/journals/ij3dim/HanAN15"},
+"url":"URL#1564610"
+},
+{
+"@score":"1",
+"@id":"1564611",
+"info":{"authors":{"author":{"@pid":"84/5530","text":"Amir Saeed Homainejad"}},"title":"New Approach for Object Detection and Extraction from Digital Images for Providing a 3D Model Applicable in 3D GIS.","venue":"IJ3DIM","volume":"4","number":"3","pages":"34-58","year":"2015","type":"Journal Articles","key":"journals/ij3dim/Homainejad15","doi":"10.4018/IJ3DIM.2015070103","ee":"https://doi.org/10.4018/IJ3DIM.2015070103","url":"https://dblp.org/rec/journals/ij3dim/Homainejad15"},
+"url":"URL#1564611"
+},
+{
+"@score":"1",
+"@id":"1564612",
+"info":{"authors":{"author":[{"@pid":"96/9898","text":"Mathieu Koehl"},{"@pid":"183/7546","text":"Anthony Viale"},{"@pid":"183/7571","text":"Sophie Reeb"}]},"title":"A Historical Timber Frame Model for Diagnosis and Documentation before Building Restoration.","venue":"IJ3DIM","volume":"4","number":"4","pages":"34-63","year":"2015","type":"Journal Articles","key":"journals/ij3dim/KoehlVR15","doi":"10.4018/IJ3DIM.2015100103","ee":"https://doi.org/10.4018/IJ3DIM.2015100103","url":"https://dblp.org/rec/journals/ij3dim/KoehlVR15"},
+"url":"URL#1564612"
+},
+{
+"@score":"1",
+"@id":"1564613",
+"info":{"authors":{"author":[{"@pid":"183/7890","text":"Mehmet Ozcelik"},{"@pid":"183/7853","text":"Sevnur Yeniceli"}]},"title":"Importance of 3D Visualization for Land Use Planning, Construction and Management of the Karsıyaka Settlement Area (Izmir-Turkey).","venue":"IJ3DIM","volume":"4","number":"3","pages":"22-33","year":"2015","type":"Journal Articles","key":"journals/ij3dim/OzcelikY15","doi":"10.4018/IJ3DIM.2015070102","ee":"https://doi.org/10.4018/IJ3DIM.2015070102","url":"https://dblp.org/rec/journals/ij3dim/OzcelikY15"},
+"url":"URL#1564613"
+},
+{
+"@score":"1",
+"@id":"1564614",
+"info":{"authors":{"author":[{"@pid":"176/3068","text":"Tuncer Ozerbil"},{"@pid":"176/3127","text":"Ergun Gokten"},{"@pid":"176/3530","text":"Mustafa Onder"},{"@pid":"176/3607","text":"Osman Selcuk"},{"@pid":"176/3113","text":"Nilhan Ciftci Sarilar"},{"@pid":"176/3314","text":"Ayhan Tekgul"},{"@pid":"34/6718","text":"Erdal Yilmaz"},{"@pid":"176/3540","text":"Alpaslan Tutuneken"}]},"title":"Oblique Aerial Image Acquisition, 3D City Modeling, 3D City Guide Project for Konya Metropolitan Municipality.","venue":"IJ3DIM","volume":"4","number":"2","pages":"34-47","year":"2015","type":"Journal Articles","key":"journals/ij3dim/OzerbilGOSSTYT15","doi":"10.4018/IJ3DIM.2015040103","ee":"https://doi.org/10.4018/IJ3DIM.2015040103","url":"https://dblp.org/rec/journals/ij3dim/OzerbilGOSSTYT15"},
+"url":"URL#1564614"
+},
+{
+"@score":"1",
+"@id":"1564615",
+"info":{"authors":{"author":[{"@pid":"163/0533","text":"Panagiotis Patlakas"},{"@pid":"163/0649","text":"Jesus Menendez"},{"@pid":"163/0642","text":"Robert Hairstans"}]},"title":"The Potential, Requirements, and Limitations of BIM for Offsite Timber Construction.","venue":"IJ3DIM","volume":"4","number":"1","pages":"54-70","year":"2015","type":"Journal Articles","key":"journals/ij3dim/PatlakasMH15","doi":"10.4018/IJ3DIM.2015010104","ee":"https://doi.org/10.4018/IJ3DIM.2015010104","url":"https://dblp.org/rec/journals/ij3dim/PatlakasMH15"},
+"url":"URL#1564615"
+},
+{
+"@score":"1",
+"@id":"1564616",
+"info":{"authors":{"author":[{"@pid":"75/8045","text":"Norbert Paul"},{"@pid":"36/4533","text":"Patrick Erik Bradley"}]},"title":"Integrating Space, Time, Version, and Scale using Alexandrov Topologies.","venue":"IJ3DIM","volume":"4","number":"4","pages":"64-85","year":"2015","type":"Journal Articles","key":"journals/ij3dim/PaulB15","doi":"10.4018/IJ3DIM.2015100104","ee":"https://doi.org/10.4018/IJ3DIM.2015100104","url":"https://dblp.org/rec/journals/ij3dim/PaulB15"},
+"url":"URL#1564616"
+},
+{
+"@score":"1",
+"@id":"1564617",
+"info":{"authors":{"author":{"@pid":"163/0564","text":"Ajiero Ikenna Reginald"}},"title":"Integrating BIM with BMS in Energy Performance Assessment - Case Study of a University Building in UK.","venue":"IJ3DIM","volume":"4","number":"1","pages":"19-44","year":"2015","type":"Journal Articles","key":"journals/ij3dim/Reginald15","doi":"10.4018/IJ3DIM.2015010102","ee":"https://doi.org/10.4018/IJ3DIM.2015010102","url":"https://dblp.org/rec/journals/ij3dim/Reginald15"},
+"url":"URL#1564617"
+},
+{
+"@score":"1",
+"@id":"1564618",
+"info":{"authors":{"author":[{"@pid":"176/3080","text":"Cihan Uysal"},{"@pid":"143/9628","text":"Derya Maktav"}]},"title":"Detection of Urban Expansion by using DMSP-OLS, Landsat Data and Linear Spectral Unmixing Method.","venue":"IJ3DIM","volume":"4","number":"2","pages":"58-67","year":"2015","type":"Journal Articles","key":"journals/ij3dim/UysalM15","doi":"10.4018/IJ3DIM.2015040105","ee":"https://doi.org/10.4018/IJ3DIM.2015040105","url":"https://dblp.org/rec/journals/ij3dim/UysalM15"},
+"url":"URL#1564618"
+},
+{
+"@score":"1",
+"@id":"1564619",
+"info":{"authors":{"author":[{"@pid":"176/3641","text":"Naci Yastikli"},{"@pid":"176/3157","text":"Zehra Erisir"},{"@pid":"176/3311","text":"Pelin Altintas"},{"@pid":"176/3437","text":"Tugba Cak"}]},"title":"The Use of the Terrestrial Photogrammetry in Reverse Engineering Applications.","venue":"IJ3DIM","volume":"4","number":"2","pages":"48-57","year":"2015","type":"Journal Articles","key":"journals/ij3dim/YastikliEAC15","doi":"10.4018/IJ3DIM.2015040104","ee":"https://doi.org/10.4018/IJ3DIM.2015040104","url":"https://dblp.org/rec/journals/ij3dim/YastikliEAC15"},
+"url":"URL#1564619"
+},
+{
+"@score":"1",
+"@id":"1564620",
+"info":{"authors":{"author":[{"@pid":"183/7474","text":"Ali Zare Zardiny"},{"@pid":"21/1813","text":"Farshad Hakimpour"}]},"title":"3D Web Services for Visualization and Data Sharing in 3D Cadastre.","venue":"IJ3DIM","volume":"4","number":"4","pages":"1-15","year":"2015","type":"Journal Articles","key":"journals/ij3dim/ZardinyH15","doi":"10.4018/IJ3DIM.2015100101","ee":"https://doi.org/10.4018/IJ3DIM.2015100101","url":"https://dblp.org/rec/journals/ij3dim/ZardinyH15"},
+"url":"URL#1564620"
+},
+{
+"@score":"1",
+"@id":"1857443",
+"info":{"authors":{"author":[{"@pid":"47/2968","text":"F. Henry Abanda"},{"@pid":"14/8535","text":"Marcelline Blanche Manjia"},{"@pid":"44/6827","text":"Chrispin Pettang"},{"@pid":"36/9547","text":"Joseph H. M. Tah"},{"@pid":"163/0515","text":"G. E. Nkeng"}]},"title":"Building Information Modelling in Cameroon - Overcoming Existing Challenges.","venue":"IJ3DIM","volume":"3","number":"4","pages":"1-25","year":"2014","type":"Journal Articles","key":"journals/ij3dim/AbandaMPTN14","doi":"10.4018/IJ3DIM.2014100101","ee":"https://doi.org/10.4018/ij3dim.2014100101","url":"https://dblp.org/rec/journals/ij3dim/AbandaMPTN14"},
+"url":"URL#1857443"
+},
+{
+"@score":"1",
+"@id":"1857444",
+"info":{"authors":{"author":[{"@pid":"24/6095","text":"Yusuf Arayici"},{"@pid":"147/9308","text":"Zafer Ozturk"}]},"title":"Knowledge Intensive Regeneration versus Sustainable Communities.","venue":"IJ3DIM","volume":"3","number":"1","pages":"1-15","year":"2014","type":"Journal Articles","key":"journals/ij3dim/ArayiciO14","doi":"10.4018/IJ3DIM.2014010101","ee":"https://doi.org/10.4018/ij3dim.2014010101","url":"https://dblp.org/rec/journals/ij3dim/ArayiciO14"},
+"url":"URL#1857444"
+},
+{
+"@score":"1",
+"@id":"1857445",
+"info":{"authors":{"author":[{"@pid":"163/0500","text":"Jean-Marie Bahu"},{"@pid":"84/1948-7","text":"Andreas Koch 0007"},{"@pid":"07/8783","text":"Enrique Kremers"},{"@pid":"163/0684","text":"Syed Monjur Murshed"}]},"title":"Towards a 3D Spatial Urban Energy Modelling Approach.","venue":"IJ3DIM","volume":"3","number":"3","pages":"1-16","year":"2014","type":"Journal Articles","key":"journals/ij3dim/BahuKKM14","doi":"10.4018/IJ3DIM.2014070101","ee":"https://doi.org/10.4018/ij3dim.2014070101","url":"https://dblp.org/rec/journals/ij3dim/BahuKKM14"},
+"url":"URL#1857445"
+},
+{
+"@score":"1",
+"@id":"1857446",
+"info":{"authors":{"author":[{"@pid":"42/7344","text":"Maria Antonia Brovelli"},{"@pid":"48/11327","text":"Marco Minghini"},{"@pid":"143/4032","text":"Giorgio Zamboni"}]},"title":"Three Dimensional Volunteered Geographic Information - A Prototype of a Social Virtual Globe.","venue":"IJ3DIM","volume":"3","number":"2","pages":"19-34","year":"2014","type":"Journal Articles","key":"journals/ij3dim/BrovelliMZ14","doi":"10.4018/IJ3DIM.2014040102","ee":"https://doi.org/10.4018/ij3dim.2014040102","url":"https://dblp.org/rec/journals/ij3dim/BrovelliMZ14"},
+"url":"URL#1857446"
+},
+{
+"@score":"1",
+"@id":"1857447",
+"info":{"authors":{"author":[{"@pid":"147/9319","text":"John Deeney"},{"@pid":"126/9898","text":"Alan Hore"},{"@pid":"126/9901","text":"Barry McAuley"}]},"title":"Public/Private BIM - An Irish Perspective.","venue":"IJ3DIM","volume":"3","number":"1","pages":"16-28","year":"2014","type":"Journal Articles","key":"journals/ij3dim/DeeneyHM14","doi":"10.4018/IJ3DIM.2014010102","ee":"https://doi.org/10.4018/ij3dim.2014010102","url":"https://dblp.org/rec/journals/ij3dim/DeeneyHM14"},
+"url":"URL#1857447"
+},
+{
+"@score":"1",
+"@id":"1857448",
+"info":{"authors":{"author":{"@pid":"163/0623","text":"Arman Hashemi"}},"title":"Mitigating the Risks of Offsite Manufacturing through the Application of BIM.","venue":"IJ3DIM","volume":"3","number":"4","pages":"26-35","year":"2014","type":"Journal Articles","key":"journals/ij3dim/Hashemi14","doi":"10.4018/IJ3DIM.2014100102","ee":"https://doi.org/10.4018/ij3dim.2014100102","url":"https://dblp.org/rec/journals/ij3dim/Hashemi14"},
+"url":"URL#1857448"
+},
+{
+"@score":"1",
+"@id":"1857449",
+"info":{"authors":{"author":[{"@pid":"156/7702","text":"Mostafa Refat A. Ismail"},{"@pid":"156/7691","text":"Hazem Eldaly"}]},"title":"Acoustics Oribotics - The Sonic impact of Heterogeneous Parigamic shapes.","venue":"IJ3DIM","volume":"3","number":"2","pages":"54-68","year":"2014","type":"Journal Articles","key":"journals/ij3dim/IsmailE14","doi":"10.4018/IJ3DIM.2014040104","ee":"https://doi.org/10.4018/ij3dim.2014040104","url":"https://dblp.org/rec/journals/ij3dim/IsmailE14"},
+"url":"URL#1857449"
+},
+{
+"@score":"1",
+"@id":"1857450",
+"info":{"authors":{"author":[{"@pid":"163/0626","text":"Ahmad Jrade"},{"@pid":"163/0655","text":"Farzad Jalaei"}]},"title":"Using Building Information Modeling to Evaluate the Costs and Benefits of Adopting Sustainable Universal Houses in Canada.","venue":"IJ3DIM","volume":"3","number":"4","pages":"56-76","year":"2014","type":"Journal Articles","key":"journals/ij3dim/JradeJ14","doi":"10.4018/IJ3DIM.2014100104","ee":"https://doi.org/10.4018/ij3dim.2014100104","url":"https://dblp.org/rec/journals/ij3dim/JradeJ14"},
+"url":"URL#1857450"
+},
+{
+"@score":"1",
+"@id":"1857451",
+"info":{"authors":{"author":[{"@pid":"156/7798","text":"Robert Kaden"},{"@pid":"k/ThomasHKolbe","text":"Thomas H. Kolbe"}]},"title":"Simulation-Based Total Energy Demand Estimation of Buildings using Semantic 3D City Models.","venue":"IJ3DIM","volume":"3","number":"2","pages":"35-53","year":"2014","type":"Journal Articles","key":"journals/ij3dim/KadenK14","doi":"10.4018/IJ3DIM.2014040103","ee":"https://doi.org/10.4018/ij3dim.2014040103","url":"https://dblp.org/rec/journals/ij3dim/KadenK14"},
+"url":"URL#1857451"
+},
+{
+"@score":"1",
+"@id":"1857452",
+"info":{"authors":{"author":[{"@pid":"85/8434","text":"Jan Klimke"},{"@pid":"18/5126","text":"Benjamin Hagedorn"},{"@pid":"14/5760","text":"Jürgen Döllner"}]},"title":"Scalable Multi-Platform Distribution of Spatial 3D Contents.","venue":"IJ3DIM","volume":"3","number":"3","pages":"35-49","year":"2014","type":"Journal Articles","key":"journals/ij3dim/KlimkeHD14","doi":"10.4018/IJ3DIM.2014070103","ee":"https://doi.org/10.4018/ij3dim.2014070103","url":"https://dblp.org/rec/journals/ij3dim/KlimkeHD14"},
+"url":"URL#1857452"
+},
+{
+"@score":"1",
+"@id":"1857453",
+"info":{"authors":{"author":{"@pid":"126/9899","text":"David E. Morton"}},"title":"Sum of the Parts - Leveraging BIM to Achieve Effective Delivery of Mass Customised Housing.","venue":"IJ3DIM","volume":"3","number":"4","pages":"36-55","year":"2014","type":"Journal Articles","key":"journals/ij3dim/Morton14","doi":"10.4018/IJ3DIM.2014100103","ee":"https://doi.org/10.4018/ij3dim.2014100103","url":"https://dblp.org/rec/journals/ij3dim/Morton14"},
+"url":"URL#1857453"
+},
+{
+"@score":"1",
+"@id":"1857454",
+"info":{"authors":{"author":{"@pid":"147/9299","text":"Aonghus O&apos;Keeffe"}},"title":"The State of the Art of Bridge Information Modelling from Conceptual Design through to Operation.","venue":"IJ3DIM","volume":"3","number":"1","pages":"29-39","year":"2014","type":"Journal Articles","key":"journals/ij3dim/OKeeffe14","doi":"10.4018/IJ3DIM.2014010103","ee":"https://doi.org/10.4018/ij3dim.2014010103","url":"https://dblp.org/rec/journals/ij3dim/OKeeffe14"},
+"url":"URL#1857454"
+},
+{
+"@score":"1",
+"@id":"1857455",
+"info":{"authors":{"author":[{"@pid":"147/9298","text":"Alan Redmond"},{"@pid":"84/3040","text":"Bob Smith"},{"@pid":"147/9306","text":"Deke Smith"}]},"title":"The Curriculum Development of a BIM Resilience Program for the National Institute of Building Science Facility Module.","venue":"IJ3DIM","volume":"3","number":"1","pages":"49-60","year":"2014","type":"Journal Articles","key":"journals/ij3dim/RedmondSS14","doi":"10.4018/IJ3DIM.2014010105","ee":"https://doi.org/10.4018/ij3dim.2014010105","url":"https://dblp.org/rec/journals/ij3dim/RedmondSS14"},
+"url":"URL#1857455"
+},
+{
+"@score":"1",
+"@id":"1857456",
+"info":{"authors":{"author":[{"@pid":"15/6559","text":"Jürgen Roßmann"},{"@pid":"33/10003","text":"Martin Hoppen"},{"@pid":"41/6393","text":"Arno Bücken"}]},"title":"GML-Based Data Management and Semantic World Modelling for a 4D Forest Simulation and Information System.","venue":"IJ3DIM","volume":"3","number":"3","pages":"50-67","year":"2014","type":"Journal Articles","key":"journals/ij3dim/RossmannHB14","doi":"10.4018/IJ3DIM.2014070104","ee":"https://doi.org/10.4018/ij3dim.2014070104","url":"https://dblp.org/rec/journals/ij3dim/RossmannHB14"},
+"url":"URL#1857456"
+},
+{
+"@score":"1",
+"@id":"1857457",
+"info":{"authors":{"author":[{"@pid":"147/9295","text":"Ken Thomas"},{"@pid":"147/9320","text":"Gordon Chisholm"},{"@pid":"147/9311","text":"Brian Dempsey"},{"@pid":"11/5549","text":"Brian Graham"},{"@pid":"147/9324","text":"Robin Stubbs"}]},"title":"Collaborative BIM Learning via an Academia-Industry Partnership.","venue":"IJ3DIM","volume":"3","number":"1","pages":"40-48","year":"2014","type":"Journal Articles","key":"journals/ij3dim/ThomasCDGS14","doi":"10.4018/IJ3DIM.2014010104","ee":"https://doi.org/10.4018/ij3dim.2014010104","url":"https://dblp.org/rec/journals/ij3dim/ThomasCDGS14"},
+"url":"URL#1857457"
+},
+{
+"@score":"1",
+"@id":"1857458",
+"info":{"authors":{"author":[{"@pid":"163/0512","text":"Eva Tsiliakou"},{"@pid":"163/0466","text":"Tassos Labropoulos"},{"@pid":"163/0593","text":"Efi Dimopoulou"}]},"title":"Procedural Modeling in 3D GIS Environment.","venue":"IJ3DIM","volume":"3","number":"3","pages":"17-34","year":"2014","type":"Journal Articles","key":"journals/ij3dim/TsiliakouLD14","doi":"10.4018/IJ3DIM.2014070102","ee":"https://doi.org/10.4018/ij3dim.2014070102","url":"https://dblp.org/rec/journals/ij3dim/TsiliakouLD14"},
+"url":"URL#1857458"
+},
+{
+"@score":"1",
+"@id":"1857459",
+"info":{"authors":{"author":[{"@pid":"45/8242","text":"Uznir Ujang"},{"@pid":"75/5053","text":"Francois Anton"},{"@pid":"156/3527","text":"Suhaibah Azri"},{"@pid":"46/5430","text":"Alias Abdul-Rahman"},{"@pid":"38/55","text":"Darka Mioc"}]},"title":"3D Hilbert Space Filling Curves in 3D City Modeling for Faster Spatial Queries.","venue":"IJ3DIM","volume":"3","number":"2","pages":"1-18","year":"2014","type":"Journal Articles","key":"journals/ij3dim/UjangAAAM14","doi":"10.4018/IJ3DIM.2014040101","ee":"https://doi.org/10.4018/ij3dim.2014040101","url":"https://dblp.org/rec/journals/ij3dim/UjangAAAM14"},
+"url":"URL#1857459"
+},
+{
+"@score":"1",
+"@id":"2139892",
+"info":{"authors":{"author":[{"@pid":"20/6108","text":"A. M. Ahmad"},{"@pid":"133/6588","text":"P. Demian"},{"@pid":"133/6637","text":"A. D. F. Price"}]},"title":"Creativity with Building Information Modelling Tools.","venue":"IJ3DIM","volume":"2","number":"1","pages":"1-10","year":"2013","type":"Journal Articles","key":"journals/ij3dim/AhmadDP13","doi":"10.4018/IJ3DIM.2013010101","ee":"https://doi.org/10.4018/ij3dim.2013010101","url":"https://dblp.org/rec/journals/ij3dim/AhmadDP13"},
+"url":"URL#2139892"
+},
+{
+"@score":"1",
+"@id":"2139893",
+"info":{"authors":{"author":[{"@pid":"141/4398","text":"Ricardo Codinhoto"},{"@pid":"42/818","text":"Arto Kiviniemi"},{"@pid":"141/4402","text":"Sergio Kemmer"},{"@pid":"141/4421","text":"Cecilia Gravina da Rocha"}]},"title":"BIM-FM Implementation - An Exploratory Invesigation.","venue":"IJ3DIM","volume":"2","number":"2","pages":"1-15","year":"2013","type":"Journal Articles","key":"journals/ij3dim/CodinhotoKKR13","doi":"10.4018/IJ3DIM.2013040101","ee":"https://doi.org/10.4018/ij3dim.2013040101","url":"https://dblp.org/rec/journals/ij3dim/CodinhotoKKR13"},
+"url":"URL#2139893"
+},
+{
+"@score":"1",
+"@id":"2139894",
+"info":{"authors":{"author":{"@pid":"141/4399","text":"Vijaya Desai"}},"title":"Functional Suitability of BIM Tools in Pre-Construction, Construction and Post-Construction Phases of a Building Project.","venue":"IJ3DIM","volume":"2","number":"2","pages":"30-44","year":"2013","type":"Journal Articles","key":"journals/ij3dim/Desai13","doi":"10.4018/IJ3DIM.2013040103","ee":"https://doi.org/10.4018/ij3dim.2013040103","url":"https://dblp.org/rec/journals/ij3dim/Desai13"},
+"url":"URL#2139894"
+},
+{
+"@score":"1",
+"@id":"2139895",
+"info":{"authors":{"author":[{"@pid":"141/4415","text":"Volkan Ezcan"},{"@pid":"71/8394","text":"Jack Steven Goulding"},{"@pid":"134/5486","text":"Murat Kuruoglu"},{"@pid":"141/4418","text":"Farzad Pour Rahimian"}]},"title":"Perceptions and Reality - Revealing the BIM Gap Between the UK and Turkey.","venue":"IJ3DIM","volume":"2","number":"3","pages":"1-15","year":"2013","type":"Journal Articles","key":"journals/ij3dim/EzcanGKR13","doi":"10.4018/IJ3DIM.2013070101","ee":"https://doi.org/10.4018/ij3dim.2013070101","url":"https://dblp.org/rec/journals/ij3dim/EzcanGKR13"},
+"url":"URL#2139895"
+},
+{
+"@score":"1",
+"@id":"2139896",
+"info":{"authors":{"author":[{"@pid":"141/4389","text":"Maszura Abdul Ghafar"},{"@pid":"63/5216","text":"Rahinah Ibrahim"},{"@pid":"141/4433","text":"Zalina Shari"},{"@pid":"141/4418","text":"Farzad Pour Rahimian"}]},"title":"Embedding Work Culture in Building Information Modelling (BIM) for Enhancing Collaboration in Global Projects.","venue":"IJ3DIM","volume":"2","number":"2","pages":"16-29","year":"2013","type":"Journal Articles","key":"journals/ij3dim/GhafarISR13","doi":"10.4018/IJ3DIM.2013040102","ee":"https://doi.org/10.4018/ij3dim.2013040102","url":"https://dblp.org/rec/journals/ij3dim/GhafarISR13"},
+"url":"URL#2139896"
+},
+{
+"@score":"1",
+"@id":"2139897",
+"info":{"authors":{"author":[{"@pid":"133/6659","text":"David-John Gibbs"},{"@pid":"126/9905","text":"Stephen Emmitt"},{"@pid":"126/9932","text":"Kirti Ruikar"},{"@pid":"133/6594","text":"Wayne Lord"}]},"title":"An Investigation into whether Building Information Modelling (BIM) can Assist with Construction Delay Claims.","venue":"IJ3DIM","volume":"2","number":"1","pages":"45-52","year":"2013","type":"Journal Articles","key":"journals/ij3dim/GibbsERL13","doi":"10.4018/IJ3DIM.2013010105","ee":"https://doi.org/10.4018/ij3dim.2013010105","url":"https://dblp.org/rec/journals/ij3dim/GibbsERL13"},
+"url":"URL#2139897"
+},
+{
+"@score":"1",
+"@id":"2139898",
+"info":{"authors":{"author":[{"@pid":"25/1797","text":"Derek Jones"},{"@pid":"133/6676","text":"Emma Dewberry"}]},"title":"Building Information Modelling Design Ecologies - A New Model?","venue":"IJ3DIM","volume":"2","number":"1","pages":"53-64","year":"2013","type":"Journal Articles","key":"journals/ij3dim/JonesD13","doi":"10.4018/IJ3DIM.2013010106","ee":"https://doi.org/10.4018/ij3dim.2013010106","url":"https://dblp.org/rec/journals/ij3dim/JonesD13"},
+"url":"URL#2139898"
+},
+{
+"@score":"1",
+"@id":"2139899",
+"info":{"authors":{"author":[{"@pid":"126/9916","text":"Dermot Kehily"},{"@pid":"147/9321","text":"Trevor Woods"},{"@pid":"147/9315","text":"Fiacra McDonnell"}]},"title":"Linking Effective Whole Life Cycle Cost Data Requirements to Parametric Building Information Models Using BIM Technologies.","venue":"IJ3DIM","volume":"2","number":"4","pages":"1-11","year":"2013","type":"Journal Articles","key":"journals/ij3dim/KehilyWM13","doi":"10.4018/IJ3DIM.2013100101","ee":"https://doi.org/10.4018/ij3dim.2013100101","url":"https://dblp.org/rec/journals/ij3dim/KehilyWM13"},
+"url":"URL#2139899"
+},
+{
+"@score":"1",
+"@id":"2139900",
+"info":{"authors":{"author":[{"@pid":"147/9301","text":"Oliver Kinnane"},{"@pid":"126/9635","text":"Roger West"}]},"title":"BIM Education for Engineers via Self-Directed, Creative Design.","venue":"IJ3DIM","volume":"2","number":"4","pages":"65-76","year":"2013","type":"Journal Articles","key":"journals/ij3dim/KinnaneW13","doi":"10.4018/IJ3DIM.2013100106","ee":"https://doi.org/10.4018/ij3dim.2013100106","url":"https://dblp.org/rec/journals/ij3dim/KinnaneW13"},
+"url":"URL#2139900"
+},
+{
+"@score":"1",
+"@id":"2139901",
+"info":{"authors":{"author":[{"@pid":"126/9911","text":"Stephen R. Lockley"},{"@pid":"67/6237","text":"David Greenwood"},{"@pid":"126/9934","text":"Jane Matthews"},{"@pid":"123/8741","text":"Claudio Benghi"}]},"title":"Constraints in Authoring BIM Components for Optimal Data Reuse and Interoperability - Results of Some Initial Tests.","venue":"IJ3DIM","volume":"2","number":"1","pages":"29-44","year":"2013","type":"Journal Articles","key":"journals/ij3dim/LockleyGMB13","doi":"10.4018/IJ3DIM.2013010104","ee":"https://doi.org/10.4018/ij3dim.2013010104","url":"https://dblp.org/rec/journals/ij3dim/LockleyGMB13"},
+"url":"URL#2139901"
+},
+{
+"@score":"1",
+"@id":"2139902",
+"info":{"authors":{"author":[{"@pid":"126/9901","text":"Barry McAuley"},{"@pid":"126/9898","text":"Alan Hore"},{"@pid":"126/9635","text":"Roger West"}]},"title":"Establishing Key Performance Indicators to Measure the Benefit of Introducing the Facilities Manager at an Early Stage in the Building Information Modeling Process.","venue":"IJ3DIM","volume":"2","number":"4","pages":"38-51","year":"2013","type":"Journal Articles","key":"journals/ij3dim/McAuleyHW13","doi":"10.4018/IJ3DIM.2013100104","ee":"https://doi.org/10.4018/ij3dim.2013100104","url":"https://dblp.org/rec/journals/ij3dim/McAuleyHW13"},
+"url":"URL#2139902"
+},
+{
+"@score":"1",
+"@id":"2139903",
+"info":{"authors":{"author":[{"@pid":"141/4412","text":"Fatima Al Mohannadi"},{"@pid":"83/762","text":"Mohammed Arif"},{"@pid":"46/330","text":"Zeeshan Aziz"},{"@pid":"141/4406","text":"Phillip A. Richardson"}]},"title":"Adopting BIM Standards for Managing Vision 2030 Infrastructure Development in Qatar.","venue":"IJ3DIM","volume":"2","number":"3","pages":"64-73","year":"2013","type":"Journal Articles","key":"journals/ij3dim/MohannadiAAR13","doi":"10.4018/IJ3DIM.2013070105","ee":"https://doi.org/10.4018/ij3dim.2013070105","url":"https://dblp.org/rec/journals/ij3dim/MohannadiAAR13"},
+"url":"URL#2139903"
+},
+{
+"@score":"1",
+"@id":"2139904",
+"info":{"authors":{"author":[{"@pid":"141/4390","text":"Soussou Nader"},{"@pid":"46/330","text":"Zeeshan Aziz"},{"@pid":"141/4422","text":"Munir Mustapha"}]},"title":"Enhancing Construction Processes Using Building Information Modelling on Mobile Devices.","venue":"IJ3DIM","volume":"2","number":"3","pages":"34-45","year":"2013","type":"Journal Articles","key":"journals/ij3dim/NaderAM13","doi":"10.4018/IJ3DIM.2013070103","ee":"https://doi.org/10.4018/ij3dim.2013070103","url":"https://dblp.org/rec/journals/ij3dim/NaderAM13"},
+"url":"URL#2139904"
+},
+{
+"@score":"1",
+"@id":"2139905",
+"info":{"authors":{"author":[{"@pid":"147/9298","text":"Alan Redmond"},{"@pid":"126/9635","text":"Roger West"},{"@pid":"126/9898","text":"Alan Hore"}]},"title":"Designing a Framework for Exchanging Partial Sets of BIM Information on a Cloud-Based Service.","venue":"IJ3DIM","volume":"2","number":"4","pages":"12-24","year":"2013","type":"Journal Articles","key":"journals/ij3dim/RedmondWH13","doi":"10.4018/IJ3DIM.2013100102","ee":"https://doi.org/10.4018/ij3dim.2013100102","url":"https://dblp.org/rec/journals/ij3dim/RedmondWH13"},
+"url":"URL#2139905"
+},
+{
+"@score":"1",
+"@id":"2139906",
+"info":{"authors":{"author":[{"@pid":"36/2818","text":"Anil Sawhney"},{"@pid":"139/1013","text":"Prateek Singhal"}]},"title":"Drivers and Barriers to the Use of Building Information Modelling in India.","venue":"IJ3DIM","volume":"2","number":"3","pages":"46-63","year":"2013","type":"Journal Articles","key":"journals/ij3dim/SawhneyS13","doi":"10.4018/IJ3DIM.2013070104","ee":"https://doi.org/10.4018/ij3dim.2013070104","url":"https://dblp.org/rec/journals/ij3dim/SawhneyS13"},
+"url":"URL#2139906"
+},
+{
+"@score":"1",
+"@id":"2139907",
+"info":{"authors":{"author":[{"@pid":"133/6665","text":"Amar Seeam"},{"@pid":"133/6622","text":"Tianxin Zheng"},{"@pid":"72/2700","text":"Yong Lu"},{"@pid":"82/8465","text":"Asif Usmani"},{"@pid":"52/5184","text":"David Laurenson"}]},"title":"BIM Integrated Workflow Management and Monitoring System for Modular Buildings.","venue":"IJ3DIM","volume":"2","number":"1","pages":"17-28","year":"2013","type":"Journal Articles","key":"journals/ij3dim/SeeamZLUL13","doi":"10.4018/IJ3DIM.2013010103","ee":"https://doi.org/10.4018/ij3dim.2013010103","url":"https://dblp.org/rec/journals/ij3dim/SeeamZLUL13"},
+"url":"URL#2139907"
+},
+{
+"@score":"1",
+"@id":"2139908",
+"info":{"authors":{"author":[{"@pid":"147/9296","text":"Michael Serginson"},{"@pid":"147/9313","text":"George Mokhtar"},{"@pid":"08/1810","text":"Graham Kelly"}]},"title":"A Theoretical Comparison of Traditional and Integrated Project Delivery Design Processes on International BIM Competitions.","venue":"IJ3DIM","volume":"2","number":"4","pages":"52-64","year":"2013","type":"Journal Articles","key":"journals/ij3dim/SerginsonMK13","doi":"10.4018/IJ3DIM.2013100105","ee":"https://doi.org/10.4018/ij3dim.2013100105","url":"https://dblp.org/rec/journals/ij3dim/SerginsonMK13"},
+"url":"URL#2139908"
+},
+{
+"@score":"1",
+"@id":"2139909",
+"info":{"authors":{"author":[{"@pid":"147/9323","text":"Aydin Tabrizi"},{"@pid":"47/8736","text":"Paola Sanguinetti"}]},"title":"Case Study - Evaluation of Renewable Energy Strategies Using Building Information Modeling and Energy Simulation.","venue":"IJ3DIM","volume":"2","number":"4","pages":"25-37","year":"2013","type":"Journal Articles","key":"journals/ij3dim/TabriziS13","doi":"10.4018/IJ3DIM.2013100103","ee":"https://doi.org/10.4018/ij3dim.2013100103","url":"https://dblp.org/rec/journals/ij3dim/TabriziS13"},
+"url":"URL#2139909"
+},
+{
+"@score":"1",
+"@id":"2139910",
+"info":{"authors":{"author":[{"@pid":"133/6650","text":"Allen Wan"},{"@pid":"133/6586","text":"Andrew Platten"},{"@pid":"133/6615","text":"Tim Briggs"}]},"title":"Study of Safety Auditors&apos; Views on the Use of BIM for Safety in Hong Kong.","venue":"IJ3DIM","volume":"2","number":"1","pages":"11-16","year":"2013","type":"Journal Articles","key":"journals/ij3dim/WanPB13","doi":"10.4018/IJ3DIM.2013010102","ee":"https://doi.org/10.4018/ij3dim.2013010102","url":"https://dblp.org/rec/journals/ij3dim/WanPB13"},
+"url":"URL#2139910"
+},
+{
+"@score":"1",
+"@id":"2139911",
+"info":{"authors":{"author":[{"@pid":"125/8189-55","text":"Jun Wang 0055"},{"@pid":"52/5170","text":"Shirong Li"},{"@pid":"02/6128-1","text":"Xiangyu Wang 0001"},{"@pid":"141/4411","text":"Chao Mao"},{"@pid":"73/273","text":"Jun Guo"}]},"title":"The Application of BIM-Enabled Facility Management System in Complex Building.","venue":"IJ3DIM","volume":"2","number":"3","pages":"16-33","year":"2013","type":"Journal Articles","key":"journals/ij3dim/WangLWMG13","doi":"10.4018/IJ3DIM.2013070102","ee":"https://doi.org/10.4018/ij3dim.2013070102","url":"https://dblp.org/rec/journals/ij3dim/WangLWMG13"},
+"url":"URL#2139911"
+},
+{
+"@score":"1",
+"@id":"2139912",
+"info":{"authors":{"author":[{"@pid":"98/3123","text":"Jialiang Yao"},{"@pid":"52/2062","text":"Terrence Fernando"},{"@pid":"141/4426","text":"Ian Everall"}]},"title":"A Unified Information Framework for Building A Common Vision in Sustainable City Development.","venue":"IJ3DIM","volume":"2","number":"2","pages":"45-63","year":"2013","type":"Journal Articles","key":"journals/ij3dim/YaoFE13","doi":"10.4018/IJ3DIM.2013040104","ee":"https://doi.org/10.4018/ij3DIM.2013040104","url":"https://dblp.org/rec/journals/ij3dim/YaoFE13"},
+"url":"URL#2139912"
+},
+{
+"@score":"1",
+"@id":"2413329",
+"info":{"authors":{"author":[{"@pid":"24/6095","text":"Yusuf Arayici"},{"@pid":"19/10728","text":"Tim Onyenobi"},{"@pid":"66/1640","text":"Charles Egbu"}]},"title":"Building Information Modelling (BIM) for Facilities Management (FM) - The Mediacity Case Study Approach.","venue":"IJ3DIM","volume":"1","number":"1","pages":"55-73","year":"2012","type":"Journal Articles","key":"journals/ij3dim/ArayiciOE12","doi":"10.4018/IJ3DIM.2012010104","ee":"https://doi.org/10.4018/ij3dim.2012010104","url":"https://dblp.org/rec/journals/ij3dim/ArayiciOE12"},
+"url":"URL#2413329"
+},
+{
+"@score":"1",
+"@id":"2413330",
+"info":{"authors":{"author":{"@pid":"121/0133","text":"Michael Auer"}},"title":"Real-Time Web GIS Analysis Using WebGL.","venue":"IJ3DIM","volume":"1","number":"3","pages":"49-61","year":"2012","type":"Journal Articles","key":"journals/ij3dim/Auer12","doi":"10.4018/IJ3DIM.2012070105","ee":"https://doi.org/10.4018/ij3dim.2012070105","url":"https://dblp.org/rec/journals/ij3dim/Auer12"},
+"url":"URL#2413330"
+},
+{
+"@score":"1",
+"@id":"2413331",
+"info":{"authors":{"author":[{"@pid":"126/9915","text":"Malik Ayyaz"},{"@pid":"126/9932","text":"Kirti Ruikar"},{"@pid":"126/9905","text":"Stephen Emmitt"}]},"title":"Towards Understanding BPR Needs for BIM Implementation.","venue":"IJ3DIM","volume":"1","number":"4","pages":"18-28","year":"2012","type":"Journal Articles","key":"journals/ij3dim/AyyazRE12","doi":"10.4018/IJ3DIM.2012100103","ee":"https://doi.org/10.4018/ij3dim.2012100103","url":"https://dblp.org/rec/journals/ij3dim/AyyazRE12"},
+"url":"URL#2413331"
+},
+{
+"@score":"1",
+"@id":"2413332",
+"info":{"authors":{"author":[{"@pid":"07/239","text":"André Borrmann"},{"@pid":"20/10731","text":"Katharina Lukas"},{"@pid":"24/10732","text":"Marc Zintel"},{"@pid":"69/10729","text":"Peter Schießl"},{"@pid":"55/10729","text":"Michael Kluth"}]},"title":"BIM-Based Life-Cycle Management for Reinforced Concrete Buildings.","venue":"IJ3DIM","volume":"1","number":"1","pages":"1-24","year":"2012","type":"Journal Articles","key":"journals/ij3dim/BorrmannLZSK12","doi":"10.4018/IJ3DIM.2012010101","ee":"https://doi.org/10.4018/ij3dim.2012010101","url":"https://dblp.org/rec/journals/ij3dim/BorrmannLZSK12"},
+"url":"URL#2413332"
+},
+{
+"@score":"1",
+"@id":"2413333",
+"info":{"authors":{"author":[{"@pid":"08/8697","text":"Martin Christen"},{"@pid":"64/4795","text":"Stephan Nebiker"},{"@pid":"121/0071","text":"Benjamin Loesch"}]},"title":"Web-Based Large-Scale 3D-Geovisualisation Using WebGL - The OpenWebGlobe Project.","venue":"IJ3DIM","volume":"1","number":"3","pages":"16-25","year":"2012","type":"Journal Articles","key":"journals/ij3dim/ChristenNL12","doi":"10.4018/IJ3DIM.2012070102","ee":"https://doi.org/10.4018/ij3dim.2012070102","url":"https://dblp.org/rec/journals/ij3dim/ChristenNL12"},
+"url":"URL#2413333"
+},
+{
+"@score":"1",
+"@id":"2413334",
+"info":{"authors":{"author":[{"@pid":"19/1769","text":"Paul Coates"},{"@pid":"24/6095","text":"Yusuf Arayici"}]},"title":"Optimization of the BIM Authoring Tool in Architectural Practice - A Case Study Approach.","venue":"IJ3DIM","volume":"1","number":"2","pages":"30-45","year":"2012","type":"Journal Articles","key":"journals/ij3dim/CoatesA12","doi":"10.4018/IJ3DIM.2012040103","ee":"https://doi.org/10.4018/ij3dim.2012040103","url":"https://dblp.org/rec/journals/ij3dim/CoatesA12"},
+"url":"URL#2413334"
+},
+{
+"@score":"1",
+"@id":"2413335",
+"info":{"authors":{"author":[{"@pid":"69/10731","text":"Jaume Domínguez Faus"},{"@pid":"13/8749","text":"Wan Wen"}]},"title":"Improving Interoperability of 3D Geographic Features via Geographic Managed Objects.","venue":"IJ3DIM","volume":"1","number":"1","pages":"43-54","year":"2012","type":"Journal Articles","key":"journals/ij3dim/FausW12","doi":"10.4018/IJ3DIM.2012010103","ee":"https://doi.org/10.4018/ij3dim.2012010103","url":"https://dblp.org/rec/journals/ij3dim/FausW12"},
+"url":"URL#2413335"
+},
+{
+"@score":"1",
+"@id":"2413336",
+"info":{"authors":{"author":[{"@pid":"32/2598","text":"Gilles Gesquière"},{"@pid":"121/0263","text":"Alexis Manin"}]},"title":"3D Visualization of Urban Data Based on CityGML with WebGL.","venue":"IJ3DIM","volume":"1","number":"3","pages":"1-15","year":"2012","type":"Journal Articles","key":"journals/ij3dim/GesquiereM12","doi":"10.4018/IJ3DIM.2012070101","ee":"https://doi.org/10.4018/ij3dim.2012070101","url":"https://dblp.org/rec/journals/ij3dim/GesquiereM12"},
+"url":"URL#2413336"
+},
+{
+"@score":"1",
+"@id":"2413337",
+"info":{"authors":{"author":[{"@pid":"116/7711","text":"Marcus Goetz"},{"@pid":"28/303","text":"Alexander Zipf"}]},"title":"Towards Defining a Framework for the Automatic Derivation of 3D CityGML Models from Volunteered Geographic Information.","venue":"IJ3DIM","volume":"1","number":"2","pages":"1-16","year":"2012","type":"Journal Articles","key":"journals/ij3dim/GoetzZ12","doi":"10.4018/IJ3DIM.2012040101","ee":"https://doi.org/10.4018/ij3dim.2012040101","url":"https://dblp.org/rec/journals/ij3dim/GoetzZ12"},
+"url":"URL#2413337"
+},
+{
+"@score":"1",
+"@id":"2413338",
+"info":{"authors":{"author":[{"@pid":"121/0280","text":"Rainer Jochem"},{"@pid":"116/7711","text":"Marcus Goetz"}]},"title":"Towards Interactive 3D City Models on the Web.","venue":"IJ3DIM","volume":"1","number":"3","pages":"26-36","year":"2012","type":"Journal Articles","key":"journals/ij3dim/JochemG12","doi":"10.4018/IJ3DIM.2012070103","ee":"https://doi.org/10.4018/ij3dim.2012070103","url":"https://dblp.org/rec/journals/ij3dim/JochemG12"},
+"url":"URL#2413338"
+},
+{
+"@score":"1",
+"@id":"2413339",
+"info":{"authors":{"author":[{"@pid":"126/9916","text":"Dermot Kehily"},{"@pid":"126/9901","text":"Barry McAuley"},{"@pid":"126/9898","text":"Alan Hore"}]},"title":"Leveraging Whole Life Cycle Costs When Utilising Building Information Modelling Technologies.","venue":"IJ3DIM","volume":"1","number":"4","pages":"40-49","year":"2012","type":"Journal Articles","key":"journals/ij3dim/KehilyMH12","doi":"10.4018/IJ3DIM.2012100105","ee":"https://doi.org/10.4018/ij3dim.2012100105","url":"https://dblp.org/rec/journals/ij3dim/KehilyMH12"},
+"url":"URL#2413339"
+},
+{
+"@score":"1",
+"@id":"2413340",
+"info":{"authors":{"author":{"@pid":"00/1102","text":"Bimal Kumar"}},"title":"Building Information Modeling - Road to 2016.","venue":"IJ3DIM","volume":"1","number":"4","pages":"1-7","year":"2012","type":"Journal Articles","key":"journals/ij3dim/Kumar12","doi":"10.4018/IJ3DIM.2012100101","ee":"https://doi.org/10.4018/ij3dim.2012100101","url":"https://dblp.org/rec/journals/ij3dim/Kumar12"},
+"url":"URL#2413340"
+},
+{
+"@score":"1",
+"@id":"2413341",
+"info":{"authors":{"author":[{"@pid":"36/3071","text":"Xiaoming Li"},{"@pid":"58/964","text":"Weiping Xu"},{"@pid":"74/963","text":"Qing Zhu"},{"@pid":"49/8497","text":"Jinxing Hu"},{"@pid":"59/3754","text":"Han Hu"},{"@pid":"12/7856","text":"Yeting Zhang"}]},"title":"A Multi-Level Cache Approach for Realtime Visualization of Massive 3D GIS Data.","venue":"IJ3DIM","volume":"1","number":"3","pages":"37-48","year":"2012","type":"Journal Articles","key":"journals/ij3dim/LiXZHHZ12","doi":"10.4018/IJ3DIM.2012070104","ee":"https://doi.org/10.4018/ij3dim.2012070104","url":"https://dblp.org/rec/journals/ij3dim/LiXZHHZ12"},
+"url":"URL#2413341"
+},
+{
+"@score":"1",
+"@id":"2413342",
+"info":{"authors":{"author":[{"@pid":"143/3046","text":"Mohamed M. Marzouk"},{"@pid":"121/0177","text":"Mohamed Hisham"}]},"title":"Applications of Building Information Modeling in Cost Estimation of Infrastructure Bridges.","venue":"IJ3DIM","volume":"1","number":"2","pages":"17-29","year":"2012","type":"Journal Articles","key":"journals/ij3dim/MarzoukH12","doi":"10.4018/IJ3DIM.2012040102","ee":"https://doi.org/10.4018/ij3dim.2012040102","url":"https://dblp.org/rec/journals/ij3dim/MarzoukH12"},
+"url":"URL#2413342"
+},
+{
+"@score":"1",
+"@id":"2413343",
+"info":{"authors":{"author":{"@pid":"126/9899","text":"David E. Morton"}},"title":"BIM - A Transformative Technology within the Architectural Curriculum in Schools of Architecture (Pedagogic Stages of Architectural Education and the Transformative Effect of BIM).","venue":"IJ3DIM","volume":"1","number":"4","pages":"50-68","year":"2012","type":"Journal Articles","key":"journals/ij3dim/Morton12","doi":"10.4018/IJ3DIM.2012100106","ee":"https://doi.org/10.4018/ij3dim.2012100106","url":"https://dblp.org/rec/journals/ij3dim/Morton12"},
+"url":"URL#2413343"
+},
+{
+"@score":"1",
+"@id":"2413344",
+"info":{"authors":{"author":{"@pid":"87/3271","text":"Arne Schilling"}},"title":"Scene Graph Based Approach for Interoperable Virtual Globes.","venue":"IJ3DIM","volume":"1","number":"2","pages":"46-68","year":"2012","type":"Journal Articles","key":"journals/ij3dim/Schilling12","doi":"10.4018/IJ3DIM.2012040104","ee":"https://doi.org/10.4018/ij3dim.2012040104","url":"https://dblp.org/rec/journals/ij3dim/Schilling12"},
+"url":"URL#2413344"
+},
+{
+"@score":"1",
+"@id":"2413345",
+"info":{"authors":{"author":[{"@pid":"126/9920","text":"Rita Scully"},{"@pid":"60/4758","text":"Jason Underwood"},{"@pid":"23/1014","text":"Farzad Khosrowshahi"}]},"title":"Accelerating the Implementation of BIM by Integrating the Developments Made in Knowledge Management - An Irish Construction Industry Perspective.","venue":"IJ3DIM","volume":"1","number":"4","pages":"29-39","year":"2012","type":"Journal Articles","key":"journals/ij3dim/ScullyUK12","doi":"10.4018/IJ3DIM.2012100104","ee":"https://doi.org/10.4018/ij3dim.2012100104","url":"https://dblp.org/rec/journals/ij3dim/ScullyUK12"},
+"url":"URL#2413345"
+},
+{
+"@score":"1",
+"@id":"2413346",
+"info":{"authors":{"author":[{"@pid":"126/9923","text":"Muhammad T. Shafiq"},{"@pid":"126/9934","text":"Jane Matthews"},{"@pid":"126/9911","text":"Stephen R. Lockley"}]},"title":"Requirements for Model Server Enabled Collaborating on Building Information Models.","venue":"IJ3DIM","volume":"1","number":"4","pages":"8-17","year":"2012","type":"Journal Articles","key":"journals/ij3dim/ShafiqML12","doi":"10.4018/IJ3DIM.2012100102","ee":"https://doi.org/10.4018/ij3dim.2012100102","url":"https://dblp.org/rec/journals/ij3dim/ShafiqML12"},
+"url":"URL#2413346"
+},
+{
+"@score":"1",
+"@id":"2413347",
+"info":{"authors":{"author":{"@pid":"14/4836-1","text":"Stephan Winter 0001"}},"title":"Indoor Spatial Information.","venue":"IJ3DIM","volume":"1","number":"1","pages":"25-42","year":"2012","type":"Journal Articles","key":"journals/ij3dim/Winter12","doi":"10.4018/IJ3DIM.2012010102","ee":"https://doi.org/10.4018/ij3dim.2012010102","url":"https://dblp.org/rec/journals/ij3dim/Winter12"},
+"url":"URL#2413347"
+}
+]
+}
+}
+}
