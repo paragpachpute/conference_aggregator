@@ -2,7 +2,7 @@ import logging
 import os
 import urllib.request
 
-from parser.dblp.conference_list_parser import ConferenceListParser
+from parser.dblp.venue_list_parser import VenueListParser
 
 log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
@@ -15,7 +15,7 @@ def get_conferences_list_from_url(url, parser):
 
 if __name__ == '__main__':
     total_venue_pages = 110
-    parser = ConferenceListParser()
+    parser = VenueListParser()
     base_url = "https://dblp.org/db/conf/"
 
     all_confs = []

@@ -12,7 +12,7 @@ class TransformedVenueHome:
 
     # Dumps the venue object into the database
     def store_venue(self, venue):
-        criteria = {"_id" : venue["_id"]}
+        criteria = {"id" : venue["id"]}
         self.venue_collection.replace_one(criteria, venue, upsert=True)
 
     # Dumps the venue objects into the database

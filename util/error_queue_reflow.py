@@ -2,15 +2,14 @@ import logging
 import os
 
 from database.error_queue_home import ErrorQueueHome
-from entity.error_queue_item import ErrorQueueItem
-from etl.dblp.dblp_venue_runner import get_venues_from_url
-from etl.dblp.dblp_venue_runner import get_research_papers_from_url
-from parser.dblp.venue_parser import VenueParser
-from database.venue_home import VenueHome
 from database.proceeding_home import ProceedingHome
-from etl.dblp.dblp_venue_runner import fetch_proceeding_info
-from parser.dblp.paper_parser import PaperParser
 from database.research_paper_home import ResearchPaperHome
+from database.venue_home import VenueHome
+from etl.dblp.dblp_venue_runner import fetch_proceeding_info
+from etl.dblp.dblp_venue_runner import get_research_papers_from_url
+from etl.dblp.dblp_venue_runner import get_venues_from_url
+from parser.dblp.paper_parser import PaperParser
+from parser.dblp.venue_parser import VenueParser
 
 log = logging.getLogger(os.path.basename(__file__))
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
