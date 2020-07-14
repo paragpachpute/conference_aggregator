@@ -6,14 +6,37 @@
 </head>
 <body>
 
-{% if venues_list %}
-    <ul>
-    {% for venue in venues_list %}
-        <li><a href='{% url "venue" venue.id %}'>{{ venue.content.name }}</a></li>
+{% if conf_venues %}
+<h2> Venues </h2>
+<h3> Conferences </h3>
+<table style="width:100%">
+    <tr>
+        <th>Shortname</th>
+        <th colspan="2">Name</th>
+    </tr>
+    {% for venue in conf_venues %}
+    <tr>
+        <td>{{ venue.content.short_name }}</td>
+        <td><a href='{% url "venue" venue.id %}'>{{venue.content.name }}</a></td>
+    </tr>
     {% endfor %}
-    </ul>
+</table>
+
+<h3> Workshops </h3>
+<table style="width:100%">
+    <tr>
+        <th>Shortname</th>
+        <th colspan="2">Name</th>
+    </tr>
+    {% for venue in workshop_venues %}
+    <tr>
+        <td>{{ venue.content.short_name }}</td>
+        <td><a href='{% url "venue" venue.id %}'>{{venue.content.name }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
 {% else %}
-    <p>No venues are available.</p>
+<p>No venues are available.</p>
 {% endif %}
 
 </body>
