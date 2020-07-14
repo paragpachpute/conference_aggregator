@@ -1,5 +1,7 @@
 from unittest import TestCase
+
 from parser.dblp.paper_parser import PaperParser
+
 
 class TestPaperParser(TestCase):
     def setUp(self) -> None:
