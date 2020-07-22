@@ -17,7 +17,8 @@ class DataTransformer:
         self.start_date_mismatch = 0
         self.end_date_mismatch = 0
         self.exceptions = 0
-        self.months = ["January", "February", "March","April","May","June","July","August","September","October","November", "December"]
+        self.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+                       "November", "December"]
 
     def transform_proceeding(self, proceeding):
         try:
@@ -27,27 +28,30 @@ class DataTransformer:
                 invitation_type = 'Conference'
 
             series_name = "/".join(proceeding.proceeding_key.split("/")[1:-1])
-            venue_type = proceeding.proceeding_key.split("/")[0]
+            dblp_base_url = "https://dblp.org/"
 
             occurrence_instance = {}
-            occurrence_instance["id"] = self.get_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
-            occurrence_instance["invitations"] = "Venue/-/" + invitation_type + "/Occurrence"
+            occurrence_instance["venueid"] = self.get_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
+            occurrence_instance["invitation"] = "Venue/-/" + invitation_type + "/Occurrence"
             occurrence_instance["readers"] = ["everyone"]
             occurrence_instance["nonreaders"] = []
-            occurrence_instance["writers"] = ["Venue"]
+            occurrence_instance["writers"] = ["dblp.org"]
             occurrence_instance["content"] = {}
 
-            occurrence_instance["content"]["name"] = proceeding.title.split(",")[0]
+            occurrence_instance["content"]["name"] = ",".join(proceeding.title.split(",")[:2])
             occurrence_instance["content"]["location"] = proceeding.location
             occurrence_instance["content"]["year"] = proceeding.year
             occurrence_instance["content"]["parents"] = []
-            occurrence_instance["content"]["parents"].append(self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type)
+            occurrence_instance["content"]["parents"].append(
+                self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type)
             occurrence_instance["content"]["program_chairs"] = proceeding.editors
             occurrence_instance["content"]["publisher"] = proceeding.publisher
-            occurrence_instance["content"]["url"] = proceeding.ee
+            occurrence_instance["content"]["html"] = proceeding.ee
             occurrence_instance["content"]["shortname"] = proceeding.booktitle
-            occurrence_instance["content"]["dblp_key"] = proceeding.proceeding_key
-            occurrence_instance["content"]["dblp_url"] = proceeding.dblp_url
+            if proceeding.dblp_url is not None:
+                occurrence_instance["content"]["dblp_url"] = dblp_base_url + proceeding.dblp_url
+            else:
+                occurrence_instance["content"]["dblp_url"] = None
             conf_date_str = self.get_date_from_string(proceeding.title, proceeding.year)
             start = None
             end = None
@@ -57,26 +61,25 @@ class DataTransformer:
                 end = end.timestamp() * 1000
             occurrence_instance["content"]["start_date"] = start
             occurrence_instance["content"]["end_date"] = end
-            occurrence_instance["content"]["source"] = vars(proceeding)
-
+            # occurrence_instance["content"]["source"] = vars(proceeding)
 
             series_instance = {}
-            series_instance["id"] = self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
+            series_instance["venueid"] = self.get_parent_id_from_key(proceeding.proceeding_key) + "/" + invitation_type
 
-            series_instance["invitations"] = "Venue/-/" + invitation_type + "/Series"
+            series_instance["invitation"] = "Venue/-/" + invitation_type + "/Series"
             series_instance["readers"] = ["everyone"]
             series_instance["nonreaders"] = []
-            series_instance["writers"] =  ["Venue"]
-            series_instance["content"] =  {}
+            series_instance["writers"] = ["dblp.org"]
+            series_instance["content"] = {}
 
             series_instance["content"]["name"] = proceeding.conference_name
-            series_instance["content"]["short_name"] = series_name.upper()
+            series_instance["content"]["shortname"] = series_name.upper()
 
             if proceeding.parent_link is not None and "https://dblp.org/db/" in proceeding.parent_link:
                 # Mapping 'https://dblp.org/db/conf/nips/index.html' => 'conf/nips/2017'
                 parent = proceeding.parent_link.split("https://dblp.org/db/")[1]  # => conf/nips/index.html
                 parent = "/".join(parent.split("/")[:-1])  # => conf/nips
-                parent += "/" + proceeding.year  # => conf/nips/2017
+                parent += "/" + str(proceeding.year)  # => conf/nips/2017
                 occurrence_instance["content"]["parents"].append(self.get_id_from_key(parent) + "/" + 'Conference')
 
             self.total += 1
@@ -85,9 +88,6 @@ class DataTransformer:
         except Exception as e:
             self.count += 1
             conf_date_str = self.get_date_from_string(proceeding.title, proceeding.year)
-            if conf_date_str is not None:
-                start, end = self.get_timestamps_from_date_string(conf_date_str)
-
             log.error(
                 "Failed while doing proceeding transformation for {} with error: {}".format(proceeding.proceeding_key,
                                                                                             e))
@@ -104,7 +104,7 @@ class DataTransformer:
                             date += "," + re.search("[1-3][0-9]{3}", tokens[t + 1]).group(0)
 
                     if not re.match(".*([1-3][0-9]{3})", date):
-                        # year is not present in the date, add it manually
+                        # year is not present in the date, add it from the tag fetched separately
                         date += "," + year
                     return date.strip()
 
@@ -148,12 +148,12 @@ class DataTransformer:
                     if re.match(".*[1-9][0-9]?", date_str.split("-")[1]):
                         end_day = re.findall("[1-9][0-9]?", date_str.split("-")[1])[0]
                     else:
-                        self.end_date_mismatch +=1
+                        self.end_date_mismatch += 1
                         end_day = start_day
-                    start_timestamp = datetime.datetime(year=int(year), month=i+1, day=int(start_day))
+                    start_timestamp = datetime.datetime(year=int(year), month=i + 1, day=int(start_day))
 
                     try:
-                        end_timestamp = datetime.datetime(year=int(year), month=i+1, day=int(end_day))
+                        end_timestamp = datetime.datetime(year=int(year), month=i + 1, day=int(end_day))
                     except Exception as e:
                         self.exceptions += 1
                         end_timestamp = start_timestamp
@@ -161,15 +161,11 @@ class DataTransformer:
                 else:
                     if re.match("[1-9][0-9]?", date_str):
                         start_day = re.findall("[1-9][0-9]?", date_str)[-1]
-                        start_timestamp = datetime.datetime(year=int(year), month=i+1, day=int(start_day))
+                        start_timestamp = datetime.datetime(year=int(year), month=i + 1, day=int(start_day))
                     else:
-                        start_timestamp = datetime.datetime(year=int(year), month=i+1, day=1)
+                        start_timestamp = datetime.datetime(year=int(year), month=i + 1, day=1)
                     end_timestamp = start_timestamp
 
-                # if start_timestamp is not None and end_timestamp is not None:
-                #     start_timestamp = str(start_timestamp)
-                #     end_timestamp = str(end_timestamp)
-                #     return start_timestamp, end_timestamp
                 return start_timestamp, end_timestamp
 
 if __name__ == '__main__':
