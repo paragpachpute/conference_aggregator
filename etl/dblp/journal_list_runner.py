@@ -26,6 +26,9 @@ if __name__ == '__main__':
         url = base_url + "?pos={}".format(i * 100)
         try:
             journals_list = get_conferences_list_from_url(url, parser)
+            for i in range(len(journals_list)):
+                # Convert https://dblp.org/db/journals/ijats/ => ijats
+                journals_list[i] = journals_list[i].split("https://dblp.org/db/journals/")[1].split("/")[0]
             if len(journals_list) == 0:
                 break
             all_journals.extend(journals_list)
